@@ -1,0 +1,172 @@
+<html>
+	<head>
+		<title>Mudança de Senha</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+	form {border: 0px solid #f1f1f1;}
+
+		input[type=text], input[type=password] {
+		    width: auto;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    display: inline-block;
+		    border: 1px solid #ccc;
+		    box-sizing: border-box;
+		    width: 60%;
+		}
+
+		button span {
+		  cursor: pointer;
+		  display: inline-block;
+		  position: relative;
+		  transition: 0.5s;
+		}
+
+		button span:after {
+		  content: '\00bb';
+		  position: absolute;
+		  opacity: 0;
+		  top: 0;
+		  right: -20px;
+		  transition: 0.5s;
+		}
+
+		button:hover span {
+		  padding-right: 25px;
+		}
+
+		button:hover span:after {
+		  opacity: 1;
+		  right: 0;
+		}
+
+		.container {
+		    padding: 10px;
+		}
+
+		span.psw {
+		    float: right;
+		    padding-top: 10px;
+		}
+
+		/* Change styles for span and cancel button on extra small screens */
+		@media screen and (max-width: 300px) {
+		    span.psw {
+		       display: block;
+		       float: none;
+		    }
+		    .cancelbtn {
+		       width: auto;
+		    }
+		}
+		button {
+		  display: inline-block;
+		  border-radius: 4px;
+		  background-color: #00798c;
+		  border: none;
+		  color: #FFFFFF;
+		  text-align: center;
+		  font-size: 18px;
+		  padding: 20px;
+		  width: 60%;
+		  transition: all 0.5s;
+		  cursor: pointer;
+		  margin: 8px;
+		}
+		.button4 {
+			background-color: #D9D9D9; 
+			color: black;
+		} /* Gray */
+</style>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="Login.html">Bolão da Copa do Mundo 2018</a>
+			</header>
+
+		<section id="cta" class="wrapper">
+			<div>
+					<section align="center">
+						<h2>Mudança de Senha</h2>
+					</section>
+					<section>
+						<form action="/action_page.php">
+				    			<section>
+				    				<label for="uname"></label>
+				    				<input type="text" placeholder="Email" name="uname" required>
+				    			</section>
+				    			<section>
+				    				<label for="psw"></label>
+				    				<input type="password" placeholder="NOVA senha" name="psw" required>
+				        		</section>
+				        		<section>
+				        			&nbsp;
+				  				</section>
+				        		<section>
+				        			&nbsp;
+				    				<button align="center" width=auto" class="button button4" style="vertical-align:middle"><span>Solicitar</span></button>
+				    				<!-- <button type="submit">Login</button> -->
+				  				</section>
+				  				<section>
+				  					&nbsp;
+				  					&nbsp;
+				  					<p align="left" class="container" style="background-color:rgba(255, 255, 255, 0.075)">Voltar à tela de <span><a href="Login.html">Login</a></span></p>
+				  				</section>
+						</form>
+					</section>
+					</section>
+			</div>
+		</section>	
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h4>Sobre o Bolão</h4>
+							<p>O Bolão da Copa foi criado sem fins lucrativos, com o objetivo de entreter um grupo de amigos e tornar a experiencia de assistir a Copa do Mundo 2018 ainda mais interessante. A forma de pontuação foi reformulada e pode ser conhecida nas <a href="Regras.html"><u>regras</u></a>. Além disso, a ideia da tabela de classificação de todos os apostadores trás uma competitividade bacana para o bolão! Boa Sorte!</p>
+						</section>
+						<section>
+							<h5>Não possui login?</h5>
+							<ul class="alt">
+								<li>Faça o <a href="#"><u>Pré-Cadastro</u></a></li>
+							</ul>
+							<h5>Dúvidas?</h5>
+							<ul class="alt">
+								<li>Mande a pergunta para majoaovitor@gmail.com</li>
+							</ul>
+						</section>
+						<section>
+							<h4>Redes Sociais</h4>
+							<ul class="plain">
+								<!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i>João Vítor</a></li>
+								<!--<li><a href="https://www.facebook.com/rafael.ramos.752861"><i class="icon fa-facebook">&nbsp;</i>Rafael - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i>Rafael</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; <a href="https://www.facebook.com/joao.vitor.27">Joao Vitor</a> feat. <a href="https://www.facebook.com/rafael.ramos.752861" >Rafael Ramos</a>.
+					</div>
+				</div>
+			</footer>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+

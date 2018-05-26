@@ -1,0 +1,785 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Apostas Fase 2 do Bolão</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+
+	<style>
+
+		form {border: 0px solid #f1f1f1;}
+
+			input[type=text], input[type=password] {
+			    width: 60%;
+			    height: 1%;
+			    padding: 6px 10px;
+			    margin: 1px 10;
+			    display: inline-block;
+			    /*border: 1px solid #ccc;
+			    /*box-sizing: border-box;*/
+			}
+			input[type=number]{
+			    width: 60%;
+			    height: 10%;
+			    padding: 0.1rem 0.1rem;
+			    display: inline-block;
+			    border: 1px solid #ccc;
+			    box-sizing: border-box;
+			    text-align: center;
+			    font-size: 1.5rem;
+			}
+
+			button span {
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  transition: 0.5s;
+			}
+
+			button span:after {
+			  content: '\00bb';
+			  position: absolute;
+			  opacity: 0;
+			  top: 0;
+			  right: -20px;
+			  transition: 0.5s;
+			}
+
+			button:hover span {
+			  padding-right: 25px;
+			}
+
+			button:hover span:after {
+			  opacity: 1;
+			  right: 0;
+			}
+
+			.container {
+			    padding: 10px;
+			}
+
+			span.psw {
+			    float: right;
+			    padding-top: 10px;
+			}
+
+			/* Change styles for span and cancel button on extra small screens */
+			@media screen and (max-width: 300px) {
+			    span.psw {
+			       display: block;
+			       float: none;
+			    }
+			    .cancelbtn {
+			       width: 25%;
+			    }
+			}
+			button {
+			  display: inline-block;
+			  border-radius: 4px;
+			  background-color: #00798c;
+			  border: none;
+			  color: #FFFFFF;
+			  text-align: center;
+			  font-size: 14px;
+			  padding: 20px;
+			  width: 5%;
+			  transition: all 0.5s;
+			  cursor: pointer;
+			  margin: 8px;
+			}
+			.button4 {
+			  display: inline-block;
+			  border-radius: 20px;
+			  background-color: #00798c;
+			  border: none;
+			  color: #FFFFFF;
+			  text-align: center;
+			  font-size: 0.7rem;
+			  padding: 0.1rem;
+			  width: 100%;
+			  height: 40px;
+			  transition: all 0.5s;
+			  cursor: pointer;
+			}
+			th, td {
+			    padding: 5px;
+			}
+
+			#box_match {
+			    border-radius: 25px;
+			    /*background: #00798C;*/
+			    padding-top: 2rem;
+			    padding-bottom: 2rem;
+			    padding-left: 1px;
+			    padding-right: 1px;
+			    width: 25%;
+			    height: 90px;    
+			}
+			#box_game {
+			    border-radius: 25px;
+			    /*background: #00798C;*/
+			    padding-top: 1rem;
+			    padding-bottom: 1rem;
+			    padding-left: 1px;
+			    padding-right: 1px;
+			    width: 45%;
+			    height: 90px;    
+			}
+			table.matchtable {
+				width:100%;
+				background-color:#FFFFFF;
+				border-collapse:collapse;border-width:1px;
+				border-color:#FFFFFF;
+				border-style:solid;
+				color:#353535;
+				}
+
+				table.matchtable td, table.matchtable th {
+				border-width:1px;
+				border-color:#FFFFFF;
+				border-style:solid;
+				padding:2px;
+				}
+
+				table.matchtable thead {
+				background-color:#FFFFFF;
+				}
+
+	</style>
+
+
+
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="TelaInicial.html">Bolão da Copa 2018</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
+					<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>
+					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
+					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
+					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
+					<li><a class="fa fa-sign-out" href="Login.html">&nbsp; LOGOUT</a></li>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading">
+				<section>
+					<h1>Apostas Fase 2 do Bolão</h1>
+					<h4><font color="white">Aposte nos placares dos jogos das Oitavas, Quartas, Semi-final, Terceiro e Final!</font></h4>
+				</section>
+			</div>
+
+		<!-- ------------------------- FASE 2 DA COPA ------------------------- -->
+
+			<!-- ------------------------- OITAVAS DE FINAL -->
+			<form>
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<div class="content">
+							<h3 align="center"><b>Oitavas de Final</b></h3>
+							<!-- FILEIRA 1 DE JOGOS -->
+							<section>
+								<table>
+									<tbody>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 49</b></font></p>
+												<p><font size="0.3">30 jun. 15h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º A</b></font></p>
+												<p><font size="1"><b>2º B</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button primary fit small">Brasil</a>
+												<p></p>
+												<a class="button primary fit small">Inglaterra</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j49A" min="0" required>
+												<p></p>
+												<input type="number" name="j49B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 50</b></font></p>
+												<p><font size="0.3">30 jun. 11h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º C</b></font></p>
+												<p><font size="1"><b>2º D</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button fit small">Espanha</a>
+												<p></p>
+												<a class="button fit small">México</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j50A" min="0" required>
+												<p></p>
+												<input type="number" name="j50B" min="0" required>
+											</td>
+										</tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 53</b></font></p>
+												<p><font size="0.3">2 jul. 11h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º E</b></font></p>
+												<p><font size="1"><b>2º F</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button primary fit small">Alemanha</a>
+												<p></p>
+												<a class="button primary fit small">Islandia</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j51A" min="0" required>
+												<p></p>
+												<input type="number" name="j51B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 54</b></font></p>
+												<p><font size="0.3">2 jun. 15h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º G</b></font></p>
+												<p><font size="1"><b>2º H</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button fit small">Croácia</a>
+												<p></p>
+												<a class="button fit small">Egito</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j52A" min="0" required>
+												<p></p>
+												<input type="number" name="j52B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 51</b></font></p>
+												<p><font size="0.3">1 jul. 11h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º B</b></font></p>
+												<p><font size="1"><b>2º A</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button primary fit small">França</a>
+												<p></p>
+												<a class="button primary fit small">Sérvia</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j53A" min="0" required>
+												<p></p>
+												<input type="number" name="j53B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 52</b></font></p>
+												<p><font size="0.3">1 jul. 15h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º D</b></font></p>
+												<p><font size="1"><b>2º C</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button fit small">Colômbia</a>
+												<p></p>
+												<a class="button fit small">Portugal</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j54A" min="0" required>
+												<p></p>
+												<input type="number" name="j54B" min="0" required>
+											</td>
+										</tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 55</b></font></p>
+												<p><font size="0.3">3 jul. 11h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º F</b></font></p>
+												<p><font size="1"><b>2º E</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button primary fit small">Russia</a>
+												<p></p>
+												<a class="button primary fit small">Uruguai</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j55A" min="0" required>
+												<p></p>
+												<input type="number" name="j55B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 56</b></font></p>
+												<p><font size="0.3">3 jul. 15h</font></p>
+											</td>
+											<td width="10%" align="center">
+												<p><font size="1"><b>1º H</b></font></p>
+												<p><font size="1"><b>2º G</b></font></p>
+											</td>
+											<td width="40%">
+												<a class="button fit small">Bélgica</a>
+												<p></p>
+												<a class="button fit small">Argentina</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j56A" min="0" required>
+												<p></p>
+												<input type="number" name="j56B" min="0" required>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<ul class="actions">
+								<li></li>
+								<li><input type="submit" value="Enviar aposta das OITAVAS" class="primary" /></li>
+								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos das Oitavas de final: </font></p>
+								<p style="text-align: center; margin-top:5px;color: red;"  id="Countdown_Oitavas"></p>
+								<script>
+								// Set the date we're counting down to
+								var countDownDateOitavas = new Date("Jun 30, 2018 10:00:00").getTime(); // 30 min antes do primeiro jogo das Oitavas
+
+								// Update the count down every 1 second
+								var x = setInterval(function() {
+
+								    // Get todays date and time
+								    var now = new Date().getTime();
+								    
+								    // Find the distance between now an the count down date
+								    var distance = countDownDateOitavas - now;
+								    
+								    // Time calculations for days, hours, minutes and seconds
+								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+								    
+								    // Output the result in an element with id="Countdown_Oitavas"
+								    document.getElementById("Countdown_Oitavas").innerHTML = "***" + days + " dias   " + hours + " horas   "
+								    + minutes + " min   " + seconds + " seg   ";
+								    
+								    // If the count down is over, write some text 
+								    if (distance < 0) {
+								        clearInterval(x);
+								        document.getElementById("Countdown_Oitavas").innerHTML = "Apostas Encerradas!";
+								    }
+								}, 1000);
+								</script>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</form>
+
+			<!-- ------------------------- QUARTAS DE FINAL -->
+			<form>
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<div class="content">
+							<h3 align="center"><b>Quartas de Final</b></h3>
+							<!-- FILEIRA 1 DE JOGOS -->
+							<section>
+								<table>
+									<tbody>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 57</b></font></p>
+												<p><font size="0.3">6 jul. 11h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button primary fit small">Brasil</a>
+												<p></p>
+												<a class="button primary fit small">Inglaterra</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j57A" min="0" required>
+												<p></p>
+												<input type="number" name="j57B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 58</b></font></p>
+												<p><font size="0.3">6 jun. 15h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button fit small">Espanha</a>
+												<p></p>
+												<a class="button fit small">México</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j58A" min="0" required>
+												<p></p>
+												<input type="number" name="j58B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 59</b></font></p>
+												<p><font size="0.3">7 jul. 11h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button primary fit small">Alemanha</a>
+												<p></p>
+												<a class="button primary fit small">Islandia</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j59A" min="0" required>
+												<p></p>
+												<input type="number" name="j59B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 60</b></font></p>
+												<p><font size="0.3">7 jun. 15h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button fit small">Croácia</a>
+												<p></p>
+												<a class="button fit small">Egito</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j60A" min="0" required>
+												<p></p>
+												<input type="number" name="j60B" min="0" required>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<ul class="actions">
+								<li></li>
+								<li><input type="submit" value="Enviar aposta das Quartas" class="primary" /></li>
+								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos das Quartas de final: </font></p>
+								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Quartas"></p>
+								<script>
+								// Set the date we're counting down to
+								var countDownDateQuartas = new Date("Jul 6, 2018 10:00:00").getTime(); // 30 min antes do primeiro jogo das Oitavas
+
+								// Update the count down every 1 second
+								var x = setInterval(function() {
+
+								    // Get todays date and time
+								    var now = new Date().getTime();
+								    
+								    // Find the distance between now an the count down date
+								    var distance = countDownDateQuartas - now;
+								    
+								    // Time calculations for days, hours, minutes and seconds
+								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+								    
+								    // Output the result in an element with id="Countdown_Quartas"
+								    document.getElementById("Countdown_Quartas").innerHTML = "***" + days + " dias   " + hours + " horas   "
+								    + minutes + " min   " + seconds + " seg   ";
+								    
+								    // If the count down is over, write some text 
+								    if (distance < 0) {
+								        clearInterval(x);
+								        document.getElementById("Countdown_Quartas").innerHTML = "Apostas Encerradas!";
+								    }
+								}, 1000);
+								</script>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</form>
+
+			<!-- ------------------------- SEMI FINAL -->
+			<form>
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<div class="content">
+							<h3 align="center"><b>Semi Final</b></h3>
+							<!-- FILEIRA 1 DE JOGOS -->
+							<section>
+								<table>
+									<tbody>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 61</b></font></p>
+												<p><font size="0.3">10 jul. 15h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button primary fit small">Brasil</a>
+												<p></p>
+												<a class="button primary fit small">Inglaterra</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j61A" min="0" required>
+												<p></p>
+												<input type="number" name="j61B" min="0" required>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 62</b></font></p>
+												<p><font size="0.3">11 jul. 15h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button fit small">Espanha</a>
+												<p></p>
+												<a class="button fit small">México</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j62A" min="0" required>
+												<p></p>
+												<input type="number" name="j62B" min="0" required>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<ul class="actions">
+								<li></li>
+								<li><input type="submit" value="Enviar aposta da Semi Final" class="primary" /></li>
+								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos da Semi final: </font></p>
+								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Semi"></p>
+								<script>
+								// Set the date we're counting down to
+								var countDownDateSemi = new Date("Jul 10, 2018 14:00:00").getTime(); // 30 min antes do primeiro jogo das Oitavas
+
+								// Update the count down every 1 second
+								var x = setInterval(function() {
+
+								    // Get todays date and time
+								    var now = new Date().getTime();
+								    
+								    // Find the distance between now an the count down date
+								    var distance = countDownDateSemi - now;
+								    
+								    // Time calculations for days, hours, minutes and seconds
+								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+								    
+								    // Output the result in an element with id="Countdown_Semi"
+								    document.getElementById("Countdown_Semi").innerHTML = "***" + days + " dias   " + hours + " horas   "
+								    + minutes + " min   " + seconds + " seg   ";
+								    
+								    // If the count down is over, write some text 
+								    if (distance < 0) {
+								        clearInterval(x);
+								        document.getElementById("Countdown_Semi").innerHTML = "Apostas Encerradas!";
+								    }
+								}, 1000);
+								</script>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</form>
+			<!-- ------------------------- TERCEIRO -->
+			<form>
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<div class="content">
+							<h3 align="center"><b>Terceiro Lugar</b></h3>
+							<!-- FILEIRA 1 DE JOGOS -->
+							<section>
+								<table>
+									<tbody>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 61</b></font></p>
+												<p><font size="0.3">14 jul. 11h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button fit small">Argentina</a>
+												<p></p>
+												<a class="button fit small">Inglaterra</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j61A" min="0" required>
+												<p></p>
+												<input type="number" name="j61B" min="0" required>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<ul class="actions">
+								<li></li>
+								<li><input type="submit" value="Enviar aposta do Terceiro Colocado" class="primary" /></li>
+								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento da aposta do Terceiro Colocado: </font></p>
+								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Terceiro"></p>
+								<script>
+								// Set the date we're counting down to
+								var countDownDateTerceiro = new Date("Jul 14, 2018 10:00:00").getTime(); // 30 min antes do primeiro jogo das Oitavas
+
+								// Update the count down every 1 second
+								var x = setInterval(function() {
+
+								    // Get todays date and time
+								    var now = new Date().getTime();
+								    
+								    // Find the distance between now an the count down date
+								    var distance = countDownDateTerceiro - now;
+								    
+								    // Time calculations for days, hours, minutes and seconds
+								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+								    
+								    // Output the result in an element with id="Countdown_Terceiro"
+								    document.getElementById("Countdown_Terceiro").innerHTML = "***" + days + " dias   " + hours + " horas   "
+								    + minutes + " min   " + seconds + " seg   ";
+								    
+								    // If the count down is over, write some text 
+								    if (distance < 0) {
+								        clearInterval(x);
+								        document.getElementById("Countdown_Terceiro").innerHTML = "Apostas Encerradas!";
+								    }
+								}, 1000);
+								</script>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</form>
+			<!-- ------------------------- FINAL -->
+			<form>	
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<div class="content">
+							<h3 align="center"><b>FINAL</b></h3>
+							<!-- FILEIRA 1 DE JOGOS -->
+							<section>
+								<table>
+									<tbody>
+										<tr>
+											<td width="20%" align="center">
+												<p><font size="0.6"><b>Jogo 64</b></font></p>
+												<p><font size="0.3">15 jul. 12h</font></p>
+											</td>
+											<td width="60%">
+												<a class="button primary fit small">Brasil</a>
+												<p></p>
+												<a class="button primary fit small">Alemanha</a>
+											</td>
+											<td width="20%">
+												<input type="number" name="j64A" min="0" required>
+												<p></p>
+												<input type="number" name="j64B" min="0" required>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<ul class="actions">
+								<li></li>
+								<li><input type="submit" value="Enviar aposta da Final" class="primary" /></li>
+								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento da aposta da Final: </font></p>
+								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Final"></p>
+								<script>
+								// Set the date we're counting down to
+								var countDownDateFinal = new Date("Jul 15, 2018 11:00:00").getTime(); // 30 min antes do primeiro jogo das Oitavas
+
+								// Update the count down every 1 second
+								var x = setInterval(function() {
+
+								    // Get todays date and time
+								    var now = new Date().getTime();
+								    
+								    // Find the distance between now an the count down date
+								    var distance = countDownDateFinal - now;
+								    
+								    // Time calculations for days, hours, minutes and seconds
+								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+								    
+								    // Output the result in an element with id="Countdown_Final"
+								    document.getElementById("Countdown_Final").innerHTML = "***" + days + " dias   " + hours + " horas   "
+								    + minutes + " min   " + seconds + " seg   ";
+								    
+								    // If the count down is over, write some text 
+								    if (distance < 0) {
+								        clearInterval(x);
+								        document.getElementById("Countdown_Final").innerHTML = "Apostas Encerradas!";
+								    }
+								}, 1000);
+								</script>
+							</ul>
+						</div>
+						<p align="center"><font color="white" size="1">*** Tempo contado a partir dos horas do PC ou Celular. É responsabilidade do Usuário estar com o horario do seu dispositivo devidamente acertado.</font></p>
+					</div>
+				</section>
+			</form>
+
+				
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h4>Sobre o Bolão</h4>
+							<p>O Bolão da Copa foi criado sem fins lucrativos, com o objetivo de entreter um grupo de amigos e tornar a experiencia de assistir a Copa do Mundo 2018 ainda mais interessante. A forma de pontuação foi reformulada e pode ser conhecida nas <a href="Regras.html"><u>regras</u></a>. Além disso, a ideia da tabela de classificação de todos os apostadores trás uma competitividade bacana para o bolão! Boa Sorte!</p>
+						</section>
+						<section>
+							<h5>Dúvidas?</h5>
+							<ul class="alt">
+								<li>Mande a pergunta para majoaovitor@gmail.com</li>
+							</ul>
+						</section>
+						<section>
+							<h4>Redes Sociais</h4>
+							<ul class="plain">
+								<!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i>João Vítor</a></li>
+								<!--<li><a href="https://www.facebook.com/rafael.ramos.752861"><i class="icon fa-facebook">&nbsp;</i>Rafael - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i>Rafael</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; <a href="https://www.facebook.com/joao.vitor.27">Joao Vitor</a> feat. <a href="https://www.facebook.com/rafael.ramos.752861" >Rafael Ramos</a>.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
