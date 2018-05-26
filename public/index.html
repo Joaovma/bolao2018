@@ -1,65 +1,164 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+	<head>
+		<title>Tela Inicial</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+		.responsive {
+		    width: 260px;
+		    height: auto;
+		}
+		</style>
+	</head>
+	<body class="is-preload">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.0.4/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.0.4/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.0.4/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.0.4/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.0.4/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="TelaInicial.html">Bolão da Copa 2018</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
+					<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>
+					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
+					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
+					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
+					<li><a class="fa fa-sign-out" href="Login.html">&nbsp; LOGOUT</a></li>
+				</ul>
+			</nav>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner" width="100%" height="45%">
+					<img src="images/logo/logo_cinza_grande.png" alt="logo_cinza" class="responsive" >
+					<p><font size="4">Seus palpites são bons mesmo?</font></p>
+				</div>
+				<video autoplay loop muted playsinline src="images/banner.mp4"></video>
+			</section>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<p align="center"><font size="3"color="white">Para fazer sua aposta vá no MENU no canto superior direito e selecione <u>APOSTAR!</u></font></p>
+					<div class="highlights">
+						<section>
+							<div class="content">
+								<header>
+									<a href="ApostasFase2.html" class="icon fa-money"><span class="label">Icon</span></a>
+									<h3>Apostas Etapa 2</h3>
+								</header>
+								<p>(Somente após a fase de Grupos)</p>
+								<p>Aposte nos placares das OITAVAS, QUARTAS, SEMI e FINAL!</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="JogosDoDia.html" class="icon fa-calendar"><span class="label">Icon</span></a>
+									<h3>Jogos por Data + Pontuação</h3>
+								</header>
+								<p>Sua pontuação nos jogos em cada dia!</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="Classificacao.html" class="icon fa-sort-amount-desc"><span class="label">Icon</span></a>
+									<h3>Classificação do Bolão</h3>
+								</header>
+								<p>Tabela de Classificação do Bolão!</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="TabelaOficial.html" class="icon fa-soccer-ball-o"><span class="label">Icon</span></a>
+									<h3>Tabela Oficial</h3>
+								</header>
+								<p>Tabela oficial da Copa do Mundo!</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="Participantes.html" class="icon fa-group"><span class="label">Icon</span></a>
+									<h3>Participantes</h3>
+								</header>
+								<p>Quem está participando do bolão?</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="Premiacao.html" class="icon fa-trophy"><span class="label">Icon</span></a>
+									<h3>Premiação</h3>
+								</header>
+								<p>Quanto ganhará o campeão do Bolão?</p>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h4>Sobre o Bolão</h4>
+							<p>O Bolão da Copa foi criado sem fins lucrativos, com o objetivo de entreter um grupo de amigos e tornar a experiencia de assistir a Copa do Mundo 2018 ainda mais interessante. A forma de pontuação foi reformulada e pode ser conhecida nas <a href="Regras.html"><u>regras</u></a>. Além disso, a ideia da tabela de classificação de todos os apostadores trás uma competitividade bacana para o bolão! Boa Sorte!</p>
+						</section>
+						<section>
+							<h5>Dúvidas?</h5>
+							<ul class="alt">
+								<li>Mande a pergunta para majoaovitor@gmail.com</li>
+							</ul>
+						</section>
+						<section>
+							<h4>Redes Sociais</h4>
+							<ul class="plain">
+								<!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i>João Vítor</a></li>
+								<!--<li><a href="https://www.facebook.com/rafael.ramos.752861"><i class="icon fa-facebook">&nbsp;</i>Rafael - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i>Rafael</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; <a href="https://www.facebook.com/joao.vitor.27">Joao Vitor</a> feat. <a href="https://www.facebook.com/rafael.ramos.752861" >Rafael Ramos</a>. e  <a href="https://www.facebook.com/hsbrighenti" >Henrique Brighenti</a>.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+
+			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+			<script>
+			  // Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyD-b-FKQceXUbjFCh3XSkaqW1OV5ZZh-PM",
+			    authDomain: "bolao2018copadomundo.firebaseapp.com",
+			    databaseURL: "https://bolao2018copadomundo.firebaseio.com",
+			    projectId: "bolao2018copadomundo"
+			  };
+			  firebase.initializeApp(config);
+			</script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
