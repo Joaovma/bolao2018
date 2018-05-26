@@ -9,157 +9,12 @@
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-
-	<style>
-
-		form {border: 0px solid #f1f1f1;}
-
-			input[type=text], input[type=password] {
-			    width: 60%;
-			    height: 1%;
-			    padding: 6px 10px;
-			    margin: 1px 10;
-			    display: inline-block;
-			    /*border: 1px solid #ccc;
-			    /*box-sizing: border-box;*/
-			}
-			input[type=number]{
-			    width: 60%;
-			    height: 10%;
-			    padding: 0.1rem 0.1rem;
-			    display: inline-block;
-			    border: 1px solid #ccc;
-			    box-sizing: border-box;
-			    text-align: center;
-			    font-size: 1.5rem;
-			}
-
-			button span {
-			  cursor: pointer;
-			  display: inline-block;
-			  position: relative;
-			  transition: 0.5s;
-			}
-
-			button span:after {
-			  content: '\00bb';
-			  position: absolute;
-			  opacity: 0;
-			  top: 0;
-			  right: -20px;
-			  transition: 0.5s;
-			}
-
-			button:hover span {
-			  padding-right: 25px;
-			}
-
-			button:hover span:after {
-			  opacity: 1;
-			  right: 0;
-			}
-
-			.container {
-			    padding: 10px;
-			}
-
-			span.psw {
-			    float: right;
-			    padding-top: 10px;
-			}
-
-			/* Change styles for span and cancel button on extra small screens */
-			@media screen and (max-width: 300px) {
-			    span.psw {
-			       display: block;
-			       float: none;
-			    }
-			    .cancelbtn {
-			       width: 25%;
-			    }
-			}
-			button {
-			  display: inline-block;
-			  border-radius: 4px;
-			  background-color: #00798c;
-			  border: none;
-			  color: #FFFFFF;
-			  text-align: center;
-			  font-size: 14px;
-			  padding: 20px;
-			  width: 5%;
-			  transition: all 0.5s;
-			  cursor: pointer;
-			  margin: 8px;
-			}
-			.button4 {
-			  display: inline-block;
-			  border-radius: 20px;
-			  background-color: #00798c;
-			  border: none;
-			  color: #FFFFFF;
-			  text-align: center;
-			  font-size: 0.7rem;
-			  padding: 0.1rem;
-			  width: 100%;
-			  height: 40px;
-			  transition: all 0.5s;
-			  cursor: pointer;
-			}
-			th, td {
-			    padding: 5px;
-			}
-
-			#box_match {
-			    border-radius: 25px;
-			    /*background: #00798C;*/
-			    padding-top: 2rem;
-			    padding-bottom: 2rem;
-			    padding-left: 1px;
-			    padding-right: 1px;
-			    width: 25%;
-			    height: 90px;    
-			}
-			#box_game {
-			    border-radius: 25px;
-			    /*background: #00798C;*/
-			    padding-top: 1rem;
-			    padding-bottom: 1rem;
-			    padding-left: 1px;
-			    padding-right: 1px;
-			    width: 45%;
-			    height: 90px;    
-			}
-			table.matchtable {
-				width:100%;
-				background-color:#FFFFFF;
-				border-collapse:collapse;border-width:1px;
-				border-color:#FFFFFF;
-				border-style:solid;
-				color:#353535;
-				}
-
-				table.matchtable td, table.matchtable th {
-				border-width:1px;
-				border-color:#FFFFFF;
-				border-style:solid;
-				padding:2px;
-				}
-
-				table.matchtable thead {
-				background-color:#FFFFFF;
-				}
-
-	</style>
-
-
-
-
+	<link rel="stylesheet" href="assets/css/apostas-fase2.css">
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="index.html">Bolão da Copa 2018</a>
+				<a class="logo" href="TelaInicial.html">Bolão da Copa 2018</a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
@@ -168,7 +23,7 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a class="fa fa-home" href="index.html">&nbsp; HOME</a></li>
+					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
 					<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
@@ -372,21 +227,21 @@
 
 								    // Get todays date and time
 								    var now = new Date().getTime();
-								    
+
 								    // Find the distance between now an the count down date
 								    var distance = countDownDateOitavas - now;
-								    
+
 								    // Time calculations for days, hours, minutes and seconds
 								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-								    
+
 								    // Output the result in an element with id="Countdown_Oitavas"
 								    document.getElementById("Countdown_Oitavas").innerHTML = "***" + days + " dias   " + hours + " horas   "
 								    + minutes + " min   " + seconds + " seg   ";
-								    
-								    // If the count down is over, write some text 
+
+								    // If the count down is over, write some text
 								    if (distance < 0) {
 								        clearInterval(x);
 								        document.getElementById("Countdown_Oitavas").innerHTML = "Apostas Encerradas!";
@@ -490,21 +345,21 @@
 
 								    // Get todays date and time
 								    var now = new Date().getTime();
-								    
+
 								    // Find the distance between now an the count down date
 								    var distance = countDownDateQuartas - now;
-								    
+
 								    // Time calculations for days, hours, minutes and seconds
 								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-								    
+
 								    // Output the result in an element with id="Countdown_Quartas"
 								    document.getElementById("Countdown_Quartas").innerHTML = "***" + days + " dias   " + hours + " horas   "
 								    + minutes + " min   " + seconds + " seg   ";
-								    
-								    // If the count down is over, write some text 
+
+								    // If the count down is over, write some text
 								    if (distance < 0) {
 								        clearInterval(x);
 								        document.getElementById("Countdown_Quartas").innerHTML = "Apostas Encerradas!";
@@ -576,21 +431,21 @@
 
 								    // Get todays date and time
 								    var now = new Date().getTime();
-								    
+
 								    // Find the distance between now an the count down date
 								    var distance = countDownDateSemi - now;
-								    
+
 								    // Time calculations for days, hours, minutes and seconds
 								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-								    
+
 								    // Output the result in an element with id="Countdown_Semi"
 								    document.getElementById("Countdown_Semi").innerHTML = "***" + days + " dias   " + hours + " horas   "
 								    + minutes + " min   " + seconds + " seg   ";
-								    
-								    // If the count down is over, write some text 
+
+								    // If the count down is over, write some text
 								    if (distance < 0) {
 								        clearInterval(x);
 								        document.getElementById("Countdown_Semi").innerHTML = "Apostas Encerradas!";
@@ -645,21 +500,21 @@
 
 								    // Get todays date and time
 								    var now = new Date().getTime();
-								    
+
 								    // Find the distance between now an the count down date
 								    var distance = countDownDateTerceiro - now;
-								    
+
 								    // Time calculations for days, hours, minutes and seconds
 								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-								    
+
 								    // Output the result in an element with id="Countdown_Terceiro"
 								    document.getElementById("Countdown_Terceiro").innerHTML = "***" + days + " dias   " + hours + " horas   "
 								    + minutes + " min   " + seconds + " seg   ";
-								    
-								    // If the count down is over, write some text 
+
+								    // If the count down is over, write some text
 								    if (distance < 0) {
 								        clearInterval(x);
 								        document.getElementById("Countdown_Terceiro").innerHTML = "Apostas Encerradas!";
@@ -672,7 +527,7 @@
 				</section>
 			</form>
 			<!-- ------------------------- FINAL -->
-			<form>	
+			<form>
 				<section id="main" class="wrapper">
 					<div class="inner">
 						<div class="content">
@@ -714,21 +569,21 @@
 
 								    // Get todays date and time
 								    var now = new Date().getTime();
-								    
+
 								    // Find the distance between now an the count down date
 								    var distance = countDownDateFinal - now;
-								    
+
 								    // Time calculations for days, hours, minutes and seconds
 								    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 								    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 								    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 								    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-								    
+
 								    // Output the result in an element with id="Countdown_Final"
 								    document.getElementById("Countdown_Final").innerHTML = "***" + days + " dias   " + hours + " horas   "
 								    + minutes + " min   " + seconds + " seg   ";
-								    
-								    // If the count down is over, write some text 
+
+								    // If the count down is over, write some text
 								    if (distance < 0) {
 								        clearInterval(x);
 								        document.getElementById("Countdown_Final").innerHTML = "Apostas Encerradas!";
@@ -742,7 +597,7 @@
 				</section>
 			</form>
 
-				
+
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -775,9 +630,9 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
 			<script>
 			  // Initialize Firebase
 			  var config = {

@@ -1,0 +1,150 @@
+form {
+    border: 0px solid #f1f1f1;
+}
+
+input[type=text],
+input[type=password] {
+    width: 60%;
+    height: 1%;
+    padding: 6px 10px;
+    margin: 1px 10;
+    display: inline-block;
+    /*border: 1px solid #ccc;
+                /*box-sizing: border-box;*/
+}
+
+input[type=number] {
+    width: 60%;
+    height: 10%;
+    padding: 0.1rem 0.1rem;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.container {
+    padding: 10px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 10px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 25%;
+    }
+}
+
+button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #00798c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    width: 5%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.button4 {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #00798c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0.1rem;
+    width: 100%;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+#box_match {
+    border-radius: 25px;
+    /*background: #00798C;*/
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 25%;
+    height: 90px;
+}
+
+#box_game {
+    border-radius: 25px;
+    /*background: #00798C;*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 45%;
+    height: 90px;
+}
+
+table.matchtable {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    color: #353535;
+}
+
+table.matchtable td,
+table.matchtable th {
+    border-width: 1px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    padding: 2px;
+}
+
+table.matchtable thead {
+    background-color: #FFFFFF;
+}
