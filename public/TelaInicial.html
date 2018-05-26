@@ -32,7 +32,7 @@
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
-					<li><a class="fa fa-sign-out" href="Login.html">&nbsp; LOGOUT</a></li>
+					<li><a class="fa fa-sign-out" href="#" onclick='firebaseSignOut()' >&nbsp; LOGOUT</a></li>
 				</ul>
 			</nav>
 
@@ -127,8 +127,8 @@
 							<ul class="plain">
 								<!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
 								<li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i>João Vítor</a></li>
-								<!--<li><a href="https://www.facebook.com/rafael.ramos.752861"><i class="icon fa-facebook">&nbsp;</i>Rafael - facebook</a></li>-->
 								<li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i>Rafael</a></li>
+								<li><a href="https://www.facebook.com/hsbrighenti"><i class="icon fa-facebook">&nbsp;</i>Henrique</a></li>
 							</ul>
 						</section>
 					</div>
@@ -143,16 +143,7 @@
 			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
-			<script>
-			  // Initialize Firebase
-			  var config = {
-			    apiKey: "AIzaSyD-b-FKQceXUbjFCh3XSkaqW1OV5ZZh-PM",
-			    authDomain: "bolao2018copadomundo.firebaseapp.com",
-			    databaseURL: "https://bolao2018copadomundo.firebaseio.com",
-			    projectId: "bolao2018copadomundo"
-			  };
-			  firebase.initializeApp(config);
-			</script>
+			<script src="assets/js/firebase.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
