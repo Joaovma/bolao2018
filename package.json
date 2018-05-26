@@ -1,0 +1,21 @@
+{
+  "name": "bolao2018",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "firebase-tools": "^3.18.5"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joaovma/bolao2018.git"
+  },
+  "author": "Joao Vitor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joaovma/bolao2018/issues"
+  },
+  "homepage": "https://github.com/Joaovma/bolao2018#readme"
+}
