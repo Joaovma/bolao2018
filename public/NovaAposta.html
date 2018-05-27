@@ -1981,9 +1981,33 @@
                 const element = document.querySelector('form');
                 element.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    // firebaseSaveBet(e.target);
+                    var submittingForm = e.target;
+                    var aposta = {};
+                    var i = 1;
+                    for (i = 1; i <= 64; i++) {
+                        var idJogo = 'j' + i;
+                        var apostaTimeAID = idJogo + 'A';
+                        var apostaTimeBID = idJogo + 'B';
+                        var vencedorID = 'v' + idJogo;
+                        var jogo = aposta[idJogo] = {};
+
+                        if (i <= 48) {
+                            jogo[apostaTimeAID] = submittingForm.elements[apostaTimeAID].value;
+                            jogo[apostaTimeBID] = submittingForm.elements[apostaTimeBID].value;
+
+                            if (jogo[apostaTimeAID] == jogo[apostaTimeBID]) {
+                                jogo[vencedorID] = 'E';
+                            } else if (jogo[apostaTimeAID] > jogo[apostaTimeBID]) {
+                                jogo[vencedorID] = 'timeA';
+                            } else {
+                                jogo[vencedorID] = 'timeB';
+                            }
+                        } else {
+                            jogo[vencedorID] = submittingForm.elements[vencedorID].value;
+                        }
+                    }
+                    firebaseSaveBet(aposta);
                 });
             </script>
-
     </body>
 </html>
