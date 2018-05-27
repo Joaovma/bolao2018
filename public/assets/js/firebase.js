@@ -17,6 +17,23 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+var databaseBolao = firebase.database();
+
 function firebaseSignOut() {
 	firebase.auth().signOut();
+}
+
+function firebaseGetUserData(){
+	return new Promise (function (resolve, reject){
+		firebase.auth().onAuthStateChanged(function (user){
+			const UID = user.uid;
+			databaseBolao.ref('usuarios/'+ UID).once('value', function(snap){
+				resolve(snap.val());
+			}, function (errorObject) {
+				console.error("CAGOU A PORRA TODA - Read failed" + errorObject);
+				reject(errorObject);
+			});
+		}); 
+		
+	});
 }

@@ -58,15 +58,15 @@
 											<tbody align="center">
 												<tr>
 													<td><font size="3">NOME</font></td>
-													<td><font size="3">João Vítor</font></td>
+													<td><font size="3" id="nome">carregando...</font></td>
 												</tr>
 												<tr>
 													<td><font size="3">Email:</font></td>
-													<td width="70%"><font size="3">majoaovitor@gmail.com</font></td>
+													<td width="70%"><font size="3" id="email">carregando...</font></td>
 												</tr>
 												<tr>
 													<td><font size="3">Telefone</font></td>
-													<td><font size="3">+5531999311300</font></td>
+													<td><font size="3" id="telefone">carregando...</font></td>
 												</tr>
 											</tbody>
 											<tfoot>
@@ -125,6 +125,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				firebaseGetUserData().then(function(usuario){
+					console.log(usuario);
+					$('#nome').html(usuario.nome);
+					$('#email').html(usuario.email);
+					$('#telefone').html(usuario.telefone);
+				})
+			</script>>
 
 	</body>
 </html>
