@@ -41,7 +41,7 @@
 					<div class="content">
 
 						<div class="table-wrapper">
-										<table class="alt">
+										<table class="alt" id="participantes">
 											<thead align="center">
 												<tr>
 													<td><b>ID</b></td>
@@ -50,28 +50,8 @@
 											</thead>
 											<tbody align="center">
 												<tr>
-													<td>1</td>
-													<td>João Vítor</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td width="80%">Rafael Ramos (Cereja)</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Joaquim Augusto</td>
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>André Luis</td>
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>Sandra</td>
-												</tr>
-												<tr>
-													<td>6</td>
-													<td>Juliana</td>
+													<td>-</td>
+													<td width="80%">carregando...</td>
 												</tr>
 											</tbody>
 											<tfoot>
@@ -127,6 +107,37 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script type="text/javascript">
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						var usuarioParaAdd = childNodes.val().nome;
+				      	//console.log(usuarioParaAdd);
+				      	insereParticipante("participantes", usuarioParaAdd);
+				      	
+				  });
+   				deleteLastrow("participantes");
+				});
+				
+				function insereParticipante(tableID, name){
+					var table = document.getElementById(tableID);
+					var rowCount = table.rows.length;
+					var row = table.insertRow(rowCount-1);
+					var cell1 = row.insertCell(0);
+			    	var cell2 = row.insertCell(1);
+					
+					cell1.innerHTML = rowCount-1;
+			    	cell2.innerHTML = name;
+				}
+				//Deleta a ultima linha da tabela que contem a paravra: carregando
+				//tem que ser feito depois que os dados do banco sao colocados na tabela...se nao caga o role
+				function deleteLastrow(tableID) {
+				    var table = document.getElementById(tableID);
+				    var rowCount = table.rows.length;
+
+				    table.deleteRow(rowCount-1);
+				}
+			</script>
 
 	</body>
 </html>
