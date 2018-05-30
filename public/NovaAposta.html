@@ -9,6 +9,7 @@
         <meta name="keywords" content="" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/nova-aposta.css">
+        <link rel="stylesheet" href="assets/css/toast.css">
     </head>
 
     <body class="is-preload">
@@ -1928,9 +1929,12 @@
                         </div>
                         <p align="center"><font color="white" size="1">*** Tempo contado a partir dos horas do PC ou Celular. É responsabilidade do Usuário estar com o horario do seu dispositivo devidamente acertado.</font></p>
                     </div>
+                    <div id="snackbar_success">Aposta enviada com Sucesso!</div>
+                    <div id="snackbar_failure">Falha ao enviar a aposta!</div>
                 </section>
 
             </form>
+            
         </div>
     </div>
 </section>
@@ -1995,9 +1999,9 @@
                             jogo[apostaTimeAID] = submittingForm.elements[apostaTimeAID].value;
                             jogo[apostaTimeBID] = submittingForm.elements[apostaTimeBID].value;
 
-                            if (jogo[apostaTimeAID] == jogo[apostaTimeBID]) {
+                            if (parseInt(jogo[apostaTimeAID]) == parseInt(jogo[apostaTimeBID])) {
                                 jogo[vencedorID] = 'E';
-                            } else if (jogo[apostaTimeAID] > jogo[apostaTimeBID]) {
+                            } else if (parseInt(jogo[apostaTimeAID]) > parseInt(jogo[apostaTimeBID])) {
                                 jogo[vencedorID] = 'timeA';
                             } else {
                                 jogo[vencedorID] = 'timeB';
@@ -2007,7 +2011,20 @@
                         }
                     }
                     firebaseSaveBet(aposta);
+                    if(apostaSalva){
+                        toast("snackbar_success");
+                    }
+                    else{
+                        toast("snackbar_failure");
+                    }
                 });
+            </script>
+            <script>
+                function toast(snackbar) {
+                    var x = document.getElementById(snackbar);
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
             </script>
             <script>
                 for (var i = 49; i <= 64; i++) {

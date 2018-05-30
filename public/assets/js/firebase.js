@@ -38,25 +38,24 @@ function firebaseGetUserData() {
 
 function firebaseSaveBet(aposta) {
     const UID = firebase.auth().currentUser.uid;
+    const sucesso = 1;
+    const falha = 0;
     if (!UID) {
         return;
     }
-    var sucesso = 1;
-    var falha = 0;
-    databaseBolao.ref('apostas/' + UID + '/etapa1').set(aposta)
-        .then(function () {
-        console.log('Write succeeded!');
-        return ('1');
+    apostaSalva = new Promise(
+        function (resolve, reject) {
+        databaseBolao.ref('apostas/' + UID + '/etapa1').set(aposta)
+        .then ( function(){
+            //console.log('Write succeeded!');
+            resolve('sucesso');
         })
-        .catch(function () {
-        console.log('Write failure!');
-        return ('0');
-        })
+        .catch ( function () {
+            //console.log('Write failure!'); 
+            reject('falha');
+        });
+    });
 }
-
-
-
-
 
 
 
