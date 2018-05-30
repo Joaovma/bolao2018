@@ -1636,9 +1636,9 @@
                                                 <p><font size="1"><b>V50</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button primary fit small" id="timeV49">Portugal</a>
+                                                <a class="button primary fit small" id="timevj49">Portugal</a>
                                                 <p></p>
-                                                <a class="button primary fit small" id="timeV50">França</a>
+                                                <a class="button primary fit small" id="timevj50">França</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj57" required>
@@ -1658,9 +1658,9 @@
                                                 <p><font size="1"><b>V54</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button fit small" id="timeV53">Brasil</a>
+                                                <a class="button fit small" id="timevj53">Brasil</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeV54">Bélgica</a>
+                                                <a class="button fit small" id="timevj54">Bélgica</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj58" required>
@@ -1679,9 +1679,9 @@
                                                 <p><font size="1"><b>V52</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button primary fit small" id="timeV51">Espanha</a>
+                                                <a class="button primary fit small" id="timevj51">Espanha</a>
                                                 <p></p>
-                                                <a class="button primary fit small" id="timeV52">Argentina</a>
+                                                <a class="button primary fit small" id="timevj52">Argentina</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj59" required>
@@ -1701,9 +1701,9 @@
                                                 <p><font size="1"><b>V56</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button fit small" id="timeV55">Alemanha</a>
+                                                <a class="button fit small" id="timevj55">Alemanha</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeV56">Colômbia</a>
+                                                <a class="button fit small" id="timevj56">Colômbia</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj60" required>
@@ -1739,9 +1739,9 @@
                                                 <p><font size="1"><b>V58</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button primary fit small" id="timeV57">França</a>
+                                                <a class="button primary fit small" id="timevj57">França</a>
                                                 <p></p>
-                                                <a class="button primary fit small" id="timeV58">Brasil</a>
+                                                <a class="button primary fit small" id="timevj58">Brasil</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj61" required>
@@ -1761,9 +1761,9 @@
                                                 <p><font size="1"><b>V60</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button fit small" id="timeV59">Espanha</a>
+                                                <a class="button fit small" id="timevj59">Espanha</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeV60">Alemanha</a>
+                                                <a class="button fit small" id="timevj60">Alemanha</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj62" required>
@@ -1798,9 +1798,9 @@
                                                 <p><font size="1"><b>P62</b></font></p>
                                             </td>
                                             <td width="30%">
-                                                <a class="button fit small" id="timeP61">França</a>
+                                                <a class="button fit small" id="timepj61">França</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeP62">Espanha</a>
+                                                <a class="button fit small" id="timepj62">Espanha</a>
                                             </td>
                                             <td width="20%">
                                                 <select name="category" id="vj63" required>
@@ -1834,9 +1834,9 @@
                                                 <p><font size="1"><b>V62</b></font></p>
                                             </td>
                                             <td width="30%">
-                                                <a class="button primary fit small" id="timeV61">Brasil</a>
+                                                <a class="button primary fit small" id="timevj61">Brasil</a>
                                                 <p></p>
-                                                <a class="button primary fit small" id="timeV62">Alemanha</a>
+                                                <a class="button primary fit small" id="timevj62">Alemanha</a>
                                             </td>
                                             <td width="20%">
                                                 <select name="category" id="vj64" required>
@@ -1871,11 +1871,11 @@
                                                 <p><font size="3"><b>Terceiro: </b></font></p>
                                             </td>
                                             <td width="30%">
-                                                <a class="button primary fit small" id="timeCampeao">Brasil</a>
+                                                <a class="button primary fit small" id="timevj64">Brasil</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeVice">Alemanha</a>
+                                                <a class="button fit small" id="timepj64">Alemanha</a>
                                                 <p></p>
-                                                <a class="button fit small" id="timeTerceiro">Bélgica</a>
+                                                <a class="button fit small" id="timevj63">Bélgica</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2008,6 +2008,48 @@
                     }
                     firebaseSaveBet(aposta);
                 });
+            </script>
+            <script>
+                for (var i = 49; i <= 64; i++) {
+                    var idJogo = 'j' + i;
+                    var vencedorID = 'v' + idJogo;
+                    $('#' + vencedorID).change(function (evt) {
+                        var selectedValue = evt.target.value;
+                        var timeVencedorEscolhido = "";
+                        var timePerdedorEscolhido = "";
+                        for (var j = 1 ; j < 3; j++) {
+                            var option = evt.target.options[j];
+                            if (option.value == selectedValue) {
+                                timeVencedorEscolhido = option.label;
+                            } else {
+                                timePerdedorEscolhido = option.label;
+                            }
+                        }
+                        var optionID =  'time' + evt.target.id;
+                        $('#' + optionID).html(timeVencedorEscolhido);
+
+                        var numeroDoJogo = evt.target.id.slice(2);
+                        var optionToBeSelectedID  = (numeroDoJogo % 2 != 0) ? 1 : 2;
+                        if ($('#' + optionID).closest('tr').find('select')[0]) {
+                            $('#' + optionID).closest('tr').find('select')[0].options[optionToBeSelectedID].innerHTML = timeVencedorEscolhido;
+                        }
+
+                        if (numeroDoJogo > 60) {
+                            var perderdorOptionID =  'timep' + evt.target.id.slice(1);
+                            $('#' + perderdorOptionID).html(timePerdedorEscolhido);
+
+                            var numeroDoJogo = evt.target.id.slice(2);
+                            var optionToBeSelectedID  = (numeroDoJogo % 2 != 0) ? 1 : 2;
+                            if ($('#' + perderdorOptionID).closest('tr').find('select')[0]) {
+                                $('#' + perderdorOptionID).closest('tr').find('select')[0].options[optionToBeSelectedID].innerHTML = timePerdedorEscolhido;
+                            }
+                        }
+
+                        if (numeroDoJogo == 63) {
+                            //do nothing
+                        }
+                    });
+                }
             </script>
     </body>
 </html>

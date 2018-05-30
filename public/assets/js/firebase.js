@@ -41,6 +41,29 @@ function firebaseSaveBet(aposta) {
     if (!UID) {
         return;
     }
-
-    databaseBolao.ref('apostas/' + UID + '/etapa1').set(aposta);
+    var sucesso = 1;
+    var falha = 0;
+    databaseBolao.ref('apostas/' + UID + '/etapa1').set(aposta)
+        .then(function () {
+        console.log('Write succeeded!');
+        return ('1');
+        })
+        .catch(function () {
+        console.log('Write failure!');
+        return ('0');
+        })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,65 +47,65 @@
 						<section>
 							<div class="content">
 								<header>
-									<h4>1º COLOCADO:</h4>
+									<h4>1º COLOCADO:(51%)</h4>
 									<hr>
 									<a class="icon fa-trophy"><span class="label">Icon</span></a>
-									<h2><b>R$ 1500,00</b></h2>
+									<h2 id="premioPrimeiro"><b>-</b></h2>
 								</header>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
-									<h4>2º COLOCADO:</h4>
+									<h4>2º COLOCADO:(23%)</h4>
 									<hr>
 									<a class="icon fa-money"><span class="label">Icon</span></a>
-									<h2><b>R$ 1500,00</b></h2>
+									<h2 id="premioSegundo"><b>-</b></h2>
 								</header>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
-									<h4>3º COLOCADO:</h4>
+									<h4>3º COLOCADO:(15%)</h4>
 									<hr>
 									<a  class="icon fa-star"><span class="label">Icon</span></a>
-									<h2><b>R$ 1500,00</b></h2>
+									<h2 id="premioTerceiro"><b>-</b></h2>
 								</header>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
-									<h4>4º COLOCADO:</h4>
+									<h4>4º COLOCADO:(7%)</h4>
 									<hr>
 									<a  class="icon fa-star-half-empty"><span class="label">Icon</span></a>
-									<h2><b>R$ 1500,00</b></h2>
+									<h2 id="premioQuarto"><b>-</b></h2>
 								</header>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
-									<h4>5º COLOCADO:</h4>
+									<h4>5º COLOCADO: (4%)</h4>
 									<hr>
 									<a class="icon fa-copyright"><span class="label">Icon</span></a>
-									<h2><b>R$ 1500,00</b></h2>
+									<h2 id="premioQuinto"><b>-</b></h2>
 								</header>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
-									<h4>Total de Apostas: </h4>
-									<h2>40</h2>
+									<h4>Total de Participantes: </h4>
+									<h2 id="totalParticipantes"><b>-</b></h2>
 									<hr>
 									<h4>Total Arrecadado:</h4>
-									<h2>R$ 1500,00</h2>
+									<h2 id="totalArrecadado"><b>-</b></h2>
 									<hr>
-									<h4>Custos do servidor:</h4>
+								<!--<h4>Custos do servidor:</h4>
 									<h6>(Será retirado da arrecadação total)</h6>
-									<h2>R$ 30,00</h2>
+									<h2>R$ 30,00</h2>-->
 								</header>
 							</div>
 						</section>
@@ -154,6 +154,41 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script type="text/javascript">
+				var numeroParticipantes=0;
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						if(childNodes.val().nome != null)numeroParticipantes ++;
+				      	//console.log(numeroParticipantes);
+				  });
+   				var dinheirototal = numeroParticipantes*35;
+   				var quinto = dinheirototal*0.04;
+   				var quarto = dinheirototal*0.07;
+   				var terceiro = dinheirototal*0.15;
+   				var segundo = dinheirototal*0.23;
+   				var primeiro = dinheirototal*0.51;
+
+
+   				$('#totalParticipantes').html(numeroParticipantes);
+   				$('#totalArrecadado').html('R$' + ' ' + dinheirototal.toFixed(2));
+   				$('#premioQuinto').html('R$' + ' ' + quinto.toFixed(2));
+   				$('#premioQuarto').html('R$' + ' ' + quarto.toFixed(2));
+   				$('#premioTerceiro').html('R$' + ' ' + terceiro.toFixed(2));
+   				$('#premioSegundo').html('R$' + ' ' + segundo.toFixed(2));
+   				$('#premioPrimeiro').html('R$' + ' ' + primeiro.toFixed(2));
+
+				});
+
+				
+
+				//firebaseGetUserData().then(function(usuario){
+				//	console.log(usuario);
+				//	$('#nome').html(usuario.nome);
+				//	$('#email').html(usuario.email);
+				//	$('#telefone').html(usuario.telefone);
+				//})
+			</script>
 
 	</body>
 </html>
