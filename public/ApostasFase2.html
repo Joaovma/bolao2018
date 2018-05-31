@@ -215,7 +215,7 @@
 							</section>
 							<ul class="actions">
 								<li></li>
-								<li><input type="submit" value="Enviar aposta das OITAVAS" class="primary" /></li>
+								<li><input type="submit" value="Enviar aposta das OITAVAS" class="primary" id="EnviarApostaPlacarOitavasEtapa2"/></li>
 								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos das Oitavas de final: </font></p>
 								<p style="text-align: center; margin-top:5px;color: red;"  id="Countdown_Oitavas"></p>
 								<script>
@@ -333,7 +333,7 @@
 							</section>
 							<ul class="actions">
 								<li></li>
-								<li><input type="submit" value="Enviar aposta das Quartas" class="primary" /></li>
+								<li><input type="submit" value="Enviar aposta das Quartas" class="primary" id="EnviarApostaPlacarQuartasEtapa2"/></li>
 								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos das Quartas de final: </font></p>
 								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Quartas"></p>
 								<script>
@@ -419,7 +419,7 @@
 							</section>
 							<ul class="actions">
 								<li></li>
-								<li><input type="submit" value="Enviar aposta da Semi Final" class="primary" /></li>
+								<li><input type="submit" value="Enviar aposta da Semi Final" class="primary" id="EnviarApostaPlacarSemiEtapa2"/></li>
 								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento das apostas dos jogos da Semi final: </font></p>
 								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Semi"></p>
 								<script>
@@ -488,7 +488,7 @@
 							</section>
 							<ul class="actions">
 								<li></li>
-								<li><input type="submit" value="Enviar aposta do Terceiro Colocado" class="primary" /></li>
+								<li><input type="submit" value="Enviar aposta do Terceiro Colocado" class="primary" id="EnviarApostaPlacarTerceiroEtapa2"/></li>
 								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento da aposta do Terceiro Colocado: </font></p>
 								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Terceiro"></p>
 								<script>
@@ -557,7 +557,7 @@
 							</section>
 							<ul class="actions">
 								<li></li>
-								<li><input type="submit" value="Enviar aposta da Final" class="primary" /></li>
+								<li><input type="submit" value="Enviar aposta da Final" class="primary" id="EnviarApostaPlacarFinalEtapa2"/></li>
 								<p style="text-align: center;   font-size:1.2; margin-top:5px;" ><font color="red">Tempo Restante para fechamento da aposta da Final: </font></p>
 								<p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_Final"></p>
 								<script>
@@ -640,6 +640,81 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+                //Script para detectar fim do periodo de apostas com base na data da variavel 
+                setInterval(function() {
+                    if (typeof all_code_happened === 'undefined'){
+                    	
+                    	var dataLimiteOitavas = new Date("Jun 30, 2018 10:00:00");
+                        var dataLimiteQuartas = new Date("Jul 6, 2018 10:00:00"); 
+                        var dataLimiteSemi = new Date("Jul 10, 2018 14:00:00"); 
+                        var dataLimiteTerceiro = new Date("Jul 14, 2018 10:00:00");
+                        var dataLimiteFinal = new Date("Jul 15, 2018 11:00:00");
+						/* // datas teste
+                        var dataLimiteOitavas = new Date("May 31, 2018 20:28:00");
+                        var dataLimiteQuartas = new Date("May 31, 2018 20:29:00"); 
+                        var dataLimiteSemi = new Date("May 31, 2018 20:30:00"); 
+                        var dataLimiteTerceiro = new Date("May 31, 2018 20:31:00");
+                        var dataLimiteFinal = new Date("May 31, 2018 20:32:00");*/   
+
+                        var thisYear = new Date().getFullYear();
+                        var thisMonth = new Date().getMonth();
+                        var thisDay = new Date().getDate();
+                        var thisHour = new Date().getHours();
+                        var thisMin = new Date().getMinutes();
+
+                        console.log("executando verificacao de fim de aposta");
+                    	if (typeof code_OITAVAS_happened === 'undefined'){
+                    		if ( thisYear >= (dataLimiteOitavas.getFullYear())  && thisMonth >= (dataLimiteOitavas.getMonth()) && thisDay >= (dataLimiteOitavas.getDate()) && thisHour >= (dataLimiteOitavas.getHours()) && thisMin >= (dataLimiteOitavas.getMinutes()) ){
+                                console.log("Detectado fim do periodo de apostas OITAVAS!");
+                                document.getElementById("EnviarApostaPlacarOitavasEtapa2").disabled = true;
+                                document.getElementById("EnviarApostaPlacarOitavasEtapa2").value = "APOSTA ENCERRADA";
+                                window.code_OITAVAS_happened = true;
+                        	}
+                    	}
+                    	if(typeof code_QUARTAS_happened === 'undefined'){
+                    		if ( thisYear >= (dataLimiteQuartas.getFullYear())  && thisMonth >= (dataLimiteQuartas.getMonth()) && thisDay >= (dataLimiteQuartas.getDate()) && thisHour >= (dataLimiteQuartas.getHours()) && thisMin >= (dataLimiteQuartas.getMinutes()) ){
+                                console.log("Detectado fim do periodo de apostas QUARTAS!");
+                                document.getElementById("EnviarApostaPlacarQuartasEtapa2").disabled = true;
+                                document.getElementById("EnviarApostaPlacarQuartasEtapa2").value = "APOSTA ENCERRADA";
+                                window.code_QUARTAS_happened = true;
+                        	}
+                    	}
+                    	if(typeof code_SEMI_happened === 'undefined'){
+                    		if ( thisYear >= (dataLimiteSemi.getFullYear())  && thisMonth >= (dataLimiteSemi.getMonth()) && thisDay >= (dataLimiteSemi.getDate()) && thisHour >= (dataLimiteSemi.getHours()) && thisMin >= (dataLimiteSemi.getMinutes()) ){
+                                console.log("Detectado fim do periodo de apostas! SEMI");
+                                document.getElementById("EnviarApostaPlacarSemiEtapa2").disabled = true;
+                                document.getElementById("EnviarApostaPlacarSemiEtapa2").value = "APOSTA ENCERRADA";
+                                window.code_SEMI_happened = true;
+                       		}
+                    	}
+                    	if(typeof code_TERCEIRO_happened === 'undefined'){
+                    		if (thisYear >= (dataLimiteTerceiro.getFullYear())  && thisMonth >= (dataLimiteTerceiro.getMonth()) && thisDay >= (dataLimiteTerceiro.getDate()) && thisHour >= (dataLimiteTerceiro.getHours()) && thisMin >= (dataLimiteTerceiro.getMinutes()) ){
+                                console.log("Detectado fim do periodo de apostas TERCEIRO!");
+                                document.getElementById("EnviarApostaPlacarTerceiroEtapa2").disabled = true;
+                                document.getElementById("EnviarApostaPlacarTerceiroEtapa2").value = "APOSTA ENCERRADA";
+                                window.code_TERCEIRO_happened = true;
+                        	}
+                    	}
+                    	if(typeof code_FINAL_happened === 'undefined'){
+                    		if (thisYear >= (dataLimiteFinal.getFullYear())  && thisMonth >= (dataLimiteFinal.getMonth()) && thisDay >= (dataLimiteFinal.getDate()) && thisHour >= (dataLimiteFinal.getHours()) && thisMin >= (dataLimiteFinal.getMinutes()) ){
+                                console.log("Detectado fim do periodo de apostas FINAL!");
+                                document.getElementById("EnviarApostaPlacarFinalEtapa2").disabled = true;
+                                document.getElementById("EnviarApostaPlacarFinalEtapa2").value = "APOSTA ENCERRADA";
+                                window.code_FINAL_happened = true;
+                                window.all_code_happened = true;
+                        	}
+                    	}
+                    }
+                }, 2 * 1000); // 60 * 1000 milsec
+            </script>
 
 	</body>
 </html>
+
+
+
+
+
+
+
