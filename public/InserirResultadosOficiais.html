@@ -1,0 +1,2073 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Inserir Resultados Oficiais</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+
+        <style>
+            input[type=date]{
+                width: 60%;
+                height: 1%;
+                padding: 6px 10px;
+                margin: 1px 10;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                margin-top: 0.25rem;
+            }
+            table.matchtable {
+                width:100%;
+                background-color:#FFFFFF;
+                border-collapse:collapse;border-width:1px;
+                border-color:#FFFFFF;
+                border-style:solid;
+                color:#353535;
+                }
+
+                table.matchtable td, table.matchtable th {
+                border-width:1px;
+                border-color:#FFFFFF;
+                border-style:solid;
+                padding:2px;
+                }
+
+                table.matchtable thead {
+                background-color:#FFFFFF;
+                }
+                input[type=number] {
+                    width: 60%;
+                    height: 1%;
+                    padding: 0.1rem 0.1rem;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    text-align: center;
+                    font-size: 1.6rem;
+                }
+        </style>
+    </head>
+
+    <body class="is-preload">
+
+        <!-- Header -->
+            <header id="header">
+                <a class="logo" href="TelaInicial.html">Bolão da Copa 2018</a>
+                <nav>
+                    <a href="#menu">Menu</a>
+                </nav>
+            </header>
+
+        <!-- Nav -->
+            <nav id="menu">
+                <ul class="links">
+                    <li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
+                    <li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>
+                    <li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
+                    <li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
+                    <li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
+                    <li><a class="fa fa-sign-out" href="#" onclick='firebaseSignOut()' >&nbsp; LOGOUT</a></li>
+                </ul>
+            </nav>
+
+        <!-- Heading -->
+            <div id="heading" >
+                <section>
+                    <h1>Inserir Resultados Oficiais</h1>
+                    <h4>Apenas para o administrador do Bolão</h4>
+                </section>
+                
+            </div>
+
+
+<!-- -----------------------------------------------------------TABELA DA FASE DE GRUPOS------------------------------------------------------- -->
+
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>14/06/18 - Quinta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 1</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Rússia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Arábia Saudita</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj1A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj1B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj1"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>15/06/18 - Sexta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 2</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Egito</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Uruguai</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj2A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj2B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj2"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 4</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Marrocos</a>
+                                            <p></p>
+                                            <a class="button fit small">Irã</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj4A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj4B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj4"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>    
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 3</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Portugal</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Espanha</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj3A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj3B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj3"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>16/06/18 - Sábado - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 5</b></font></p>
+                                            <p><font size="0.3">7h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">França</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Austrália</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj5A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj5B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj5"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 7</b></font></p>
+                                            <p><font size="0.3">10h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Argentina</a>
+                                            <p></p>
+                                            <a class="button fit small">Islândia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj7A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj7B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj7"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 6</b></font></p>
+                                            <p><font size="0.3">13h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Peru</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Dinamarca</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj6A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj6B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj6"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 8</b></font></p>
+                                            <p><font size="0.3">16h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Croácia</a>
+                                            <p></p>
+                                            <a class="button fit small">Nigéria</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj8A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj8B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj8"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>17/06/18 - Domingo - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 10</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Costa Rica</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Sérvia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj10A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj10B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj10"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 11</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo F</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Alemanha</a>
+                                            <p></p>
+                                            <a class="button fit small">México</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj11A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj11B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj11"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 9</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Brasil</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Suíça</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj9A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj9B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj9"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>18/06/18 - Segunda - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 12</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo F</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Suécia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Coréia do Sul</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj12A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj12B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj12"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 13</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Bélgica</a>
+                                            <p></p>
+                                            <a class="button fit small">Panamá</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj13A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj13B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj13"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>    
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 14</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Tunísia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Inglaterra</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj14A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj14B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj14"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>19/06/18 - Terça - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 16</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Colômbia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Japão</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj16A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj16B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj16"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 15</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Polônia</a>
+                                            <p></p>
+                                            <a class="button fit small">Senegal</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj15A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj15B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj15"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 17</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Rússia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Egito</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj17A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj17B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj17"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>20/06/18 - Quarta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 19</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Portugal</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Marrocos</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj19A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj19B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj19"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 18</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Uruguai</a>
+                                            <p></p>
+                                            <a class="button fit small">Arábia Saudita</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj18A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj18B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj18"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 20</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Irã</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Espanha</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj20A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj20B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj20"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>21/06/18 - Quinta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>   
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 22</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Dinamrca</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Austrália</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj22A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj22B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj22"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 21</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">França</a>
+                                            <p></p>
+                                            <a class="button fit small">Peru</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj21A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj21B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj21"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 23</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Argentina</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Croácia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj23A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj23B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj23"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>22/06/18 - Sexta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 25</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Brasil</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Costa Rica</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj25A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj25B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj25"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 24</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Nigéria</a>
+                                            <p></p>
+                                            <a class="button fit small">Islândia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj24A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj24B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj24"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 26</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Sérvia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Suíça</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj26A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj26B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj26"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>23/06/18 - Sábado - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 29</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Bélgica</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Tunísia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj29A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj29B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj29"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>    
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 28</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo F</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Coréia do Sul</a>
+                                            <p></p>
+                                            <a class="button fit small">México</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj28A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj28B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj28"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 27</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo F</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Alemanha</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Suécia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj27A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj27B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj27"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>24/06/18 - Domingo - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 30</b></font></p>
+                                            <p><font size="0.3">9h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Inglaterra</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Panamá</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj30A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj30B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj30"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 32</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Japão</a>
+                                            <p></p>
+                                            <a class="button fit small">Senegal</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj32A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj32B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj32"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>    
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 31</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Polônica</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Colômbia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj31A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj31B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj31"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>    
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>25/06/18 - Segunda - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 33</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Uruguai</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Rússia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj33A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj33B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj33"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 34</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo A</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Arábia Saudita</a>
+                                            <p></p>
+                                            <a class="button fit small">Egito</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj34A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj34B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj34"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 36</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Espanha</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Marrocos</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj36A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj36B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj36"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 35</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo B</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Irã</a>
+                                            <p></p>
+                                            <a class="button fit small">Portugal</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj35A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj35B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj35"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>26/06/18 - Terça - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 37</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Dinamarca</a>
+                                            <p></p>
+                                            <a class="button primary fit small">França</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj37A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj37B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj37"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 38</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo C</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Austrália</a>
+                                            <p></p>
+                                            <a class="button fit small">Peru</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj38A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj38B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj38"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 39</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Nigéria</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Argentina</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj39A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj39B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj39"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 40</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo D</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Islândia</a>
+                                            <p></p>
+                                            <a class="button fit small">Croácia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj40A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj40B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj40"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>27/06/18 - Quarta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 43</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo F</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Coréia do Sul</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Alemanha</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj43A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj43B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj43"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 44</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">México</a>
+                                            <p></p>
+                                            <a class="button fit small">Suécia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj44A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj44B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj44"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 41</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Sérvia</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Brasil</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj41A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj41B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj41"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 42</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo E</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Suíca</a>
+                                            <p></p>
+                                            <a class="button fit small">Costa Rica</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj42A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj42B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj42"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>28/06/18 - Quinta - Grupos</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 47</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Japão</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Polônica</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj47A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj47B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj47"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 48</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">Grupo H</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Senegal</a>
+                                            <p></p>
+                                            <a class="button fit small">Colômbia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj48A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj48B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj48"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 45</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">Inglaterra</a>
+                                            <p></p>
+                                            <a class="button primary fit small">Bélgica</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj45A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj45B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj45"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 46</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">Grupo G</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">Panamá</a>
+                                            <p></p>
+                                            <a class="button fit small">Tunísia</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj46A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj46B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj46"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>30/06/18 - Sábado - Oitavas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 50</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">1ºC x 2ºD</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj50A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj50B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj50"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 49</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">1ºA x 2ºB</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj49A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj49B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj49"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>01/07/18 - Domingo - Oitavas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 51</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">1ºB x 2ºA</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj51A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj51B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj51"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 52</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">1ºD x 2ºC</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj52A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj52B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj52"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>02/07/18 - Segunda - Oitavas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 53</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">1ºE x 2ºF</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj53A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj53B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj53"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 54</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">1ºG x 2ºH</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj54A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj54B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj54"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>03/07/18 - Terça - Oitavas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 55</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">1ºF x 2ºE</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj55A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj55B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj55"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 56</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">1ºH x 2ºG</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj56A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj56B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj56"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>06/07/18 - Sexta - Quartas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 57</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">VJ49 x VJ50</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj57A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj57B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj57"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 58</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">VJ53 x VJ54</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj58A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj58B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj58"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>07/07/18 - Sábado - Quartas</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 60</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">VJ55 x VJ56</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj60A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj60B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj60"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 59</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">VJ51 x VJ52</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button fit small">-</a>
+                                            <p></p>
+                                            <a class="button fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj59A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj59B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj59"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>10/07/18 - Terça - Semi</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 61</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">VJ57 x VJ58</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj61A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj61B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj61"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>11/07/18 - Quarta - Semi</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 62</b></font></p>
+                                            <p><font size="0.3">15h</font></p>
+                                            <p><font size="0.3">VJ59 x VJ60</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj62A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj62B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj62"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>14/07/18 - Sábado - Terceiro</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 63</b></font></p>
+                                            <p><font size="0.3">11h</font></p>
+                                            <p><font size="0.3">PJ61 x PJ62</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj63A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj63B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <p><input type="submit" value="Enviar" class="button fit small"id = "oj63"/></p>
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <header align="center">
+                                <h3><b>15/07/18 - Quarta - Final</b></h3>
+                                <hr>
+                            </header>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                    <form>    
+                                        <td width="25%" align="center">
+                                            <p><font size="0.6"><b>Jogo 64</b></font></p>
+                                            <p><font size="0.3">12h</font></p>
+                                            <p><font size="0.3">VJ61 x VJ62</font></p>
+                                        </td>
+                                        <td width="45%">
+                                            <a class="button primary fit small">-</a>
+                                            <p></p>
+                                            <a class="button primary fit small">-</a>
+                                        </td>
+                                        <td width="10%">
+                                            <p> </p>
+                                            <input type="number" id="oj64A" style="width:35px" min="0" required>
+                                            <p> </p>
+                                            <input type="number" id="oj64B" style="width:35px" min="0" required>
+                                        </td>
+                                        <td width="20%" align="center">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Enviar" class="button fit small" id = "oj64"/></li>
+                                            </ul>
+                                            <!--<p><input type="submit" value="Enviar" class="button fit small"id = "oj64"/></p>-->
+                                            <p><font color="blue">- x -</font></p>
+                                        </td>
+                                    </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <div class="content">
+                        <section>
+                            <h4>Sobre o Bolão</h4>
+                            <p>O Bolão da Copa foi criado sem fins lucrativos, com o objetivo de entreter um grupo de amigos e tornar a experiencia de assistir a Copa do Mundo 2018 ainda mais interessante. A forma de pontuação foi reformulada e pode ser conhecida nas <a href="Regras.html"><u>regras</u></a>. Além disso, a ideia da tabela de classificação de todos os apostadores trás uma competitividade bacana para o bolão! Boa Sorte!</p>
+                        </section>
+                        <section>
+                            <h5>Dúvidas?</h5>
+                            <ul class="alt">
+                                <li>Mande a pergunta para majoaovitor@gmail.com</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h4>Redes Sociais</h4>
+                            <ul class="plain">
+                                <!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
+                                <li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i>João Vítor</a></li>
+                                <li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i>Rafael</a></li>
+                                <li><a href="https://www.facebook.com/hsbrighenti"><i class="icon fa-facebook">&nbsp;</i>Henrique</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="copyright">
+                        &copy; <a href="https://www.facebook.com/joao.vitor.27">Joao Vitor</a> feat. <a href="https://www.facebook.com/rafael.ramos.752861" >Rafael Ramos</a>. e  <a href="https://www.facebook.com/hsbrighenti" >Henrique Brighenti</a>.
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+            <script src="assets/js/firebase.js"></script>
+            
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
+</html>

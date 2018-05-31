@@ -138,6 +138,67 @@
 				    table.deleteRow(rowCount-1);
 				}
 			</script>
+			<script>
+				//Organiza os participantes em ordem alfabetica
+				setInterval(function() {
+				  if (typeof code_happened === 'undefined') {
+					 	var table, rows, switching, i, x, y, shouldSwitch;
+					    table = document.getElementById("participantes");
+					    switching = true;
+					    /*Make a loop that will continue until
+					    no switching has been done:*/
+					    while (switching) {
+					    	//start by saying: no switching is done:
+					    	switching = false;
+					    	rows = table.getElementsByTagName("TR");
+					    	/*Loop through all table rows (except the
+					    	first, which contains table headers):*/
+					    	for (i = 1; i < (rows.length - 1); i++) {
+					      		//start by saying there should be no switching:
+					      		shouldSwitch = false;
+					      		/*Get the two elements you want to compare,
+					      		one from current row and one from the next:*/
+					      		x = rows[i].getElementsByTagName("TD")[1];
+					      		y = rows[i + 1].getElementsByTagName("TD")[1];
+					      		//check if the two rows should switch place:
+					      		if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					        		//if so, mark as a switch and break the loop:
+							        shouldSwitch = true;
+							        break;
+							    }
+					    	}
+					    	if (shouldSwitch) {
+					      		/*If a switch has been marked, make the switch
+					      		and mark that a switch has been done:*/
+					      		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					      		switching = true;
+					    	}
+					    	window.code_happened = true;
+					    	//seta o ID corretamente da tabela de participantes
+				  			for (i = 1; i < (rows.length - 1); i++) {
+					      		rows[i].getElementsByTagName("TD")[0] = i;
+					    	}
+				  		}
+				    }
+				}, 2 * 1000); // 60 * 1000 milsec
+			</script>
+			<script>
+				//Organiza o ID dos participantes em ordem crescente
+				setInterval(function() {
+				  if (typeof organizedID === 'undefined') {
+					 	var table, rows;
+					    table = document.getElementById("participantes");
+					    rows = table.getElementsByTagName("TR");
+				    	window.organizedID = true;
+				    	//seta o ID corretamente da tabela de participantes
+			  			console.log("vou organizar ID");
+			  			for (i = 1; i < (rows.length); i++) {
+				      		rows[i].getElementsByTagName("TD")[0].innerHTML = i;
+				    	}
+
+				    }
+				}, 2.2 * 1000); // 60 * 1000 milsec
+			</script>
 
 	</body>
 </html>
