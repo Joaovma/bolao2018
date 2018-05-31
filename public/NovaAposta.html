@@ -1891,7 +1891,7 @@
                     <div class="inner">
                         <div class="content">
                             <ul class="actions">
-                                <li><input type="submit" value="ENVIAR APOSTA" class="primary" /></li>
+                                <li><input type="submit" value="ENVIAR APOSTA" class="primary" id = "EnviarApostaEtapa1"/></li>
                                 <li><p style="text-align: center;   font-size:1.2; margin-top:5px;color:blue;" >Você pode enviar novamente a aposta caso decida mudar algum placar ou seleção classificada! </p></li>
                                 <li><p style="text-align: center;   font-size:1.2; margin-top:5px;color:red;" >Tempo Restante para fechamento da aposta da fase anterior ao inicio da Copa!  ( ainda poderá ser apostado os placares dos jogos após a fase de grupos!  Fique ligado! ): </p></li>
                                 <li><p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_ApostaInicial"></p>
@@ -1982,6 +1982,7 @@
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             <script>
+                //script para estruturar a aposta e envia-la para o firebase
                 const element = document.querySelector('form');
                 element.addEventListener('submit', function (e) {
                     e.preventDefault();
@@ -2020,13 +2021,7 @@
                 });
             </script>
             <script>
-                function toast(snackbar) {
-                    var x = document.getElementById(snackbar);
-                    x.className = "show";
-                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-                }
-            </script>
-            <script>
+                // Script para passar uma option de um select para o outro
                 for (var i = 49; i <= 64; i++) {
                     var idJogo = 'j' + i;
                     var vencedorID = 'v' + idJogo;
@@ -2066,6 +2061,46 @@
                             //do nothing
                         }
                     });
+                }
+            </script>
+            
+            <script>
+                //Script para detectar fim do periodo de apostas com base na data da variavel dataLimiteEtapa1 
+                setInterval(function() {
+                    if (typeof code_happened === 'undefined') {
+                        //var dataLimiteEtapa1 = new Date("Jun 14, 2018 11:00:00"); 
+                        var dataLimiteEtapa1 = new Date("May 31, 2018 00:41:00"); //para teste
+                        var thisYear = new Date().getFullYear();
+                        var thisMonth = new Date().getMonth();
+                        var thisDay = new Date().getDate();
+                        var thisHour = new Date().getHours();
+                        var thisMin = new Date().getMinutes();
+
+                        console.log("executando verificacao de fim de aposta");
+                        if ( thisYear >= (dataLimiteEtapa1.getFullYear())  ){
+                            if ( thisMonth >= (dataLimiteEtapa1.getMonth()) ){
+                                if ( thisDay >= (dataLimiteEtapa1.getDate()) ){
+                                    if ( thisHour >= (dataLimiteEtapa1.getHours()) ){
+                                        if ( thisMin >= (dataLimiteEtapa1.getMinutes()) ){
+                                            console.log("Detectado fim do periodo de apostas!");
+                                            document.getElementById("EnviarApostaEtapa1").disabled = true;
+                                            document.getElementById("EnviarApostaEtapa1").value = "APOSTA ENCERRADA";
+                                            window.code_happened = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }, 2 * 1000); // 60 * 1000 milsec
+            </script>
+            <script>
+                //Script para mostrar os toast (mensagens de aposta enviada ou erro ao enviar aposta)
+                function toast(snackbar) {
+                    var x = document.getElementById(snackbar);
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                 }
             </script>
     </body>
