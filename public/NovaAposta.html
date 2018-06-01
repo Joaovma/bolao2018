@@ -1447,15 +1447,15 @@
                                                 <p><font size="1"><b>2º B</b></font></p>
                                             </td>
                                             <td width="40%">
-                                                <a class="button primary fit small" id="time1A">-</a>
+                                                <a class="button primary fit small" id="time1A">Brasil</a>
                                                 <p></p>
-                                                <a class="button primary fit small" id="time2B">-</a>
+                                                <a class="button primary fit small" id="time2B">Espanha</a>
                                             </td>
                                             <td width="30%">
                                                 <select name="category" id="vj49" required>
                                                     <option value=""> - </option>
-                                                    <option value="timeA">-</option>
-                                                    <option value="timeB">-</option>
+                                                    <option value="timeA">Brasil</option>
+                                                    <option value="timeB">Espanha</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -1994,7 +1994,7 @@
                         var thisHour = new Date().getHours();
                         //var thisMin = new Date().getMinutes();
 
-                        console.log("executando verificacao de fim de aposta");
+                        //console.log("executando verificacao de fim de aposta");
                         if ( thisYear >= (dataLimiteEtapa1.getFullYear())  && thisMonth >= (dataLimiteEtapa1.getMonth()) && thisDay >= (dataLimiteEtapa1.getDate()) && thisHour >= (dataLimiteEtapa1.getHours()) ){
                                 console.log("Detectado fim do periodo de apostas!");
                                 document.getElementById("EnviarApostaEtapa1").disabled = true;
@@ -2032,7 +2032,8 @@
                                 jogo[vencedorID] = 'timeB';
                             }
                         } else {
-                            jogo[vencedorID] = submittingForm.elements[vencedorID].value;
+                            jogo[vencedorID] = submittingForm.elements[vencedorID].options[submittingForm.elements[vencedorID].selectedIndex].innerHTML;
+                            //jogo[vencedorID] = submittingForm.elements[vencedorID].value;
                         }
                     }
                     //condicao pra aposta ser enviada é estar dentro da data limite!
