@@ -1,0 +1,182 @@
+{
+    "etapa1" : {
+      "oj1" : {
+        "oj1A" : "2",
+        "oj1B" : "2",
+        "voj1" : "E"
+      },
+      "oj10" : {
+        "oj10A" : "2",
+        "oj10B" : "1",
+        "voj10" : "timeA"
+      },
+      "oj11" : {
+        "oj11A" : "2",
+        "oj11B" : "1",
+        "voj11" : "timeA"
+      },
+      "oj12" : {
+        "oj12A" : "2",
+        "oj12B" : "1",
+        "voj12" : "timeA"
+      },
+      "oj13" : {
+        "oj13A" : "2",
+        "oj13B" : "1",
+        "voj13" : "timeA"
+      },
+      "oj14" : {
+        "oj14A" : "2",
+        "oj14B" : "1",
+        "voj14" : "timeA"
+      },
+      "oj15" : {
+        "oj15A" : "3",
+        "oj15B" : "2",
+        "voj15" : "timeA"
+      },
+      "oj16" : {
+        "oj16A" : "2",
+        "oj16B" : "1",
+        "voj16" : "timeA"
+      },
+      "oj17" : {
+        "oj17A" : "3",
+        "oj17B" : "3",
+        "voj17" : "E"
+      },
+      "oj18" : {
+        "oj18A" : "3",
+        "oj18B" : "3",
+        "voj18" : "E"
+      },
+      "oj19" : {
+        "oj19A" : "3",
+        "oj19B" : "2",
+        "voj19" : "timeA"
+      },
+      "oj2" : {
+        "oj2A" : "1",
+        "oj2B" : "2",
+        "voj2" : "timeB"
+      },
+      "oj20" : {
+        "oj20A" : "32",
+        "oj20B" : "3",
+        "voj20" : "timeA"
+      },
+      "oj21" : {
+        "oj21A" : "3",
+        "oj21B" : "2",
+        "voj21" : "timeA"
+      },
+      "oj22" : {
+        "oj22A" : "3",
+        "oj22B" : "2",
+        "voj22" : "timeA"
+      },
+      "oj23" : {
+        "oj23A" : "3",
+        "oj23B" : "2",
+        "voj23" : "timeA"
+      },
+      "oj24" : {
+        "oj24A" : "3",
+        "oj24B" : "2",
+        "voj24" : "timeA"
+      },
+      "oj25" : {
+        "oj25A" : "3",
+        "oj25B" : "2",
+        "voj25" : "timeA"
+      },
+      "oj26" : {
+        "oj26A" : "3",
+        "oj26B" : "2",
+        "voj26" : "timeA"
+      },
+      "oj27" : {
+        "oj27A" : "3",
+        "oj27B" : "4",
+        "voj27" : "timeB"
+      },
+      "oj28" : {
+        "oj28A" : "3",
+        "oj28B" : "1",
+        "voj28" : "timeA"
+      },
+      "oj29" : {
+        "oj29A" : "3",
+        "oj29B" : "2",
+        "voj29" : "timeA"
+      },
+      "oj3" : {
+        "oj3A" : "12",
+        "oj3B" : "2",
+        "voj3" : "timeA"
+      },
+      "oj30" : {
+        "oj30A" : "5",
+        "oj30B" : "5",
+        "voj30" : "E"
+      },
+      "oj31" : {
+        "oj31A" : "6",
+        "oj31B" : "43",
+        "voj31" : "timeB"
+      },
+      "oj32" : {
+        "oj32A" : "6",
+        "oj32B" : "5",
+        "oquartas1" : "Japão",
+        "oquartas2" : "Colômbia",
+        "oquartas3" : "Senegal",
+        "oquartas4" : "Polônia",
+        "oquartas5" : "Polônia",
+        "voj32" : "timeA"
+      },
+      "oj4" : {
+        "oj4A" : "1",
+        "oj4B" : "2",
+        "voj4" : "timeB"
+      },
+      "oj44" : {
+        "campeao" : "Colômbia",
+        "oj44A" : "5",
+        "oj44B" : "4",
+        "terceiro" : "Senegal",
+        "vice" : "Japão",
+        "voj44" : "timeA"
+      },
+      "oj47" : {
+        "oj47A" : "3",
+        "oj47B" : "4",
+        "voj47" : "timeB"
+      },
+      "oj5" : {
+        "oj5A" : "1",
+        "oj5B" : "2",
+        "voj5" : "timeB"
+      },
+      "oj6" : {
+        "oj6A" : "1",
+        "oj6B" : "2",
+        "voj6" : "timeB"
+      },
+      "oj7" : {
+        "oj7A" : "1",
+        "oj7B" : "2",
+        "voj7" : "timeB"
+      },
+      "oj8" : {
+        "oj8A" : "2",
+        "oj8B" : "21",
+        "voj8" : "timeB"
+      },
+      "oj9" : {
+        "oj9A" : "2",
+        "oj9B" : "1",
+        "voj9" : "timeA"
+      }
+    }
+  }
