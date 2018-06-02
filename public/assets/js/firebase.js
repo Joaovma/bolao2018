@@ -51,7 +51,7 @@ function firebaseSaveBet(aposta) {
             resolve('sucesso');
         })
         .catch ( function () {
-            //console.log('Write failure!'); 
+            //console.log('Write failure!');
             reject('falha');
         });
     });
@@ -63,13 +63,13 @@ function firebaseSaveOficialResult(resultado) {
     const falha = 0;
     ResultadoSalvo = new Promise(
         function (resolve, reject) {
-        databaseBolao.ref('oficial/' + 'etapa1').set(resultado)
+        databaseBolao.ref('oficial/' + 'etapa1').update(resultado)
         .then ( function(){
             //console.log('Write succeeded!');
             resolve('sucesso');
         })
         .catch ( function () {
-            //console.log('Write failure!'); 
+            //console.log('Write failure!');
             reject('falha');
         });
     });
