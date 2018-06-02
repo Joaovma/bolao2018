@@ -1,0 +1,11 @@
+Rodar Firebase Functions localmente:
+
+- Executar dentro da pasta functions o comando:
+
+firebase functions:shell
+
+- Executar depois a linha:
+
+var data1 = require('./etc/oficial-sample1.json'); var data2 = require('./etc/oficial-sample2.json'); calculaPontuacao({before: data1, after: data2});
+
+- Ver resultado no banco de dados
