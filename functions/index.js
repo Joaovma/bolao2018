@@ -63,13 +63,13 @@ function calculaFaseGrupos(oficial, usuario) {
             var oquemGanhou = oficial.etapa1[real][oprognostico];
             
             //verifica a pontuacao
-            if ( golsA == ogolsA && golsB == ogolsB ) {
+            if ( golsA === ogolsA && golsB === ogolsB ) {
                 pontuacaoTotal = pontuacaoTotal + 10;
                 pontuacaoPorJogo[i] = 10;
                 //console.log('10pts');
             }
-            else if ( quemGanhou == oquemGanhou ) {
-                if( golsA == ogolsA || golsB == ogolsB ){
+            else if ( quemGanhou === oquemGanhou ) {
+                if( golsA === ogolsA || golsB === ogolsB ){
                     pontuacaoTotal = pontuacaoTotal + 7;
                     pontuacaoPorJogo[i] = 7;
                     //console.log('7pts');
@@ -80,7 +80,7 @@ function calculaFaseGrupos(oficial, usuario) {
                     //console.log('5pts');
                 }
             }
-            else if ( golsA == ogolsA || golsB == ogolsB ) {
+            else if ( golsA === ogolsA || golsB === ogolsB ) {
                 pontuacaoTotal = pontuacaoTotal + 2;
                 pontuacaoPorJogo[i] = 2;
                 //console.log('2pts');
@@ -91,6 +91,7 @@ function calculaFaseGrupos(oficial, usuario) {
                 pontuacaoPorJogo[i] = 0;
             }
         }
+        /*
         else if (i>48 && i<=56) {
 
         }
@@ -100,12 +101,13 @@ function calculaFaseGrupos(oficial, usuario) {
         else if (i>60 && i<=62 ) {
 
         }
-        else if (i == 63) {
+        else if (i === 63) {
 
         }
-        else if (i == 64) {
+        else if (i === 64) {
 
         }
+        */
     }
     console.log(pontuacaoPorJogo);
     console.log(pontuacaoTotal);
@@ -114,13 +116,13 @@ function calculaFaseGrupos(oficial, usuario) {
 
 function somaPontuacaoTotal(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuartas,
     pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal) {
-    return pontuacaoFaseGrupos + pontuacaoOitavas + pontuacaoQuartas +
-        pontuacaoSemi + pontuacaoTerceiro + pontuacaoFinal;
+    var somaTotal = pontuacaoFaseGrupos + pontuacaoOitavas + pontuacaoQuartas + pontuacaoSemi + pontuacaoTerceiro + pontuacaoFinal;
+    return somaTotal;
 }
 
 function geraClassificacao(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuartas,
     pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal, pontuacaoTotal) {
-    return pontuacaoFaseGrupos + (pontuacaoOitavas * 1e3) + (pontuacaoQuartas * 1e6) +
-        (pontuacaoSemi * 1e9) + (pontuacaoTerceiro * 1e12) +
-        (pontuacaoFinal * 1e15) + (pontuacaoTotal * 1e18);
+    var pesoClassificação = (pontuacaoTotal * 1e18) + (pontuacaoFinal * 1e15) + (pontuacaoTerceiro * 1e12) + (pontuacaoSemi * 1e9) + (pontuacaoQuartas * 1e6) + (pontuacaoOitavas * 1e3) +  pontuacaoFaseGrupos;
+    return pesoClassificação;
+
 }

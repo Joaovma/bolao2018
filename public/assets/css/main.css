@@ -665,9 +665,9 @@ table {
       border-top: 0; }
 
 table tbody tr {
-  border-color: rgba(53, 53, 53, 0.25); }
+  /*border-color: rgba(53, 53, 53, 0.25);*/ }
   table tbody tr:nth-child(2n + 1) {
-    background-color: rgba(53, 53, 53, 0.075); }
+    /*background-color: rgba(53, 53, 53, 0.075);*/ }
 table th {
   color: #555555; }
 table thead {

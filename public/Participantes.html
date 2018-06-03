@@ -8,6 +8,11 @@
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<style> 
+  		.even{background-color: white;} 
+  		.odd{background-color: rgba(53, 53, 53, 0.1);}
+  		.premio{background-color: #b3cccc;}
+	</style>
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -44,8 +49,8 @@
 										<table class="alt" id="participantes">
 											<thead align="center">
 												<tr>
-													<td><b>ID</b></td>
-													<td><b>Participante</b></td>
+													<td bgcolor="#00798C"><b><font color="white">ID</font></b></td>
+													<td bgcolor="#00798C"><b><font color="white">Participantes</font></b></td>
 												</tr>
 											</thead>
 											<tbody align="center">
@@ -55,10 +60,6 @@
 												</tr>
 											</tbody>
 											<tfoot>
-												<!--<tr>
-													<td colspan="2"></td>
-													<td>360.00</td>
-												</tr>-->
 											</tfoot>
 										</table>
 									</div>
@@ -197,7 +198,26 @@
 				    	}
 
 				    }
+				    alternate("participantes");
 				}, 2.2 * 1000); // 60 * 1000 milsec
+			</script>
+			<script type="text/javascript">
+				function alternate(id){ 
+				  if(document.getElementsByTagName){  
+				    var table = document.getElementById(id);   
+				    var rows = table.getElementsByTagName("tr");   
+				    for(i = 1; i < rows.length; i++){           
+				  //manipulate rows 
+				      if(i % 2 == 0){ 
+				        rows[i].className = "even";
+				        rows[i].border = "10";  
+				      }else{ 
+				        rows[i].className = "odd";
+				        rows[i].border = "10"; 
+				      }       
+				    } 
+				  }
+				}
 			</script>
 
 	</body>
