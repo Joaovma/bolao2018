@@ -9,7 +9,8 @@ exports.calculaPontuacao = functions.database.ref('/oficial').onWrite((change, c
         snap.forEach((childNode) => {
             var aposta = childNode.val();
             var pontuacaoFaseGrupos = calculaFaseGrupos(oficial, aposta);
-            var pontuacaoOitavas = 0;
+            var pontuacaoPorJogoFaseGrupos = calculaPontuacaoPorJogoGrupos(oficial, aposta);
+            var pontuacaoOitavas = calculaOitavas(oficial, aposta);
             var pontuacaoQuartas = 0;
             var pontuacaoSemi = 0;
             var pontuacaoTerceiro = 0;
@@ -34,6 +35,7 @@ exports.calculaPontuacao = functions.database.ref('/oficial').onWrite((change, c
     });
 });
 
+
 function calculaFaseGrupos(oficial, usuario) {
     var pontuacaoTotal = 0;
     var pontuacaoPorJogo = new Array(48);
@@ -54,7 +56,7 @@ function calculaFaseGrupos(oficial, usuario) {
             var golsB = usuario.etapa1[bet][timeB];
             var quemGanhou = usuario.etapa1[bet][prognostico];
 
-            //coleta dados do oficial
+            //coleta dados do oficial - fase de grupos
             var otimeA = real + 'A';
             var otimeB = real + 'B';
             var oprognostico = 'v' + real;
@@ -91,10 +93,11 @@ function calculaFaseGrupos(oficial, usuario) {
                 pontuacaoPorJogo[i] = 0;
             }
         }
-        /*
+        
         else if (i>48 && i<=56) {
 
         }
+        /*
         else if (i>56 && i<=60) {
 
         }
@@ -114,6 +117,96 @@ function calculaFaseGrupos(oficial, usuario) {
     return pontuacaoTotal;
 }
 
+function calculaPontuacaoPorJogoGrupos(oficial, usuario) {
+    var pontuacaoTotal = 0;
+    var pontuacaoPorJogo = new Array(48);
+
+
+    //console.log(  usuario );
+    for(i = 1; i<=48; i++){
+        var bet = 'j' + i;
+        var real = 'oj' + i; 
+
+        //coleta dados da aposta
+        var timeA = bet + 'A';
+        var timeB = bet + 'B';
+        var prognostico = 'v' + bet;
+        var golsA = usuario.etapa1[bet][timeA];
+        var golsB = usuario.etapa1[bet][timeB];
+        var quemGanhou = usuario.etapa1[bet][prognostico];
+
+        //coleta dados do oficial - fase de grupos
+        var otimeA = real + 'A';
+        var otimeB = real + 'B';
+        var oprognostico = 'v' + real;
+        var ogolsA = oficial.etapa1[real][otimeA];
+        var ogolsB = oficial.etapa1[real][otimeB];
+        var oquemGanhou = oficial.etapa1[real][oprognostico];
+        
+        //verifica a pontuacao
+        if ( golsA === ogolsA && golsB === ogolsB ) {
+            pontuacaoTotal = pontuacaoTotal + 10;
+            pontuacaoPorJogo[i] = 10;
+            //console.log('10pts');
+        }
+        else if ( quemGanhou === oquemGanhou ) {
+            if( golsA === ogolsA || golsB === ogolsB ){
+                pontuacaoTotal = pontuacaoTotal + 7;
+                pontuacaoPorJogo[i] = 7;
+                //console.log('7pts');
+            }
+            else {
+                pontuacaoTotal = pontuacaoTotal + 5;
+                pontuacaoPorJogo[i] = 5;
+                //console.log('5pts');
+            }
+        }
+        else if ( golsA === ogolsA || golsB === ogolsB ) {
+            pontuacaoTotal = pontuacaoTotal + 2;
+            pontuacaoPorJogo[i] = 2;
+            //console.log('2pts');
+        }
+        else{
+            //console.log('0pts');
+            pontuacaoTotal = pontuacaoTotal + 0;
+            pontuacaoPorJogo[i] = 0;
+        }
+    }
+    //console.log(pontuacaoPorJogo);
+    //console.log(pontuacaoTotal);
+    return pontuacaoPorJogo;
+}
+
+function calculaOitavas(oficial, usuario) {
+    var pontuacaoTotal = 0;
+    var pontuacaoPorClassificadoOitavas = new Array(15);
+
+    for (i=1; i<17; i++){
+        var bet = 'oitavas' + i;
+        var real = bet;
+
+        var selecaoClassificadaAposta = usuario.etapa1[bet][bet];
+        console.log('selecaoClassificadaAposta:' + selecaoClassificadaAposta);
+        var selecaoClassificadaOficial = oficial.etapa1[real][real];
+        console.log('selecaoClassificadaOficial:' + selecaoClassificadaOficial);
+
+        //verifica a pontuacao
+        if (selecaoClassificadaAposta === selecaoClassificadaOficial){
+            console.log('selecao igual' + i);
+            pontuacaoTotal = pontuacaoTotal + 5;
+            pontuacaoPorClassificadoOitavas[i] = 5;
+        }
+        else{
+            console.log('selecao direferente' + i);
+            pontuacaoTotal = pontuacaoTotal + 0;
+            pontuacaoPorClassificadoOitavas[i] = 0;
+        }
+    }
+    console.log('pontuacaoTotal' + pontuacaoTotal);
+    return pontuacaoTotal;
+}
+
+
 function somaPontuacaoTotal(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuartas,
     pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal) {
     var somaTotal = pontuacaoFaseGrupos + pontuacaoOitavas + pontuacaoQuartas + pontuacaoSemi + pontuacaoTerceiro + pontuacaoFinal;
@@ -123,7 +216,7 @@ function somaPontuacaoTotal(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuar
 function geraClassificacao(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuartas,
     pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal, pontuacaoTotal) {
     console.log()
-    var pesoClassificação = (pontuacaoTotal * 1e10) + (pontuacaoFinal * 1e9) + (pontuacaoTerceiro * 1e8) + (pontuacaoSemi * 1e7) + (pontuacaoQuartas * 1e5) + (pontuacaoOitavas * 1e3) +  pontuacaoFaseGrupos;
+    var pesoClassificação = (pontuacaoTotal * 1e15) + (pontuacaoFinal * 1e11) + (pontuacaoTerceiro * 1e9) + (pontuacaoSemi * 1e7) + (pontuacaoQuartas * 1e5) + (pontuacaoOitavas * 1e3) +  pontuacaoFaseGrupos;
     console.log(pesoClassificação);
     return pesoClassificação;
 

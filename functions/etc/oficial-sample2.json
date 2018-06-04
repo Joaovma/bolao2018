@@ -1,5 +1,57 @@
+
 {
     "etapa1" : {
+      "campeao" : {
+        "campeao" : "Japão"
+      },
+      "oitavas1" : {
+        "oitavas1" : "Egito"
+      },
+      "oitavas10" : {
+        "oitavas10" : "Portugal"
+      },
+      "oitavas11" : {
+        "oitavas11" : "Austrália"
+      },
+      "oitavas12" : {
+        "oitavas12" : "Croácia"
+      },
+      "oitavas13" : {
+        "oitavas13" : "Costa Rica"
+      },
+      "oitavas14" : {
+        "oitavas14" : "México"
+      },
+      "oitavas15" : {
+        "oitavas15" : "Inglaterra"
+      },
+      "oitavas16" : {
+        "oitavas16" : "Polônia"
+      },
+      "oitavas2" : {
+        "oitavas2" : "Espanha"
+      },
+      "oitavas3" : {
+        "oitavas3" : "França"
+      },
+      "oitavas4" : {
+        "oitavas4" : "Argentina"
+      },
+      "oitavas5" : {
+        "oitavas5" : "Brasil"
+      },
+      "oitavas6" : {
+        "oitavas6" : "Alemanha"
+      },
+      "oitavas7" : {
+        "oitavas7" : "Bélgica"
+      },
+      "oitavas8" : {
+        "oitavas8" : "Colômbia"
+      },
+      "oitavas9" : {
+        "oitavas9" : "Uruguai"
+      },
       "oj1" : {
         "oj1A" : "1",
         "oj1B" : "1",
@@ -239,6 +291,36 @@
         "oj9A" : "1",
         "oj9B" : "1",
         "voj9" : "E"
+      },
+      "quartas1" : {
+        "semi1" : "Colômbia"
+      },
+      "quartas2" : {
+        "semi2" : "Japão"
+      },
+      "quartas3" : {
+        "semi3" : "Japão"
+      },
+      "quartas4" : {
+        "semi4" : "Japão"
+      },
+      "quartas5" : {
+        "quartas5" : "Japão"
+      },
+      "quartas6" : {
+        "quartas6" : "Colômbia"
+      },
+      "quartas7" : {
+        "quartas7" : "Colômbia"
+      },
+      "quartas8" : {
+        "quartas8" : "Colômbia"
+      },
+      "terceiro" : {
+        "terceiro" : "Polônia"
+      },
+      "vice" : {
+        "vice" : "Colômbia"
       }
     }
-  }
+}
