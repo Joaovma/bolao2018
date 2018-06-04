@@ -94,9 +94,6 @@ function calculaFaseGrupos(oficial, usuario) {
             }
         }
         
-        else if (i>48 && i<=56) {
-
-        }
         /*
         else if (i>56 && i<=60) {
 
@@ -216,7 +213,7 @@ function somaPontuacaoTotal(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuar
 function geraClassificacao(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuartas,
     pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal, pontuacaoTotal) {
     console.log()
-    var pesoClassificação = (pontuacaoTotal * 1e15) + (pontuacaoFinal * 1e11) + (pontuacaoTerceiro * 1e9) + (pontuacaoSemi * 1e7) + (pontuacaoQuartas * 1e5) + (pontuacaoOitavas * 1e3) +  pontuacaoFaseGrupos;
+    var pesoClassificação = (pontuacaoTotal * 1e12) + (pontuacaoFinal * 1e11) + (pontuacaoTerceiro * 1e9) + (pontuacaoSemi * 1e7) + (pontuacaoQuartas * 1e5) + (pontuacaoOitavas * 1e3) +  pontuacaoFaseGrupos;
     console.log(pesoClassificação);
     return pesoClassificação;
 
