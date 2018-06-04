@@ -127,12 +127,7 @@
       },
       "oj32" : {
         "oj32A" : "6",
-        "oj32B" : "5",
-        "oquartas1" : "Japão",
-        "oquartas2" : "Colômbia",
-        "oquartas3" : "Senegal",
-        "oquartas4" : "Polônia",
-        "oquartas5" : "Polônia",
+        "oj32B" : "4",
         "voj32" : "timeA"
       },
       "oj4" : {
@@ -141,12 +136,9 @@
         "voj4" : "timeB"
       },
       "oj44" : {
-        "campeao" : "Colômbia",
-        "oj44A" : "5",
+        "oj44A" : "3",
         "oj44B" : "4",
-        "terceiro" : "Senegal",
-        "vice" : "Japão",
-        "voj44" : "timeA"
+        "voj44" : "timeB"
       },
       "oj47" : {
         "oj47A" : "3",
@@ -178,5 +170,9 @@
         "oj9B" : "1",
         "voj9" : "timeA"
       }
+      "quartas1" : {
+      "semi1" : "Colômbia"
+      }
+      
     }
   }
