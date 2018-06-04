@@ -2054,12 +2054,28 @@
                     var submittingForm = e.target;
                     var aposta = {};
                     var i = 1;
+                    var vetorGrupos = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
                     for (i = 1; i <= 64; i++) {
                         var idJogo = 'j' + i;
                         var apostaTimeAID = idJogo + 'A';
                         var apostaTimeBID = idJogo + 'B';
                         var vencedorID = 'v' + idJogo;
-                        var jogo = aposta[idJogo] = {}; 
+                        var jogo = aposta[idJogo] = {};
+                        if (i<17){
+                            if (i<9){
+                                var IDtimesOitavas = 'grupo' + '1' + vetorGrupos[i-1];
+                                var oitavas1 = 'oitavas' + (i);
+                                var oitavasPri = aposta[oitavas1] = {};
+                                oitavasPri[oitavas1] = submittingForm.elements[IDtimesOitavas].options[submittingForm.elements[IDtimesOitavas].selectedIndex].innerHTML;
+                            }
+                            else{
+                                var IDtimesOitavas = 'grupo' + '2' + vetorGrupos[i-9];
+                                var oitavas1 = 'oitavas' + (i);
+                                var oitavasPri = aposta[oitavas1] = {};
+                                oitavasPri[oitavas1] = submittingForm.elements[IDtimesOitavas].options[submittingForm.elements[IDtimesOitavas].selectedIndex].innerHTML;
+
+                            }
+                        }
 
 
                         if (i <= 48) {
