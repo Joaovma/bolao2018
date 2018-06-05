@@ -46,6 +46,44 @@
         <!-- ------------------------------------------TABELA DA FASE DE GRUPOS------------------------------------------ -->
 
         <!-- Main -->
+     <section id="main" class="wrapper">
+        <div class="inner">
+            <div class="content">
+                    <p style="text-align: center;   font-size:1.2; margin-top:5px;color:red;" ><font size="2">Tempo Restante para fechamento da aposta!</font></p>
+                    <font size="3"><p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_ApostaInicial"></p></font>
+                    <script>
+                    // Set the date we're counting down to
+                    var countDownDateApostaInicial = new Date("Jun 14, 2018 11:00:00").getTime(); // 1h antes do primeiro jogo das Oitavas
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                        // Get todays date and time
+                        var now = new Date().getTime();
+
+                        // Find the distance between now an the count down date
+                        var distance = countDownDateApostaInicial - now;
+
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        // Output the result in an element with id="Countdown_ApostaInicial"
+                        document.getElementById("Countdown_ApostaInicial").innerHTML = "***" + days + " dias   " + hours + " horas   "
+                        + minutes + " min   " + seconds + " seg   ";
+
+                        // If the count down is over, write some text
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("Countdown_ApostaInicial").innerHTML = "Apostas Encerradas!";
+                        }
+                    }, 1000);
+                    </script>
+            </div>
+        </div>
+     </section>
     <section id="main" class="wrapper">
         <div class="inner">
             <div class="content">
@@ -1936,41 +1974,10 @@
                                     <ul class="actions">
                                         <li><input type="submit" value="ENVIAR APOSTA" class="primary" id = "EnviarApostaEtapa1"/></li>
                                         <li><p style="text-align: center;   font-size:1.2; margin-top:5px;color:blue;" >Você pode enviar novamente a aposta caso decida mudar algum placar ou seleção classificada! </p></li>
-                                        <li><p style="text-align: center;   font-size:1.2; margin-top:5px;color:red;" >Tempo Restante para fechamento da aposta da fase anterior ao inicio da Copa!  ( ainda poderá ser apostado os placares dos jogos após a fase de grupos!  Fique ligado! ): </p></li>
-                                        <li><p style="text-align: center; margin-top:5px;color:red;"  id="Countdown_ApostaInicial"></p>
-                                        <script>
-                                        // Set the date we're counting down to
-                                        var countDownDateApostaInicial = new Date("Jun 14, 2018 11:00:00").getTime(); // 1h antes do primeiro jogo das Oitavas
-
-                                        // Update the count down every 1 second
-                                        var x = setInterval(function() {
-
-                                            // Get todays date and time
-                                            var now = new Date().getTime();
-
-                                            // Find the distance between now an the count down date
-                                            var distance = countDownDateApostaInicial - now;
-
-                                            // Time calculations for days, hours, minutes and seconds
-                                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                                            // Output the result in an element with id="Countdown_ApostaInicial"
-                                            document.getElementById("Countdown_ApostaInicial").innerHTML = "***" + days + " dias   " + hours + " horas   "
-                                            + minutes + " min   " + seconds + " seg   ";
-
-                                            // If the count down is over, write some text
-                                            if (distance < 0) {
-                                                clearInterval(x);
-                                                document.getElementById("Countdown_ApostaInicial").innerHTML = "Apostas Encerradas!";
-                                            }
-                                        }, 1000);
-                                        </script></li>
+                                        
                                     </ul>
+                                    <p align="center"><font color="red" size="1">*** Tempo contado a partir dos horas do PC ou Celular. É responsabilidade do Usuário estar com o horario do seu dispositivo devidamente acertado.</font></p>
                                 </div>
-                                <p align="center"><font color="white" size="1">*** Tempo contado a partir dos horas do PC ou Celular. É responsabilidade do Usuário estar com o horario do seu dispositivo devidamente acertado.</font></p>
                             </div>
                             <div id="snackbar_success">Aposta enviada com Sucesso!</div>
                             <div id="snackbar_failure">Falha ao enviar a aposta!</div>
