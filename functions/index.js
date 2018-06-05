@@ -169,12 +169,17 @@ function calculaPontuacaoPorJogoGrupos(oficial, usuario) {
 function calculaOitavas(oficial, usuario) {
     var pontuacaoTotal = 0;
     var pontuacaoPorClassificadoOitavas = new Array(15);
-
+    var bet1;
+    var bet2;
     for (i=1; i<=16; i++){
             
-            var bet1 = 'oitavas' + i;
-            if(i<=8)var bet2 = 'oitavas' + (i+8);
-            else var bet2 = 'oitavas' + (i-8);
+            bet1 = 'oitavas' + i;
+            if(i<=8){
+                bet2 = 'oitavas' + (i+8);
+            }
+            else{
+                bet2 = 'oitavas' + (i-8);
+            } 
             
             var real1 = bet1;
             var real2 = bet2;
@@ -205,12 +210,17 @@ function calculaOitavas(oficial, usuario) {
 function calculaPontuacaoPorClassificado_Oitavas(oficial, usuario) {
     var pontuacaoTotal = 0;
     var pontuacaoPorClassificadoOitavas = new Array(15);
-
+    var bet1;
+    var bet2;
     for (i=1; i<=16; i++){
             
-            var bet1 = 'oitavas' + i;
-            if(i<=8)var bet2 = 'oitavas' + (i+8);
-            else var bet2 = 'oitavas' + (i-8);
+            bet1 = 'oitavas' + i;
+            if(i<=8){
+                bet2 = 'oitavas' + (i+8);
+            }
+            else{
+                bet2 = 'oitavas' + (i-8);
+            } 
             
             var real1 = bet1;
             var real2 = bet2;

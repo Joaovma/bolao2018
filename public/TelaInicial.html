@@ -40,7 +40,8 @@
 			<section id="banner">
 				<div class="inner" width="100%" height="45%">
 					<img src="images/logo/logo_cinza_grande.png" alt="logo_cinza" class="responsive" >
-					<p><font size="4">Seus palpites são bons mesmo?</font></p>
+					<p><font size="4">Bem vindo </font><font id="nomeLogado" size="4"></font> !</p>
+					<p><font size="3">Seus palpites são bons mesmo?</font></p>
 				</div>
 			</section>
 
@@ -150,6 +151,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				firebaseGetUserData().then(function(usuario){
+					console.log(usuario);
+					$('#nomeLogado').html(usuario.nome);
+				})
+
+			</script>
 
 	</body>
 </html>
