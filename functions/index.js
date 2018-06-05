@@ -13,13 +13,13 @@ exports.calculaPontuacao = functions.database.ref('/oficial').onWrite((change, c
             var pontuacaoPorJogoFaseGrupos = calculaPontuacaoPorJogoGrupos(oficial, aposta);
             
             var pontuacaoOitavas = calculaOitavas(oficial, aposta);
-            var pontuacaoPorClassificadosOitavas = calculaPontuacaoPorClassificado_Oitavas(oficial, aposta);
+            //var pontuacaoPorClassificadosOitavas = calculaPontuacaoPorClassificado_Oitavas(oficial, aposta);
 
             var pontuacaoQuartas = calculaQuartas(oficial, aposta);
-            var pontuacaoPorClassificadosQuartas = calculaPontuacaoPorClassificado_Quartas(oficial, aposta);
+            //var pontuacaoPorClassificadosQuartas = calculaPontuacaoPorClassificado_Quartas(oficial, aposta);
 
             var pontuacaoSemi = calculaSemi(oficial, aposta);
-            var pontuacaoPorClassificadosSemi = calculaPontuacaoPorClassificado_Semi(oficial, aposta);
+            //var pontuacaoPorClassificadosSemi = calculaPontuacaoPorClassificado_Semi(oficial, aposta);
 
             var pontuacaoTerceiro = calculaTerceiro(oficial, aposta);
             var pontuacaoFinal = calculaFINAL(oficial, aposta);
@@ -30,6 +30,7 @@ exports.calculaPontuacao = functions.database.ref('/oficial').onWrite((change, c
                 pontuacaoSemi, pontuacaoTerceiro, pontuacaoFinal, pontuacaoTotal)
 
             db.ref('usuarios/' + childNode.key).update({
+                pontuacaoPorJogoFaseGrupos,
                 pontuacaoFaseGrupos,
                 pontuacaoOitavas,
                 pontuacaoQuartas,
@@ -136,32 +137,33 @@ function calculaPontuacaoPorJogoGrupos(oficial, usuario) {
         //verifica a pontuacao
         if ( golsA === ogolsA && golsB === ogolsB ) {
             pontuacaoTotal = pontuacaoTotal + 10;
-            pontuacaoPorJogo[i] = 10;
+            pontuacaoPorJogo[i-1] = 10;
             //console.log('10pts');
         }
         else if ( quemGanhou === oquemGanhou ) {
             if( golsA === ogolsA || golsB === ogolsB ){
                 pontuacaoTotal = pontuacaoTotal + 7;
-                pontuacaoPorJogo[i] = 7;
+                pontuacaoPorJogo[i-1] = 7;
                 //console.log('7pts');
             }
             else {
                 pontuacaoTotal = pontuacaoTotal + 5;
-                pontuacaoPorJogo[i] = 5;
+                pontuacaoPorJogo[i-1] = 5;
                 //console.log('5pts');
             }
         }
         else if ( golsA === ogolsA || golsB === ogolsB ) {
             pontuacaoTotal = pontuacaoTotal + 2;
-            pontuacaoPorJogo[i] = 2;
+            pontuacaoPorJogo[i-1] = 2;
             //console.log('2pts');
         }
         else{
             //console.log('0pts');
             pontuacaoTotal = pontuacaoTotal + 0;
-            pontuacaoPorJogo[i] = 0;
+            pontuacaoPorJogo[i-1] = 0;
         }
     }
+    console.log('pontuacao grupos: ' + pontuacaoPorJogo);
     return pontuacaoPorJogo;
 }
 
