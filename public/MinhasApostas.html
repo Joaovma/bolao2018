@@ -1920,6 +1920,53 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script type="text/javascript">
+				var db = firebase.database();
+				db.ref('apostas').once('value', (snap) => {
+        			snap.forEach((childNode) => {
+        				if(childNode.Ce.path.n[1] == firebase.auth().currentUser.uid){
+        					var aposta = childNode.val();
+        					var apostaEtapa1 = aposta.etapa1;
+        					console.log(apostaEtapa1);
+
+        					//Preenche a aposta do usuario na pagina.
+			        		for (i=1; i<=48; i++) {
+			        			
+			        			var jogo = 'j' + i;
+			        			var time;
+			        			var valorLido = apostaEtapa1[jogo];
+			        			var golsParaColar;
+			        			for(x=1; x<=2; x++){
+			        				if(x==1){ //A
+			        					time = jogo + 'A';
+			        					localParaColar = 'gols_' + time;
+			        					golsParaColar = document.getElementById(localParaColar);
+			        					
+			        					golsParaColar.innerHTML = valorLido[time];
+			        					
+			        				}
+			        				else{ //B
+			        					time = jogo + 'B';
+			        					localParaColar = 'gols_' + time;
+			        					golsParaColar = document.getElementById(localParaColar);
+			        					
+			        					golsParaColar.innerHTML = valorLido[time];
+			        				}
+			        			}
+			        		}
+        				}
+
+        			});
+        		});
+
+
+			</script>
+
+
+
+
+
 
 	</body>
 </html>
