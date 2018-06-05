@@ -2516,11 +2516,11 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
-                            <ul class="actions">
+                            </table>  
+                        </section>
+                        <ul class="actions">
                                 <li><input type="submit" value="ENVIAR PÓDIO" class="primary fit small" id = "timesPodioOficial"/></li>
                             </ul>
-                        </section>
                         <div id="snackbar_success">Resultado enviado com Sucesso!</div>
                         <div id="snackbar_failure">Falha ao enviar o resultado!</div>
                     </div>
@@ -2633,7 +2633,7 @@
                                 }
                             else if( i>=57 && i <= 60 ){
                                 var semi = 'semi' + (i-56);
-                                vencedorID = 'quartas' + (i-56);
+                                vencedorID = 'semi' + (i-56);
                                 
                                 if (submittingForm.elements[vencedorID].options[submittingForm.elements[vencedorID].selectedIndex].innerHTML == ' - ' || submittingForm.elements[vencedorID].options[submittingForm.elements[vencedorID].selectedIndex].innerHTML == '') continue;
                                     var semiPri = aposta[vencedorID] = {};
