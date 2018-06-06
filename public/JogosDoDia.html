@@ -27,14 +27,13 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
-					<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>
+					<!--<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>-->
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
 					<li><a class="fa fa-sign-out" href="#" onclick='firebaseSignOut()' >&nbsp; LOGOUT</a></li>
 				</ul>
 			</nav>
-
 		<!-- Heading -->
 			<div id="heading" >
 				<h1>Jogos por Data (Grupos) + Pontuação</h1>
@@ -1547,7 +1546,7 @@
 									<tr>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
-											<p><font size="5"><b>-</b></font></p>
+											<p><font size="5" id="pts_total_oitavas"><b>-</b></font></p>
 										</td>
 									</tr>
 								</tbody>
@@ -1569,7 +1568,7 @@
 									<tr>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
-											<p><font size="5"><b>-</b></font></p>
+											<p><font size="5" id="pts_total_quartas"><b>-</b></font></p>
 										</td>
 									</tr>
 								</tbody>
@@ -1591,7 +1590,7 @@
 									<tr>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
-											<p><font size="5"><b>-</b></font></p>
+											<p><font size="5" id="pts_total_semi"><b>-</b></font></p>
 										</td>
 									</tr>
 								</tbody>
@@ -1613,7 +1612,7 @@
 									<tr>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
-											<p><font size="5"><b>-</b></font></p>
+											<p><font size="5" id="pts_total_terceiro"><b>-</b></font></p>
 										</td>
 									</tr>
 								</tbody>
@@ -1635,7 +1634,7 @@
 									<tr>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
-											<p><font size="5"><b>-</b></font></p>
+											<p><font size="5" id="pts_total_final"><b>-</b></font></p>
 										</td>
 									</tr>
 								</tbody>
@@ -2466,7 +2465,6 @@
 				var db = firebase.database();
 				db.ref('oficial').once('value', (snap) => {
         			snap.forEach((childNode) => {
-        				//if(childNode.Ce.path.n[1] == firebase.auth().currentUser.uid){
         					var oficial = childNode.val();
         					//console.log(oficial);
 
@@ -2501,10 +2499,11 @@
         			});
         		});
 				
+				// preenche a pontuacao de cada jogo na pagina e a potnaucao total
 				firebaseGetUserData().then(function(usuario){
 					//console.log(usuario);
 					var ptsPorJogoGrupos = usuario.pontuacaoPorJogoFaseGrupos;
-					console.log(ptsPorJogoGrupos);
+					//console.log(ptsPorJogoGrupos);
 					var dia = 14;
 					var verificaSeHouveJogo;
 					var ptsJogo;
@@ -2647,8 +2646,32 @@
 							dia = dia+1;
 						}
 	        		}
+
+	        		//preenche a pontuacao total das oitavas
+	        		var ptsOitavas = usuario.pontuacaoOitavas;
+	        		var localExato =  document.getElementById('pts_total_oitavas');
+	        		localExato.innerHTML = ptsOitavas;
+	        		//preenche a pontuacao total das quartas
+	        		var ptsQuartas = usuario.pontuacaoQuartas;
+	        		localExato =  document.getElementById('pts_total_quartas');
+	        		localExato.innerHTML = ptsQuartas;
+	        		//preenche a pontuacao total da semi
+	        		var ptsSemi = usuario.pontuacaoSemi;
+	        		localExato =  document.getElementById('pts_total_semi');
+	        		localExato.innerHTML = ptsSemi;
+	        		//preenche a pontuacao total do terceiro colocado
+	        		var ptsTerceiro = usuario.pontuacaoTerceiro;
+	        		localExato =  document.getElementById('pts_total_terceiro');
+	        		localExato.innerHTML = ptsTerceiro;
+	        		//preenche a pontuacao total da final
+	        		var ptsFinal = usuario.pontuacaoFinal;
+	        		localExato =  document.getElementById('pts_total_final');
+	        		localExato.innerHTML = ptsFinal;
+
+
 				})
 			</script>
+
 			<script type="text/javascript">
 				firebaseGetUserData().then(function(usuario){
 					//console.log(usuario);
