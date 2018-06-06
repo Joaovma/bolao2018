@@ -1,3 +1,4 @@
+/*
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
@@ -47,21 +48,25 @@ exports.calculaPontuacao = functions.database.ref('/oficial').onWrite((change, c
 
 function calculaFaseGrupos(oficial, usuario) {
     var pontuacaoTotal = 0;
-    var pontuacaoPorJogo = new Array(48);
-
+    var pontuacaoPorJogo = new Array(47);
+    console.log('calculaFaseGrupos');
 
     //console.log(  usuario );
     for(i = 1; i<=64; i++){
         var bet = 'j' + i;
         var real = 'oj' + i; 
         if (i<=48) {
-            //console.log('JOGO' + i);
+
 
             //coleta dados da aposta
             var timeA = bet + 'A';
             var timeB = bet + 'B';
             var prognostico = 'v' + bet;
             var golsA = usuario.etapa1[bet][timeA];
+            if (golsA === 'undefined'){
+                console.log('saporra nao existe');
+                break;
+            }
             var golsB = usuario.etapa1[bet][timeB];
             var quemGanhou = usuario.etapa1[bet][prognostico];
 
@@ -110,8 +115,8 @@ function calculaFaseGrupos(oficial, usuario) {
 
 function calculaPontuacaoPorJogoGrupos(oficial, usuario) {
     var pontuacaoTotal = 0;
-    var pontuacaoPorJogo = new Array(48);
-
+    var pontuacaoPorJogo = new Array(47);
+    console.log('calculaPontuacaoPorJogoGrupos');
 
     //console.log(  usuario );
     for(i = 1; i<=48; i++){
@@ -123,42 +128,48 @@ function calculaPontuacaoPorJogoGrupos(oficial, usuario) {
         var timeB = bet + 'B';
         var prognostico = 'v' + bet;
         var golsA = usuario.etapa1[bet][timeA];
+        console.log('golsA:'+ golsA);
         var golsB = usuario.etapa1[bet][timeB];
+        console.log('golsB:' +golsB);
         var quemGanhou = usuario.etapa1[bet][prognostico];
+        console.log('quemGanhou:'+ quemGanhou);
 
         //coleta dados do oficial - fase de grupos
         var otimeA = real + 'A';
         var otimeB = real + 'B';
         var oprognostico = 'v' + real;
         var ogolsA = oficial.etapa1[real][otimeA];
+        console.log('oficial_golsA:'+ ogolsA);
         var ogolsB = oficial.etapa1[real][otimeB];
+        console.log('oficial_golsB:' +ogolsB);
         var oquemGanhou = oficial.etapa1[real][oprognostico];
+        console.log('oficial_oquemGanhou:' +oquemGanhou);
         
         //verifica a pontuacao
         if ( golsA === ogolsA && golsB === ogolsB ) {
             pontuacaoTotal = pontuacaoTotal + 10;
             pontuacaoPorJogo[i-1] = 10;
-            //console.log('10pts');
+            console.log('10pts');
         }
         else if ( quemGanhou === oquemGanhou ) {
             if( golsA === ogolsA || golsB === ogolsB ){
                 pontuacaoTotal = pontuacaoTotal + 7;
                 pontuacaoPorJogo[i-1] = 7;
-                //console.log('7pts');
+                console.log('7pts');
             }
             else {
                 pontuacaoTotal = pontuacaoTotal + 5;
                 pontuacaoPorJogo[i-1] = 5;
-                //console.log('5pts');
+                console.log('5pts');
             }
         }
         else if ( golsA === ogolsA || golsB === ogolsB ) {
             pontuacaoTotal = pontuacaoTotal + 2;
             pontuacaoPorJogo[i-1] = 2;
-            //console.log('2pts');
+            console.log('2pts');
         }
         else{
-            //console.log('0pts');
+            console.log('0pts');
             pontuacaoTotal = pontuacaoTotal + 0;
             pontuacaoPorJogo[i-1] = 0;
         }
@@ -173,6 +184,7 @@ function calculaOitavas(oficial, usuario) {
     var pontuacaoPorClassificadoOitavas = new Array(15);
     var bet1;
     var bet2;
+    console.log('calculaOitavas');
     for (i=1; i<=16; i++){
             
             bet1 = 'oitavas' + i;
@@ -186,8 +198,14 @@ function calculaOitavas(oficial, usuario) {
             var real1 = bet1;
             var real2 = bet2;
             var Aposta = usuario.etapa1[bet1][bet1];
+            
             var primOficial = oficial.etapa1[real1][real1];
+            if (typeof primOficial  === 'undefined'){
+                console.log('saporraOITAVAS2 nao existe');
+                break;
+            }
             var SegunOficial = oficial.etapa1[real2][real2];
+            
 
             if (Aposta === primOficial){
                 //console.log('selecao igual' + i);
@@ -457,7 +475,7 @@ function geraClassificacao(pontuacaoFaseGrupos, pontuacaoOitavas, pontuacaoQuart
 
 }
 
-
+*/
 
 
 

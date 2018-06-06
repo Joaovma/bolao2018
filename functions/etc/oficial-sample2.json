@@ -1,338 +1,104 @@
-
 {
+"oficial" : {
     "etapa1" : {
       "campeao" : {
-        "campeao" : "Rússia"
+        "campeao" : " - "
       },
       "oitavas1" : {
-        "oitavas1" : "Rússia"
+        "oitavas1" : "-"
       },
       "oitavas10" : {
-        "oitavas10" : "Portugal"
+        "oitavas10" : "-"
       },
       "oitavas11" : {
-        "oitavas11" : "Peru"
+        "oitavas11" : "-"
       },
       "oitavas12" : {
-        "oitavas12" : "Islândia"
+        "oitavas12" : "-"
       },
       "oitavas13" : {
-        "oitavas13" : "Suíça"
+        "oitavas13" : "-"
       },
       "oitavas14" : {
-        "oitavas14" : "Suécia"
+        "oitavas14" : "-"
       },
       "oitavas15" : {
-        "oitavas15" : "Bélgica"
+        "oitavas15" : "-"
       },
       "oitavas16" : {
-        "oitavas16" : "Polônia"
+        "oitavas16" : "-"
       },
       "oitavas2" : {
-        "oitavas2" : "Espanha"
+        "oitavas2" : "-"
       },
       "oitavas3" : {
-        "oitavas3" : "França"
+        "oitavas3" : "-"
       },
       "oitavas4" : {
-        "oitavas4" : "Argentina"
+        "oitavas4" : "-"
       },
       "oitavas5" : {
-        "oitavas5" : "Brasil"
+        "oitavas5" : "-"
       },
       "oitavas6" : {
-        "oitavas6" : "Alemanha"
+        "oitavas6" : "-"
       },
       "oitavas7" : {
-        "oitavas7" : "Inglaterra"
+        "oitavas7" : "-"
       },
       "oitavas8" : {
-        "oitavas8" : "Colômbia"
+        "oitavas8" : "-"
       },
       "oitavas9" : {
-        "oitavas9" : "Egito"
+        "oitavas9" : "-"
       },
       "oj1" : {
         "oj1A" : "1",
-        "oj1B" : "2",
-        "voj1" : "timeB"
-      },
-      "oj10" : {
-        "oj10A" : "1",
-        "oj10B" : "1",
-        "voj10" : "E"
-      },
-      "oj11" : {
-        "oj11A" : "1",
-        "oj11B" : "2",
-        "voj11" : "timeB"
-      },
-      "oj12" : {
-        "oj12A" : "0",
-        "oj12B" : "0",
-        "voj12" : "E"
-      },
-      "oj13" : {
-        "oj13A" : "0",
-        "oj13B" : "0",
-        "voj13" : "E"
-      },
-      "oj14" : {
-        "oj14A" : "0",
-        "oj14B" : "0",
-        "voj14" : "E"
-      },
-      "oj15" : {
-        "oj15A" : "0",
-        "oj15B" : "0",
-        "voj15" : "E"
-      },
-      "oj16" : {
-        "oj16A" : "0",
-        "oj16B" : "0",
-        "voj16" : "E"
-      },
-      "oj17" : {
-        "oj17A" : "0",
-        "oj17B" : "0",
-        "voj17" : "E"
-      },
-      "oj18" : {
-        "oj18A" : "00",
-        "oj18B" : "0",
-        "voj18" : "E"
-      },
-      "oj19" : {
-        "oj19A" : "0",
-        "oj19B" : "0",
-        "voj19" : "E"
-      },
-      "oj2" : {
-        "oj2A" : "1",
-        "oj2B" : "1",
-        "voj2" : "E"
-      },
-      "oj20" : {
-        "oj20A" : "0",
-        "oj20B" : "0",
-        "voj20" : "E"
-      },
-      "oj21" : {
-        "oj21A" : "0",
-        "oj21B" : "0",
-        "voj21" : "E"
-      },
-      "oj22" : {
-        "oj22A" : "0",
-        "oj22B" : "0",
-        "voj22" : "E"
-      },
-      "oj23" : {
-        "oj23A" : "0",
-        "oj23B" : "00",
-        "voj23" : "E"
-      },
-      "oj24" : {
-        "oj24A" : "2",
-        "oj24B" : "1",
-        "voj24" : "timeA"
-      },
-      "oj25" : {
-        "oj25A" : "00",
-        "oj25B" : "0",
-        "voj25" : "E"
-      },
-      "oj26" : {
-        "oj26A" : "1",
-        "oj26B" : "2",
-        "voj26" : "timeB"
-      },
-      "oj27" : {
-        "oj27A" : "4",
-        "oj27B" : "0",
-        "voj27" : "timeA"
-      },
-      "oj28" : {
-        "oj28A" : "3",
-        "oj28B" : "3",
-        "voj28" : "E"
-      },
-      "oj29" : {
-        "oj29A" : "3",
-        "oj29B" : "2",
-        "voj29" : "timeA"
-      },
-      "oj3" : {
-        "oj3A" : "1",
-        "oj3B" : "2",
-        "voj3" : "timeB"
-      },
-      "oj30" : {
-        "oj30A" : "0",
-        "oj30B" : "0",
-        "voj30" : "E"
-      },
-      "oj31" : {
-        "oj31A" : "0",
-        "oj31B" : "0",
-        "voj31" : "E"
-      },
-      "oj32" : {
-        "oj32A" : "0",
-        "oj32B" : "0",
-        "voj32" : "E"
-      },
-      "oj33" : {
-        "oj33A" : "0",
-        "oj33B" : "00",
-        "voj33" : "E"
-      },
-      "oj34" : {
-        "oj34A" : "0",
-        "oj34B" : "1",
-        "voj34" : "timeB"
-      },
-      "oj35" : {
-        "oj35A" : "1",
-        "oj35B" : "1",
-        "voj35" : "E"
-      },
-      "oj36" : {
-        "oj36A" : "1",
-        "oj36B" : "1",
-        "voj36" : "E"
-      },
-      "oj37" : {
-        "oj37A" : "1",
-        "oj37B" : "2",
-        "voj37" : "timeB"
-      },
-      "oj38" : {
-        "oj38A" : "1",
-        "oj38B" : "1",
-        "voj38" : "E"
-      },
-      "oj39" : {
-        "oj39A" : "1",
-        "oj39B" : "1",
-        "voj39" : "E"
-      },
-      "oj4" : {
-        "oj4A" : "2",
-        "oj4B" : "3",
-        "voj4" : "timeB"
-      },
-      "oj40" : {
-        "oj40A" : "2",
-        "oj40B" : "2",
-        "voj40" : "E"
-      },
-      "oj41" : {
-        "oj41A" : "1",
-        "oj41B" : "2",
-        "voj41" : "timeB"
-      },
-      "oj42" : {
-        "oj42A" : "2",
-        "oj42B" : "1",
-        "voj42" : "timeA"
-      },
-      "oj43" : {
-        "oj43A" : "2",
-        "oj43B" : "2",
-        "voj43" : "E"
-      },
-      "oj44" : {
-        "oj44A" : "2",
-        "oj44B" : "1",
-        "voj44" : "timeA"
-      },
-      "oj45" : {
-        "oj45A" : "02",
-        "oj45B" : "02",
-        "voj45" : "E"
-      },
-      "oj46" : {
-        "oj46A" : "0",
-        "oj46B" : "0",
-        "voj46" : "E"
-      },
-      "oj47" : {
-        "oj47A" : "0",
-        "oj47B" : "0",
-        "voj47" : "E"
-      },
-      "oj48" : {
-        "oj48A" : "0",
-        "oj48B" : "2",
-        "voj48" : "timeB"
-      },
-      "oj5" : {
-        "oj5A" : "2",
-        "oj5B" : "1",
-        "voj5" : "timeA"
-      },
-      "oj6" : {
-        "oj6A" : "2",
-        "oj6B" : "2",
-        "voj6" : "E"
-      },
-      "oj7" : {
-        "oj7A" : "2",
-        "oj7B" : "1",
-        "voj7" : "timeA"
-      },
-      "oj8" : {
-        "oj8A" : "2",
-        "oj8B" : "2",
-        "voj8" : "E"
-      },
-      "oj9" : {
-        "oj9A" : "3",
-        "oj9B" : "1",
-        "voj9" : "timeA"
+        "oj1B" : "1",
+        "voj1" : "E"
       },
       "quartas1" : {
-        "quartas1" : "Brasil"
+        "quartas1" : "-"
       },
       "quartas2" : {
-        "quartas2" : "Espanha"
+        "quartas2" : "-"
       },
       "quartas3" : {
-        "quartas3" : "Polônia"
+        "quartas3" : "-"
       },
       "quartas4" : {
-        "quartas4" : "Argentina"
+        "quartas4" : "-"
       },
       "quartas5" : {
-        "quartas5" : "Colômbia"
+        "quartas5" : "-"
       },
       "quartas6" : {
-        "quartas6" : "Alemanha"
+        "quartas6" : "-"
       },
       "quartas7" : {
-        "quartas7" : "Rússia"
+        "quartas7" : "-"
       },
       "quartas8" : {
-        "quartas8" : "Egito"
+        "quartas8" : "-"
       },
       "semi1" : {
-        "semi1" : "Brasil"
+        "semi1" : "-"
       },
       "semi2" : {
-        "semi2" : "Rússia"
+        "semi2" : "-"
       },
       "semi3" : {
-        "semi3" : "Colômbia"
+        "semi3" : "-"
       },
       "semi4" : {
-        "semi4" : "Alemanha"
+        "semi4" : "-"
       },
       "terceiro" : {
-        "terceiro" : "Brasil"
+        "terceiro" : "-"
       },
       "vice" : {
-        "vice" : "Espanha"
+        "vice" : "-"
       }
     }
+  }
 }

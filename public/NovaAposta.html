@@ -15,7 +15,8 @@
     <body class="is-preload">
         <!-- Header -->
             <header id="header">
-                <a class="logo" href="TelaInicial.html">Bolão da Copa 2018</a>
+                <a class="logo" href="TelaInicial.html"><font size="3">Bolão da Copa</font></a>
+                <a class="logo" href="MinhaConta.html"><font size="1">Olá, </font><font id="nomeLogado" size="1"></font></a>
                 <nav>
                     <a href="#menu">Menu</a>
                 </nav>
@@ -2273,6 +2274,13 @@
                     x.className = "show";
                     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                 }
+            </script>
+            <script type="text/javascript">
+                firebaseGetUserData().then(function(usuario){
+                    //console.log(usuario);
+                    $('#nomeLogado').html(usuario.nome);
+                })
+
             </script>
     </body>
 </html>
