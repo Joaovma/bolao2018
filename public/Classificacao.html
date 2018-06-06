@@ -146,7 +146,7 @@
 
 			<script type="text/javascript">
 				/*
-				//ZERA AS ATRIBUIÇÕES DE TODOS OS APOSTADORES E ATUALIZA LOGO ABAIXO
+				//ZERA AS ATRIBUIÇÕES DE TODOS OS APOSTADORES  - PREENCHE  - So usou uma vez. Nao usa mais.
 				if (typeof code_happened === 'undefined') {
 					window.code_happened = true;
 					var db = firebase.database();
@@ -155,8 +155,8 @@
 	   						if(typeof childNodes.val().nome === 'undefined'){}
 	   						else{
 	   								var usuarioParaAdd = childNodes.val().nome;
-			   						console.log(usuarioParaAdd);
-			   						console.log(childNodes.Ce.path.n[1]);
+			   						//console.log(usuarioParaAdd);
+			   						//console.log(childNodes.Ce.path.n[1]);
 							            	
 							      	var pontuacaoFaseGrupos = 0;
 							      	var pontuacaoPorJogoFaseGrupos = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -356,18 +356,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 			<script type="text/javascript">
 				function calculaFaseGrupos(oficial, usuario) {
 				    var pontuacaoTotal = 0;
@@ -399,24 +387,28 @@
 				            
 				            //verifica a pontuacao
 				            if ( golsA === ogolsA && golsB === ogolsB ) {
-				                pontuacaoTotal = pontuacaoTotal + 10;
+				                if(ogolsA == "99") pontuacaoTotal = pontuacaoTotal + 0;
+				                else pontuacaoTotal = pontuacaoTotal + 10;
 				                pontuacaoPorJogo[i] = 10;
 				                //console.log('10pts');
 				            }
 				            else if ( quemGanhou === oquemGanhou ) {
 				                if( golsA === ogolsA || golsB === ogolsB ){
-				                    pontuacaoTotal = pontuacaoTotal + 7;
+				                    if(ogolsA == "99") pontuacaoTotal = pontuacaoTotal + 0;
+				                   	else pontuacaoTotal = pontuacaoTotal + 7;
 				                    pontuacaoPorJogo[i] = 7;
 				                    //console.log('7pts');
 				                }
 				                else {
-				                    pontuacaoTotal = pontuacaoTotal + 5;
+				                    if(ogolsA == "99") pontuacaoTotal = pontuacaoTotal + 0;
+				                   	else pontuacaoTotal = pontuacaoTotal + 5;
 				                    pontuacaoPorJogo[i] = 5;
 				                    //console.log('5pts');
 				                }
 				            }
 				            else if ( golsA === ogolsA || golsB === ogolsB ) {
-				                pontuacaoTotal = pontuacaoTotal + 2;
+				                if(ogolsA == "99") pontuacaoTotal = pontuacaoTotal + 0;
+				                else pontuacaoTotal = pontuacaoTotal + 2;
 				                pontuacaoPorJogo[i] = 2;
 				                //console.log('2pts');
 				            }
