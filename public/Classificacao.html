@@ -51,7 +51,10 @@
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<div class="content">
-						<p><font color="gray" >Mais dados das pontuações (arraste) »» </font></p>
+						<p style="margin: 0;" align="center"><img src="images/refresh.png" onclick='reloadPage()' width="12%" height="7%" class="responsive" ></p>
+						<p style="margin: 0;" align="center"><font color="#00798C">Atualizar</font></p>
+						<hr>
+						<p><font color="gray" >Mais dados das pontuações ( ARRASTE ) »» </font></p>
 						<div class="table-wrapper">
 									<font size="3">
 										<table class="alt" id="classificacaoGeral">
@@ -788,6 +791,11 @@
 					$('#nomeLogado').html(usuario.nome);
 				})
 
+			</script>
+			<script type="text/javascript">
+				function reloadPage() {
+				    location.reload();
+				}
 			</script>
 
 

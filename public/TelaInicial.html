@@ -34,6 +34,7 @@
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
 					<li><a class="fa fa-sign-out" href="#" onclick='firebaseSignOut()' >&nbsp; LOGOUT</a></li>
+					<li><a id="menuOptionAdmin" style="visibility: hidden;"  class="fa fa-id-badge" href="InserirResultadosOficiais.html">&nbsp; ADMIN (Resultados)</a></li>
 				</ul>
 			</nav>
 
@@ -62,15 +63,16 @@
 							</div>
 						</section>-->
 						<section>
+							
 						</section>
-						<section>
+						<section id="SectionRealizarApostas">
 							<div class="content">
 								<header>
-									<a href="NovaAposta.html" class="icon fa-soccer-ball-o"><span class="label">Icon</span></a>
-									<h3>Realizar Aposta</h3>
+									<a id="iconeRealziarApostas" href="NovaAposta.html" class="icon fa-soccer-ball-o"><span class="label">Icon</span></a>
+									<h3 id="TituloRealizarApostas">Realizar Aposta</h3>
 								</header>
 								&nbsp;
-								<p>Aposte da fase de grupos ao campeão.</p>
+								<p id="SubTituloRealizarApostas">Aposte da fase de grupos ao campeão.</p>
 							</div>
 						</section>
 						<section>
@@ -191,6 +193,47 @@
 					//console.log(usuario);
 					$('#nomeLogado').html(usuario.nome);
 					$('#nomeLogadoBemVindo').html(usuario.nome);
+				})
+
+			</script>
+
+			<script>
+                //Script para detectar fim do periodo de apostas com base na data da variavel 
+                setInterval(function() {
+                    if (typeof code_happened === 'undefined'){
+                    	
+                    	//var dataLimiteApostas = new Date("Jun 14, 2018 10:00:00");
+                    	var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
+						//console.log("Verificando data limite");
+                        var thisYear = new Date().getFullYear();
+                        var thisMonth = new Date().getMonth();
+                        var thisDay = new Date().getDate();
+                        var thisHour = new Date().getHours();
+                        var thisMin = new Date().getMinutes();
+
+                		if ( thisYear >= (dataLimiteApostas.getFullYear())  && thisMonth >= (dataLimiteApostas.getMonth()) && thisDay >= (dataLimiteApostas.getDate()) && thisHour >= (dataLimiteApostas.getHours()) && thisMin >= (dataLimiteApostas.getMinutes()) ){
+                            //console.log("Detectado fim do periodo de apostas!");
+                            document.getElementById("iconeRealziarApostas").href=""; 
+                            document.getElementById("TituloRealizarApostas").innerHTML = "Apostas Encerradas";
+                            document.getElementById("SubTituloRealizarApostas").innerHTML = "Periodo para enviar apostas encerrou!";
+                            window.code_happened = true;
+                        }
+                       	
+                    }
+                }, 0.5 * 1000); // 60 * 1000 milsec
+            </script>
+
+            <script type="text/javascript">
+            	//adiciona opcao extra pro admin
+				firebaseGetUserData().then(function(usuario){
+					//console.log(usuario);
+					console.log(usuario.nome);
+					console.log(usuario.email);
+					if(usuario.email == 'majoaovitor@gmail.com'){
+						console.log("deu bom");
+						document.getElementById("menuOptionAdmin").style.visibility = 'visible';
+					}
+					
 				})
 
 			</script>
