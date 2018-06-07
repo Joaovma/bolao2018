@@ -191,6 +191,7 @@
 			</script>
 
 			<script>
+
 				// calcula os valores oficiais
 				var db = firebase.database();
 				db.ref('oficial').once('value', (snap) => {
@@ -238,51 +239,6 @@
 
 			<script type="text/javascript">
 				
-						//script para ordenar os usuarios
-						databaseBolao.ref("usuarios").on('value', function(snap){
-							var usuarios = snap.val();
-							var arrayUsuarios = [];
-							Object.keys(usuarios).forEach(function (key, index) {
-								arrayUsuarios.push(usuarios[key]);
-								//console.log(arrayUsuarios);
-							});
-
-							arrayUsuarios.sort(function sortByClassificacao(a, b){
-								if (a.classificacao && b.classificacao) {
-									if (a.classificacao > b.classificacao) {
-										// a maior
-										return -1;
-									} else if (a.classificacao < b.classificacao) {
-										//b maior
-										return 1;
-									} else {
-										//dois iguais
-										return 0;
-									}
-								} else if (a.classificacao && !b.classificacao) {
-									// so a existe (b nao apostou ou nao fez ponto)
-									return -1;
-								} else if (!a.classificacao && b.classificacao) {
-									// so b existe (a nao apostou ou nao fez ponto)
-									return 1;
-								} else {
-									// ninguem apostou ou fez ponto
-									return 0;
-								}
-							});
-							//console.log(arrayUsuarios);
-
-							//arrayUsuarios = LISTA DE USUARIOS EM ORDEM POR PONTUACAO FINAL
-							insereApostadoresClassificacao("classificacaoGeral", arrayUsuarios);
-							deleteFirstrow("classificacaoGeral");
-							alternate('classificacaoGeral');
-							os5primeiros('classificacaoGeral');
-						});
-
-			</script>
-
-			<script type="text/javascript">
-				
 				function insereApostadoresClassificacao(tableID, VetorUsuariosClassificados){
 					
 					var table = document.getElementById(tableID);
@@ -323,6 +279,55 @@
 				    //deleta linha abaixo do cabeçalho
 				    table.deleteRow(1);
 				}
+			</script>
+
+			<script type="text/javascript">
+				setInterval(function() {
+					if (typeof code_happened === 'undefined') {	
+						window.code_happened = true;
+						//script para ordenar os usuarios
+						databaseBolao.ref("usuarios").on('value', function(snap){
+							var usuarios = snap.val();
+							var arrayUsuarios = [];
+							Object.keys(usuarios).forEach(function (key, index) {
+								arrayUsuarios.push(usuarios[key]);
+								//console.log(arrayUsuarios);
+							});
+
+							arrayUsuarios.sort(function sortByClassificacao(a, b){
+								if (a.classificacao && b.classificacao) {
+									if (a.classificacao > b.classificacao) {
+										// a maior
+										return -1;
+									} else if (a.classificacao < b.classificacao) {
+										//b maior
+										return 1;
+									} else {
+										//dois iguais
+										return 0;
+									}
+								} else if (a.classificacao && !b.classificacao) {
+									// so a existe (b nao apostou ou nao fez ponto)
+									return -1;
+								} else if (!a.classificacao && b.classificacao) {
+									// so b existe (a nao apostou ou nao fez ponto)
+									return 1;
+								} else {
+									// ninguem apostou ou fez ponto
+									return 0;
+								}
+							});
+							//console.log(arrayUsuarios);
+
+							//arrayUsuarios = LISTA DE USUARIOS EM ORDEM POR PONTUACAO FINAL
+							insereApostadoresClassificacao("classificacaoGeral", arrayUsuarios);
+							deleteFirstrow("classificacaoGeral");
+							alternate('classificacaoGeral');
+							os5primeiros('classificacaoGeral');
+						});
+					}
+				},2 * 1000); // 60 * 1000 milsec
+
 			</script>
 
 			<script type="text/javascript">
