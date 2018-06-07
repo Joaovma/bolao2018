@@ -16,7 +16,7 @@
 
     <!-- Header -->
     <header id="header">
-        <a class="logo" href="Login.html">Bolão da Copa do Mundo 2018</a>
+        <a class="logo" href="index.html">Bolão da Copa do Mundo 2018</a>
     </header>
 
     <section id="cta" class="wrapper">
@@ -87,7 +87,8 @@
                         </section>
                     </div>
                     <div class="copyright">
-                        <a href="https://www.facebook.com/joao.vitor.27">Joao Vitor </a>&copy;
+                        <p>Bolão da Copa</p>
+                        <p> &copy 2018 - João Vítor</p>
                     </div>
                 </div>
             </footer>
@@ -104,10 +105,15 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
+        /*
     	firebase.auth().onAuthStateChanged(function (user) {
 		    if (user) {
 		        window.location = 'TelaInicial.html';
 		    }
+            else{
+                toast("snackbar_failure");
+            }
+            
 		});
 
         const element = document.querySelector('form');
@@ -117,6 +123,76 @@
             var senha = $('#senha').val();
             firebase.auth().signInWithEmailAndPassword(usuario, senha);
         });
+        */
+        /*
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                window.location = 'TelaInicial.html';
+            }
+            else{
+                //toast("snackbar_failure");
+            }
+            
+        });
+
+        const element = document.querySelector('form');
+        element.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var usuario = $('#usuario').val();
+            var senha = $('#senha').val();
+            console.log( "click event" );
+            firebase.auth().signInWithEmailAndPassword(usuario, senha).catch(function(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                // User not found
+                if ( errorCode === 'auth/user-not-found' ) {
+                    toast("snackbar_failure_user_not_found");
+                // Wrong Password Error
+                } else if ( errorCode === 'auth/wrong-password' ) {
+                    
+                    toast("snackbar_failure_wrong_password");
+                } else {
+                     window.location = 'TelaInicial.html';
+                }
+                console.log( error );
+            });
+        });
+        */
+        const element = document.querySelector('form');
+        element.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var usuario = $('#usuario').val();
+            var senha = $('#senha').val();
+            //firebase.auth().signInWithEmailAndPassword(usuario, senha);
+
+            var auth = null;
+            firebase
+              .auth()
+              .signInWithEmailAndPassword(usuario, senha)
+              .then( function(user){
+                console.log("Authenticated successfully with payload:", user);
+                auth = user;
+                window.location = 'TelaInicial.html';
+              })
+              .catch(function(error){
+                console.log("Login Failed!", error);
+                if ( error.code === 'auth/user-not-found' ) {
+                    alert("Usuário não encontrado!");
+                    console.log("Usuário não encontrado!");
+                }
+                else if ( error.code === 'auth/wrong-password' ) {
+                    alert("Senha incorreta! Tente novamente.");
+                    console.log("Senha incorreta! Tente novamente.");
+                }
+                else if ( error.code === 'auth/invalid-email' ) {
+                    alert("Email inválido.");
+                    console.log("Email inválido.");
+                }
+              });
+          })
+
+        
     </script>
 
 
