@@ -115,28 +115,48 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script type="text/javascript">
+				//busca todos os participantes no banco e conta quantos tem
+				var numeroParticipantes=0;
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						if(childNodes.val().nome != null)numeroParticipantes ++;
+				      	//console.log(numeroParticipantes);
+				  });
+   				});
+   				//preenche um vetor com todos os participantes
+				var ArrayParticipantes = new Array(numeroParticipantes);
+				var i=0;
 				databaseBolao.ref("usuarios").on('value', function(snap){
    					snap.forEach(function(childNodes){
    						var usuarioParaAdd = childNodes.val().nome;
-				      	//console.log(usuarioParaAdd);
-				      	insereParticipante("participantes", usuarioParaAdd);
-				      	
-				  });
-   				deleteLastrow("participantes");
+				      	var ultimoNome;
+
+				      	if (ultimoNome != usuarioParaAdd){
+				      		ArrayParticipantes[i] = usuarioParaAdd;
+				      		ultimoNome = usuarioParaAdd;
+				      		i++;
+				      	}
+				  	});
+					//console.log(ArrayParticipantes);
+					//console.log(ArrayParticipantes.sort());
+					// Insere os participantes no SELECT
+					insereParticipante("participantes", ArrayParticipantes.sort());
+					deleteLastrow("participantes");
+					alternate("participantes");
 				});
-				
-				function insereParticipante(tableID, name){
+				function insereParticipante(tableID, vetorParticipantes){
 					var table = document.getElementById(tableID);
-					var rowCount = table.rows.length;
-					var row = table.insertRow(rowCount-1);
-					var cell1 = row.insertCell(0);
-			    	var cell2 = row.insertCell(1);
+					for (var i = 0; i < vetorParticipantes.length; i++) {
+						var rowCount = table.rows.length;
+						var row = table.insertRow(rowCount-1);
+						var cell1 = row.insertCell(0);
+				    	var cell2 = row.insertCell(1);
+						
+						cell1.innerHTML = i+1;
+				    	cell2.innerHTML = vetorParticipantes[i];
+					}
 					
-					cell1.innerHTML = rowCount-1;
-			    	cell2.innerHTML = name;
 				}
-				//Deleta a ultima linha da tabela que contem a paravra: carregando
-				//tem que ser feito depois que os dados do banco sao colocados na tabela...se nao caga o role
 				function deleteLastrow(tableID) {
 				    var table = document.getElementById(tableID);
 				    var rowCount = table.rows.length;
@@ -145,25 +165,20 @@
 				}
 			</script>
 			<script>
+				/*
 				//Organiza os participantes em ordem alfabetica
 				setInterval(function() {
 				  if (typeof code_happened === 'undefined') {
 					 	var table, rows, switching, i, x, y, shouldSwitch;
 					    table = document.getElementById("participantes");
 					    switching = true;
-					    /*Make a loop that will continue until
-					    no switching has been done:*/
 					    while (switching) {
 					    	//start by saying: no switching is done:
 					    	switching = false;
 					    	rows = table.getElementsByTagName("TR");
-					    	/*Loop through all table rows (except the
-					    	first, which contains table headers):*/
 					    	for (i = 1; i < (rows.length - 1); i++) {
 					      		//start by saying there should be no switching:
 					      		shouldSwitch = false;
-					      		/*Get the two elements you want to compare,
-					      		one from current row and one from the next:*/
 					      		x = rows[i].getElementsByTagName("TD")[1];
 					      		y = rows[i + 1].getElementsByTagName("TD")[1];
 					      		//check if the two rows should switch place:
@@ -174,8 +189,6 @@
 							    }
 					    	}
 					    	if (shouldSwitch) {
-					      		/*If a switch has been marked, make the switch
-					      		and mark that a switch has been done:*/
 					      		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 					      		switching = true;
 					    	}
@@ -186,9 +199,11 @@
 					    	}
 				  		}
 				    }
-				}, 2 * 1000); // 60 * 1000 milsec
+				}, 3 * 1000); // 60 * 1000 milsec
+				*/
 			</script>
 			<script>
+				/*
 				//Organiza o ID dos participantes em ordem crescente
 				setInterval(function() {
 				  if (typeof organizedID === 'undefined') {
@@ -204,7 +219,8 @@
 
 				    }
 				    alternate("participantes");
-				}, 2.2 * 1000); // 60 * 1000 milsec
+				}, 3.2 * 1000); // 60 * 1000 milsec
+				*/
 			</script>
 			<script type="text/javascript">
 				function alternate(id){ 
@@ -224,6 +240,7 @@
 				  }
 				}
 			</script>
+			
 			<script type="text/javascript">
 				firebaseGetUserData().then(function(usuario){
 					//console.log(usuario);

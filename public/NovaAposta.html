@@ -2034,20 +2034,45 @@
                 //Script para detectar fim do periodo de apostas com base na data da variavel dataLimiteEtapa1 
                 setInterval(function() {
                     if (typeof code_happened === 'undefined') {
-                        var dataLimiteEtapa1 = new Date("Jun 14, 2018 11:00:00"); 
-                        //var dataLimiteEtapa1 = new Date("May 31, 2018 00:41:00"); //para teste
+                        
+                        //var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
+                        var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
+                        //console.log("Verificando data limite");
                         var thisYear = new Date().getFullYear();
                         var thisMonth = new Date().getMonth();
                         var thisDay = new Date().getDate();
                         var thisHour = new Date().getHours();
-                        //var thisMin = new Date().getMinutes();
+                        var thisMin = new Date().getMinutes();
 
-                        //console.log("executando verificacao de fim de aposta");
-                        if ( thisYear >= (dataLimiteEtapa1.getFullYear())  && thisMonth >= (dataLimiteEtapa1.getMonth()) && thisDay >= (dataLimiteEtapa1.getDate()) && thisHour >= (dataLimiteEtapa1.getHours()) ){
-                                console.log("Detectado fim do periodo de apostas!");
-                                document.getElementById("EnviarApostaEtapa1").disabled = true;
-                                document.getElementById("EnviarApostaEtapa1").value = "APOSTA ENCERRADA";
-                                window.code_happened = true;
+                        if ( thisYear == (dataLimiteApostas.getFullYear()) ){
+                            if ( thisMonth == (dataLimiteApostas.getMonth()) ){
+                                if ( thisDay == (dataLimiteApostas.getDate()) ){
+                                    if ( thisHour == (dataLimiteApostas.getHours()) ){
+                                        if ( thisMin >= (dataLimiteApostas.getMinutes()) ){
+                                            VenceuPeriodoApostas();
+                                        }
+                                    }
+                                    else if ( thisHour == (dataLimiteApostas.getHours()) ){
+                                        VenceuPeriodoApostas();
+                                    }
+                                }
+                                else if ( thisDay > (dataLimiteApostas.getDate()) ){
+                                    VenceuPeriodoApostas();
+                                }   
+                            }
+                            else if ( thisMonth > (dataLimiteApostas.getMonth()) ){
+                                VenceuPeriodoApostas();
+                            } 
+                        }
+                        else if ( thisYear > (dataLimiteApostas.getFullYear()) ){
+                            VenceuPeriodoApostas();
+                        }
+
+                        function VenceuPeriodoApostas(){
+                            console.log("Detectado fim do periodo de apostas!");
+                            document.getElementById("EnviarApostaEtapa1").disabled = true;
+                            document.getElementById("EnviarApostaEtapa1").value = "APOSTA ENCERRADA";
+                            window.code_happened = true;
                         }
                         
                     }
@@ -2132,14 +2157,39 @@
                     }
                     //condicao pra aposta ser enviada é estar dentro da data limite!
                     var salvouAposta = 0;
-                    var dataLimiteEtapa1 = new Date("Jun 14, 2018 10:00:00"); 
-                    //var dataLimiteEtapa1 = new Date("May 31, 2018 00:41:00"); //para teste
+                    
+                    //var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
+                    var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
+                    //console.log("Verificando data limite");
                     var thisYear = new Date().getFullYear();
                     var thisMonth = new Date().getMonth();
                     var thisDay = new Date().getDate();
                     var thisHour = new Date().getHours();
-                    //var thisMin = new Date().getMinutes();
-                    if ( thisYear >= (dataLimiteEtapa1.getFullYear())  && thisMonth >= (dataLimiteEtapa1.getMonth()) && thisDay >= (dataLimiteEtapa1.getDate()) && thisHour >= (dataLimiteEtapa1.getHours()) ){/*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/}
+                    var thisMin = new Date().getMinutes();
+
+                    if ( thisYear == (dataLimiteApostas.getFullYear()) ){
+                        if ( thisMonth == (dataLimiteApostas.getMonth()) ){
+                            if ( thisDay == (dataLimiteApostas.getDate()) ){
+                                if ( thisHour == (dataLimiteApostas.getHours()) ){
+                                    if ( thisMin >= (dataLimiteApostas.getMinutes()) ){
+                                        /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                                    }
+                                }
+                                else if ( thisHour == (dataLimiteApostas.getHours()) ){
+                                    /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                                }
+                            }
+                            else if ( thisDay > (dataLimiteApostas.getDate()) ){
+                                /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                            }   
+                        }
+                        else if ( thisMonth > (dataLimiteApostas.getMonth()) ){
+                            /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                        } 
+                    }
+                    else if ( thisYear > (dataLimiteApostas.getFullYear()) ){
+                        /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                    }
                     else{
                         console.log("Aposta salva no banco");
                         firebaseSaveBet(aposta);
@@ -2154,6 +2204,7 @@
                     }
                 });
             </script>
+            
             <script>
                 // Script para passar uma option de um select para o outro
                 for (var i = 49; i <= 64; i++) {

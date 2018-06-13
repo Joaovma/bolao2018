@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Minhas Apostas</title>
+		<title>Todas Apostas</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
@@ -41,10 +41,29 @@
 
 		<!-- Heading -->
 			<div id="heading" >
-				<h1>Minha Aposta</h1>
+				<section>
+                    <h1>Aposta dos Participantes</h1>
+                </section>
 			</div>
 
 		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<hr>
+	                        <h2 align="center">Selecione o Apostador</h2>
+	                        <hr>
+							<select name="category" id="selecionar_Apostador" required>
+                                <option value=""> - </option>
+                            </select>
+                            &nbsp;
+                            <p align="center"><font size="2"color="black" id="Aviso_apostador">As apostas do participante selecionado serão exibidas abaixo.</u></font></p>
+                            &nbsp;
+						</section>
+					</div>
+				</div>
+			</section>
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<div class="content">
@@ -1926,102 +1945,187 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script type="text/javascript">
-				var db = firebase.database();
-				db.ref('apostas').once('value', (snap) => {
-        			snap.forEach((childNode) => {
-        				if(childNode.Ce.path.n[1] == firebase.auth().currentUser.uid){
-        					var aposta = childNode.val();
-        					var apostaEtapa1 = aposta.etapa1;
-        					//console.log(apostaEtapa1);
-
-        					//Preenche a aposta do usuario na pagina.
-			        		for (i=1; i<=48; i++) {
-			        			
-			        			var jogo = 'j' + i;
-			        			var time;
-			        			var valorLido = apostaEtapa1[jogo];
-			        			var golsParaColar;
-			        			for(x=1; x<=2; x++){
-			        				if(x==1){ //A
-			        					time = jogo + 'A';
-			        					localParaColar = 'gols_' + time;
-			        					golsParaColar = document.getElementById(localParaColar);
-			        					
-			        					golsParaColar.innerHTML = valorLido[time];
-			        					
-			        				}
-			        				else{ //B
-			        					time = jogo + 'B';
-			        					localParaColar = 'gols_' + time;
-			        					golsParaColar = document.getElementById(localParaColar);
-			        					
-			        					golsParaColar.innerHTML = valorLido[time];
-			        				}
-			        			}
-			        		}
-			        		//Preenche oitavas
-			        		for (i=1; i<=16; i++) {
-			        			
-			        			var time = 'oitavas' + i;
-			        			var timeLido = apostaEtapa1[time];
-			        			var classificadoOitavas = document.getElementById(time);
-			        					
-			        			classificadoOitavas.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche quartas
-			        		for (i=49; i<=56; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'quartas' + (i-48);
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var classificadoQuartas = document.getElementById(time);
-			        					
-			        			classificadoQuartas.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche semi
-			        		for (i=57; i<=60; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'semi' + (i-56);
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var classificadoSemi = document.getElementById(time);
-			        					
-			        			classificadoSemi.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche terceiro
-			        		for (i=63; i<=63; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'terceiro';
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var timeTerceiro = document.getElementById(time);
-			        					
-			        			timeTerceiro.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche campeao e vice
-			        		for (i=64; i<=64; i++) {
-			        			var jogo = 'j' + i;
-			        			var timeVice = 'vice';
-			        			var timeCampeao = 'campeao';
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var timeSegundo = document.getElementById(timeVice);
-			        			var timePrimeiro = document.getElementById(timeCampeao);
-			        					
-			        			timePrimeiro.innerHTML = timeLido[timeCampeao];
-			        			timeSegundo.innerHTML = timeLido[timeVice];
-			        		}
-
-        				}
-
-        			});
-        		});
-
-
-			</script>
-			<script type="text/javascript">
 				firebaseGetUserData().then(function(usuario){
 					//console.log(usuario);
 					$('#nomeLogado').html(usuario.nome);
 				})
+			</script>
+			
+			<script type="text/javascript">
+				//busca todos os participantes no banco e conta quantos tem
+				var numeroParticipantes=0;
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						if(childNodes.val().nome != null)numeroParticipantes ++;
+				      	//console.log(numeroParticipantes);
+				  });
+   				});
+   				//preenche um vetor com todos os participantes
+				var ArrayParticipantes = new Array(numeroParticipantes);
+				var i=0;
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						var usuarioParaAdd = childNodes.val().nome;
+				      	var ultimoNome;
+
+				      	if (ultimoNome != usuarioParaAdd){
+				      		ArrayParticipantes[i] = usuarioParaAdd;
+				      		ultimoNome = usuarioParaAdd;
+				      		i++;
+				      	}
+				  	});
+					//console.log(ArrayParticipantes);
+					//console.log(ArrayParticipantes.sort());
+					// Insere os participantes no SELECT
+					insereParticipante("selecionar_Apostador", ArrayParticipantes.sort());
+					BuscaAposta ("selecionar_Apostador", numeroParticipantes);
+				});
+
+				function insereParticipante(SelectID, vetorParticipantes){
+					var Select = document.getElementById(SelectID); 
+			    	for (var i = 0; i < vetorParticipantes.length; i++) {
+				        var option = document.createElement("option");
+				        //option.value = name;
+				        option.innerHTML = vetorParticipantes[i];
+				        Select.appendChild(option);
+				    }
+				}
+
+
+
+
+				// Busca no banco a aposta do sujeito escolhido e mostra!
+				function BuscaAposta (Select, numeroDeApostadores) {
+					
+					//Observa quem foi o apostador escolhido
+					$('#' + Select).change(function (evt) {
+                        var selectedValue = evt.target.value;
+                        var ApostadorEscolhido = "";
+                        for (var j = 1 ; j < numeroDeApostadores; j++) {
+                            var option = evt.target.options[j];
+                            if (option.innerHTML == selectedValue) {
+                                ApostadorEscolhido = option.label;
+                            }
+                        }
+                        var ID_ApostadorEscolhido;
+                        var EncontrouAposta = 0;
+                        var db = firebase.database();
+                        db.ref("usuarios").on('value', function(snap){
+		   					snap.forEach(function(childNodes){
+		   						if(childNodes.val().nome == ApostadorEscolhido){
+		   							ID_ApostadorEscolhido = childNodes.Ce.path.n[1];
+		   						}
+						  	});
+		   				});
+						db.ref('apostas').once('value', (snap) => {
+		        			snap.forEach((childNode) => {
+		        				var fraseApostador = document.getElementById("Aviso_apostador");
+		        				if(childNode.Ce.path.n[1] == ID_ApostadorEscolhido){
+		        					EncontrouAposta = 1;
+		        					var aposta = childNode.val();
+		        					var apostaEtapa1 = aposta.etapa1;
+		        					//console.log(apostaEtapa1);
+
+		        					//Preenche a aposta do usuario na pagina.
+					        		for (i=1; i<=48; i++) {
+					        			
+					        			var jogo = 'j' + i;
+					        			var time;
+					        			var valorLido = apostaEtapa1[jogo];
+					        			var golsParaColar;
+					        			for(x=1; x<=2; x++){
+					        				if(x==1){ //A
+					        					time = jogo + 'A';
+					        					localParaColar = 'gols_' + time;
+					        					golsParaColar = document.getElementById(localParaColar);
+					        					
+					        					golsParaColar.innerHTML = valorLido[time];
+					        					
+					        				}
+					        				else{ //B
+					        					time = jogo + 'B';
+					        					localParaColar = 'gols_' + time;
+					        					golsParaColar = document.getElementById(localParaColar);
+					        					
+					        					golsParaColar.innerHTML = valorLido[time];
+					        				}
+					        			}
+					        		}
+					        		//Preenche oitavas
+					        		for (i=1; i<=16; i++) {
+					        			
+					        			var time = 'oitavas' + i;
+					        			var timeLido = apostaEtapa1[time];
+					        			var classificadoOitavas = document.getElementById(time);
+					        					
+					        			classificadoOitavas.innerHTML = timeLido[time];
+					        		}
+					        		//Preenche quartas
+					        		for (i=49; i<=56; i++) {
+					        			var jogo = 'j' + i;
+					        			var time = 'quartas' + (i-48);
+					        			var timeLido = apostaEtapa1[jogo];
+					        			var classificadoQuartas = document.getElementById(time);
+					        					
+					        			classificadoQuartas.innerHTML = timeLido[time];
+					        		}
+					        		//Preenche semi
+					        		for (i=57; i<=60; i++) {
+					        			var jogo = 'j' + i;
+					        			var time = 'semi' + (i-56);
+					        			var timeLido = apostaEtapa1[jogo];
+					        			var classificadoSemi = document.getElementById(time);
+					        					
+					        			classificadoSemi.innerHTML = timeLido[time];
+					        		}
+					        		//Preenche terceiro
+					        		for (i=63; i<=63; i++) {
+					        			var jogo = 'j' + i;
+					        			var time = 'terceiro';
+					        			var timeLido = apostaEtapa1[jogo];
+					        			var timeTerceiro = document.getElementById(time);
+					        					
+					        			timeTerceiro.innerHTML = timeLido[time];
+					        		}
+					        		//Preenche campeao e vice
+					        		for (i=64; i<=64; i++) {
+					        			var jogo = 'j' + i;
+					        			var timeVice = 'vice';
+					        			var timeCampeao = 'campeao';
+					        			var timeLido = apostaEtapa1[jogo];
+					        			var timeSegundo = document.getElementById(timeVice);
+					        			var timePrimeiro = document.getElementById(timeCampeao);
+					        					
+					        			timePrimeiro.innerHTML = timeLido[timeCampeao];
+					        			timeSegundo.innerHTML = timeLido[timeVice];
+					        		}
+
+		        				}
+		        				if(EncontrouAposta == 1){
+		        					fraseApostador.innerHTML = "Aposta encontrada com sucesso!";
+		        					fraseApostador.style.color = "blue";
+		        				}
+		        				else{
+		        					fraseApostador.innerHTML = "Aposta não encontrada!";
+		        					fraseApostador.style.color = "red";
+		        				}
+
+		        			});
+		        		});
+
+
+
+
+                    });
+				}
+
+
 
 			</script>
+
+
+			
+
 
 
 

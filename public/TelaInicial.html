@@ -50,7 +50,7 @@
 		<!-- Highlights -->
 			<section class="wrapper">
 				<div class="inner">
-					<p align="center"><font size="3"color="white">Você pode reenviar sua aposta quantas vezes quiser até a data limite! Boa sorte!</u></font></p>
+					<p align="center"><font size="3"color="white" id="Aviso_Geral">Você pode reenviar sua aposta quantas vezes quiser até a data limite! Boa sorte!</u></font></p>
 					<div class="highlights">
 						<!--<section>
 							<div class="content">
@@ -206,7 +206,7 @@
                 setInterval(function() {
                     if (typeof code_happened === 'undefined'){
                     	
-                    	//var dataLimiteApostas = new Date("Jun 14, 2018 10:00:00");
+                    	//var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
                     	var dataLimiteApostas = new Date("Jun 14, 2018 11:00:00");
 						//console.log("Verificando data limite");
                         var thisYear = new Date().getFullYear();
@@ -215,13 +215,54 @@
                         var thisHour = new Date().getHours();
                         var thisMin = new Date().getMinutes();
 
-                		if ( thisYear >= (dataLimiteApostas.getFullYear())  && thisMonth >= (dataLimiteApostas.getMonth()) && thisDay >= (dataLimiteApostas.getDate()) && thisHour >= (dataLimiteApostas.getHours()) && thisMin >= (dataLimiteApostas.getMinutes()) ){
-                            //console.log("Detectado fim do periodo de apostas!");
-                            document.getElementById("iconeRealziarApostas").href=""; 
-                            document.getElementById("TituloRealizarApostas").innerHTML = "Apostas Encerradas";
-                            document.getElementById("SubTituloRealizarApostas").innerHTML = "Periodo para enviar apostas encerrou!";
+                		if ( thisYear == (dataLimiteApostas.getFullYear()) ){
+                			//console.log("Ano Igual");
+                			if ( thisMonth == (dataLimiteApostas.getMonth()) ){
+                				//console.log("mês igual");
+                				if ( thisDay == (dataLimiteApostas.getDate()) ){
+                					//console.log("dia igual");
+                					if ( thisHour == (dataLimiteApostas.getHours()) ){
+                						//console.log("hora igual");
+                						if ( thisMin >= (dataLimiteApostas.getMinutes()) ){
+                							//console.log("minutos Maior ou igual");
+                							VenceuPeriodoApostas();
+                						}
+                					}
+                					else if ( thisHour == (dataLimiteApostas.getHours()) ){
+                						//console.log("hora Maior");
+                						VenceuPeriodoApostas();
+                					}
+                				}
+                				else if ( thisDay > (dataLimiteApostas.getDate()) ){
+                					//console.log("dia Maior");
+                					VenceuPeriodoApostas();
+                				}	
+                			}
+                			else if ( thisMonth > (dataLimiteApostas.getMonth()) ){
+                				//console.log("Mes Maior");
+                				VenceuPeriodoApostas();
+                			} 
+                		}
+                		else if ( thisYear > (dataLimiteApostas.getFullYear()) ){
+                			//console.log("Ano Maior");
+                			VenceuPeriodoApostas();
+                		}
+
+                		function VenceuPeriodoApostas(){
+                			console.log("Venceu Periodo Apostas");
+                			document.getElementById("iconeRealziarApostas").href="TodasApostas.html"; 
+                            document.getElementById("TituloRealizarApostas").innerHTML="Ver apostas de todos os participantes";
+                            document.getElementById("SubTituloRealizarApostas").innerHTML="Veja os placares, os classificados e o campeão apostado pelos outros participantes!";
+                            document.getElementById("Aviso_Geral").innerHTML="O Período para enviar apostas <u>ENCERROU!</u>. Agora é torcer e acompanhar a tabela de Classificação do Bolão!";
                             window.code_happened = true;
-                        }
+                			/*
+                			document.getElementById("iconeRealziarApostas").href=""; 
+                            document.getElementById("TituloRealizarApostas").innerHTML="Apostas Encerradas";
+                            document.getElementById("SubTituloRealizarApostas").innerHTML="Periodo para enviar apostas encerrou!";
+                            document.getElementById("Aviso_Geral").innerHTML="O Período para enviar apostas <u>ENCERROU!</u>. Agora é torcer e acompanhar a tabela de Classificação do Bolão!";
+                            window.code_happened = true;
+                            */
+                		}
                        	
                     }
                 }, 0.5 * 1000); // 60 * 1000 milsec
