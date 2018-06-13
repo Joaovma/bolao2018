@@ -2172,31 +2172,45 @@
                             if ( thisDay == (dataLimiteApostas.getDate()) ){
                                 if ( thisHour == (dataLimiteApostas.getHours()) ){
                                     if ( thisMin >= (dataLimiteApostas.getMinutes()) ){
-                                        /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                                        salvouAposta = 0;
+                                    }
+                                    else{
+                                        salvouAposta = 1;
                                     }
                                 }
-                                else if ( thisHour == (dataLimiteApostas.getHours()) ){
-                                    /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                                else if ( thisHour > (dataLimiteApostas.getHours()) ){
+                                    salvouAposta = 0;
                                 }
+                                else{
+                                        salvouAposta = 1;
+                                    }
+
                             }
                             else if ( thisDay > (dataLimiteApostas.getDate()) ){
+                                salvouAposta = 0;
                                 /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                            }
+                            else{
+                                salvouAposta = 1;
                             }   
                         }
                         else if ( thisMonth > (dataLimiteApostas.getMonth()) ){
                             /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
+                        }
+                        else{
+                            salvouAposta = 1;
                         } 
                     }
                     else if ( thisYear > (dataLimiteApostas.getFullYear()) ){
                         /*Se estiver fora da data limite nao faz nada e vai dar snackbar_failure*/
                     }
                     else{
-                        console.log("Aposta salva no banco");
-                        firebaseSaveBet(aposta);
-                        console.log(aposta);
                         salvouAposta = 1;
                     }
                     if(salvouAposta == 1){
+                        firebaseSaveBet(aposta);
+                        console.log("Aposta salva no banco");
+                         //console.log(aposta);
                         toast("snackbar_success");
                     }
                     else{
