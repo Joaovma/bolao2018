@@ -2001,7 +2001,7 @@
 					$('#' + Select).change(function (evt) {
                         var selectedValue = evt.target.value;
                         var ApostadorEscolhido = "";
-                        for (var j = 1 ; j < numeroDeApostadores; j++) {
+                        for (var j = 1 ; j <= numeroDeApostadores; j++) {
                             var option = evt.target.options[j];
                             if (option.innerHTML == selectedValue) {
                                 ApostadorEscolhido = option.label;
