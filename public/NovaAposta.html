@@ -2079,6 +2079,17 @@
                 }, 2 * 1000); // 60 * 1000 milsec
             </script>
             <script>
+
+
+                // DURANTE A COPA, FIZ ALTERAÇÃO PARA NUNCA MAIS ENVIAR APOSTAS!! PRA EVITAR QUE ALGUEM MUDE A DATA E CONSIGA ALTERAR AS APOSTAS!!
+
+                // COMENTEI A CHAMADA DA FUNÇÃO: "firebaseSaveBet(aposta);"
+
+                // E COLOQUEI O SNACK_BAR FAILURE PRA TODOS OS CASOS!
+
+                //ASSIM NAO ENVIA MAIS NADA
+
+
                 //script para estruturar a aposta e envia-la para o firebase
                 const element = document.querySelector('form');
                 element.addEventListener('submit', function (e) {
@@ -2208,10 +2219,14 @@
                         salvouAposta = 1;
                     }
                     if(salvouAposta == 1){
-                        firebaseSaveBet(aposta);
-                        console.log("Aposta salva no banco");
-                         //console.log(aposta);
-                        toast("snackbar_success");
+                        // ALTERAÇÃO DURANTE A COPA!!!!
+
+                        //firebaseSaveBet(aposta);
+                        //console.log("Aposta salva no banco");
+                        //console.log(aposta);
+                        //toast("snackbar_success");
+
+                        toast("snackbar_failure");
                     }
                     else{
                         toast("snackbar_failure");
