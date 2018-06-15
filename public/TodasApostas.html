@@ -66,7 +66,7 @@
 			</section>
 			<section id="main" class="wrapper">
 				<div class="inner">
-					<div class="content">
+					<div class="content" id="ConteudoAposta">
 						<div>
 							<!--<h2 align="center"><b>Antes da Copa</b></h2>
 							<hr>-->
@@ -1484,7 +1484,7 @@
 								</section>
 								&nbsp;
 								<hr>
-		                        <h2 align="center">Pódio da sua aposta!</h2>
+		                        <h2 align="center">Pódio da aposta!</h2>
 		                        <hr>
 								<section>
 									<table>
@@ -1960,6 +1960,8 @@
 				      	//console.log(numeroParticipantes);
 				  });
    				});
+   				//some com a tabla dos jogos e espera escolher um apostador
+   				document.getElementById("ConteudoAposta").style.display = "none";
    				//preenche um vetor com todos os participantes
 				var ArrayParticipantes = new Array(numeroParticipantes);
 				var i=0;
@@ -1993,7 +1995,6 @@
 
 
 
-
 				// Busca no banco a aposta do sujeito escolhido e mostra!
 				function BuscaAposta (Select, numeroDeApostadores) {
 					
@@ -2007,6 +2008,7 @@
                                 ApostadorEscolhido = option.label;
                             }
                         }
+                        document.getElementById("ConteudoAposta").style.display = "none";
                         var ID_ApostadorEscolhido;
                         var EncontrouAposta = 0;
                         var db = firebase.database();
@@ -2102,11 +2104,12 @@
 
 		        				}
 		        				if(EncontrouAposta == 1){
-		        					fraseApostador.innerHTML = "Aposta encontrada com sucesso!";
+		        					fraseApostador.innerHTML = "Aposta de " + ApostadorEscolhido + " encontrada com sucesso!";
 		        					fraseApostador.style.color = "blue";
+		        					document.getElementById("ConteudoAposta").style.display = "block";
 		        				}
 		        				else{
-		        					fraseApostador.innerHTML = "Aposta não encontrada!";
+		        					fraseApostador.innerHTML = "Aposta de " + ApostadorEscolhido + " não encontrada!";
 		        					fraseApostador.style.color = "red";
 		        				}
 

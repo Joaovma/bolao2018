@@ -17,6 +17,7 @@
   		.even{background-color: white;} 
   		.odd{background-color: rgba(53, 53, 53, 0.1);}
   		.premio{background-color: #b3cccc;}
+  		.rebaixamento{background-color: rgba(230, 0, 0, 0.3);}
 	</style>
 
 	<body class="is-preload">
@@ -97,8 +98,9 @@
 											</tbody>
 										</table>
 									</font>
-									<p><font color="green"> * A pontuação total é a soma das potuações das Oitavas, Quartas, Semi, Terceiro, Final e fase de Grupos. </font></p>
+									<p><font color="black"> * A pontuação total é a soma das potuações das Oitavas, Quartas, Semi, Terceiro, Final e fase de Grupos. </font></p>
 									<p><font color="green"> ** Os 5 primeiros colocados recebem premiação de acordo com a colocação (como descrito nas <a href="Regras.html"><u>Regras</u></a>)</font></p>
+									<p><font color="red"> *** Os 5 últimos colocados realmente NÃO possuem um bom palpite.</a></font></p>
 								</div>
 					</div>
 				</div>
@@ -328,6 +330,8 @@
 							deleteFirstrow("classificacaoGeral");
 							alternate('classificacaoGeral');
 							os5primeiros('classificacaoGeral');
+							os5ultimos('classificacaoGeral');
+							
 						});
 					}
 				},2 * 1000); // 60 * 1000 milsec
@@ -359,6 +363,21 @@
 				    var rows = table.getElementsByTagName("tr");   
 				    for(i = 1; i < 6; i++){           
 	     				rows[i].className = "premio"
+	     				rows[i].style.fontWeight="bold";;
+				    } 
+				  }
+				  //id.border = "10%";
+				}
+			</script>
+
+			<script type="text/javascript">
+				function os5ultimos(id){ 
+				  if(document.getElementsByTagName){  
+				    var table = document.getElementById(id);
+				    var size = table.rows.length;
+				    var rows = table.getElementsByTagName("tr");   
+				    for(i = (size-1); i > (size-6); i--){           
+	     				rows[i].className = "rebaixamento";
 	     				rows[i].style.fontWeight="bold";;
 				    } 
 				  }
