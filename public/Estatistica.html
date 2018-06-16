@@ -1,0 +1,664 @@
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Estatistica</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<style> 
+  		.even{background-color: white;} 
+  		.odd{background-color: rgba(53, 53, 53, 0.1);}
+  		.premio{background-color: #b3cccc;}
+	</style>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="TelaInicial.html"><font size="3">Bolão da Copa</font></a>
+				<a class="logo" href="MinhaConta.html"><font size="1">Olá, </font><font id="nomeLogado" size="1"></font></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
+					<!--<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>-->
+					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
+					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
+					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
+					<li><a class="fa fa-sign-out" href="#" onclick='firebaseSignOut()' >&nbsp; LOGOUT</a></li>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>Estatística</h1>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="wrapper">
+					<div class="content">
+						<section>
+							<hr>
+	                        <h2 align="center">Selecione qual estatistica</h2>
+	                        <hr>
+							<select name="category" id="selecionar_Lista" required>
+	                            <option value=""> - </option>
+	                        </select>
+	                        &nbsp;
+	                        <p align="center"><font color="black" size="2.5">Serão mostrados quais seleções foram apostadas por todos participantes!</font></p>
+						</section>
+						<section id="DistribuicaoApostasCampeao">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas do CAMPEÃO</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosCampeao">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+						<section id="DistribuicaoApostasVice">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas do Vice</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosVice">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+						<section id="DistribuicaoApostasTerceiro">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas do Terceiro</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosTerceiro">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+						<section id="DistribuicaoApostasSemi">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas da Semi</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosSemi">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+						<section id="DistribuicaoApostasQuartas">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas das Quartas</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosQuartas">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+						<section id="DistribuicaoApostasOitavas">
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas das Oitavas</b></h3>
+								<hr>
+							</header>
+							<font size="3">
+								<table class="alt" id="listaApostadosOitavas">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><b><font color="#00798C"></font><font color="white">Pos</font><font color="#00798C"></font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Seleção</font><font color="#00798C">_______</font></b></td>
+											<td bgcolor="#00798C"><b><font color="#00798C">__</font><font color="white">Nº Apostas</font><font color="#00798C">__</font></b></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
+
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h4>Sobre o Bolão</h4>
+							<p>O Bolão da Copa foi criado sem fins lucrativos, com o objetivo de entreter um grupo de amigos e tornar a experiencia de assistir a Copa do Mundo 2018 ainda mais interessante. A forma de pontuação foi reformulada e pode ser conhecida nas <a href="Regras.html"><u>regras</u></a>. Além disso, a ideia da tabela de classificação de todos os apostadores trás uma competitividade bacana para o bolão! Boa Sorte!</p>
+						</section>
+						<section>
+							<h5>Dúvidas?</h5>
+							<ul class="alt">
+								<li>Mande a pergunta para majoaovitor@gmail.com</li>
+							</ul>
+						</section>
+						<section>
+							<h5>Agradecimentos e Redes Sociais</h5>
+							<p>Mando um agradecimento especial para o <u>Henrique Brighenti</u> que me ajudou bastante na criação desse bolão me apresentando ferramentas de desenvolvimento e me ensinando como usa-las. Sem isso, eu não teria terminado o bolão a tempo. Agradeço também o <u>Rafael Ramos</u> pelas dicas e por me ajudar nos primeiros passos da criação do site e por fim agradeço ao <u>Matheus Rungue</u> pela confecção do simbolo do bolão! Valeu pela contribuição pessoal!</p>
+							<ul class="plain">
+								<!--<li><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook">&nbsp;</i>João Vítor - facebook</a></li>-->
+								<li><a href="https://www.instagram.com/joaovitor.ma/"><i class="icon fa-instagram">&nbsp;</i></a><a href="https://www.facebook.com/joao.vitor.27"><i class="icon fa-facebook"></i>João Vítor</a></li>
+								<li><a href="https://www.instagram.com/hsbrighenti"><i class="icon fa-instagram">&nbsp;</i></a><a href="https://www.facebook.com/hsbrighenti"><i class="icon fa-facebook"></i>Henrique Brighenti</a></li>
+								<li><a href="https://www.instagram.com/rafar279/"><i class="icon fa-instagram">&nbsp;</i></a><a href="https://www.facebook.com/rafael.ramos.752861"><i class="icon fa-facebook"></i>Rafael Ramos</a></li>
+								<li><a href="https://www.instagram.com/matheusrungue"><i class="icon fa-instagram">&nbsp;</i></a><a href="https://www.facebook.com/MatheusRungue"><i class="icon fa-facebook"></i>Matheus Rungue</a></li>
+								
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						<p>Bolão da Copa</p>
+						<p> &copy 2018 - João Vítor</p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+			<script src="assets/js/firebase.js"></script>
+			
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+
+			<script>
+
+		        //Esconde todos os cards
+				document.getElementById("DistribuicaoApostasCampeao").style.display = "none";
+				document.getElementById("DistribuicaoApostasVice").style.display = "none";
+				document.getElementById("DistribuicaoApostasTerceiro").style.display = "none";
+				document.getElementById("DistribuicaoApostasSemi").style.display = "none";
+				document.getElementById("DistribuicaoApostasQuartas").style.display = "none";
+				document.getElementById("DistribuicaoApostasOitavas").style.display = "none";
+
+				    
+
+
+				var vetorSelecoes = ["Rússia", "Brasil", "Irã", "Japão", "México", "Bélgica", "Coreia do Sul", "Arábia Saudita", "Alemanha", "Inglaterra", "Espanha", "Nigéria", "Costa Rica", "Polônia", "Egito", "Islândia", "Sérvia", "França", "Portugal", "Argentina", "Colômbia", "Uruguai", "Panamá", "Senegal", "Marrocos", "Tunísia","Suíça", "Croácia", "Suécia", "Dinamarca", "Austrália", "Peru"];
+
+				
+				var vetorSelecoesOrdenado = vetorSelecoes.sort();
+
+				var vetorSelecoesOrdenadoCountCampeao = new Array(32);
+				var vetorSelecoesOrdenadoCountVice = new Array(32);
+				var vetorSelecoesOrdenadoCountTerceiro = new Array(32);
+				var vetorSelecoesOrdenadoCountSemi = new Array(32);
+				var vetorSelecoesOrdenadoCountQuartas = new Array(32);
+				var vetorSelecoesOrdenadoCountOitavas = new Array(32);
+				vetorSelecoesOrdenadoCountCampeao.fill(0);
+				vetorSelecoesOrdenadoCountVice.fill(0);
+				vetorSelecoesOrdenadoCountTerceiro.fill(0);
+				vetorSelecoesOrdenadoCountSemi.fill(0);
+				vetorSelecoesOrdenadoCountQuartas.fill(0);
+				vetorSelecoesOrdenadoCountOitavas.fill(0);
+
+				var db = firebase.database();
+				db.ref('apostas').once('value', (snap) => {
+        			snap.forEach((childNode) => {
+    					var aposta = childNode.val();
+    					var apostaEtapa1 = aposta.etapa1;
+    					
+		        		//Preenche oitavas
+		        		// for (i=1; i<=16; i++) {
+		        			
+		        		// 	var time = 'oitavas' + i;
+		        		// 	var timeLido = apostaEtapa1[time];
+		        		// 	var classificadoOitavas = document.getElementById(time);
+		        					
+		        		// 	classificadoOitavas.innerHTML = timeLido[time];
+		        		// }
+		        		// //Preenche quartas
+		        		// for (i=49; i<=56; i++) {
+		        		// 	var jogo = 'j' + i;
+		        		// 	var time = 'quartas' + (i-48);
+		        		// 	var timeLido = apostaEtapa1[jogo];
+		        		// 	var classificadoQuartas = document.getElementById(time);
+		        					
+		        		// 	classificadoQuartas.innerHTML = timeLido[time];
+		        		// }
+		        		// //Preenche semi
+		        		// for (i=57; i<=60; i++) {
+		        		// 	var jogo = 'j' + i;
+		        		// 	var time = 'semi' + (i-56);
+		        		// 	var timeLido = apostaEtapa1[jogo];
+		        		// 	var classificadoSemi = document.getElementById(time);
+		        					
+
+		        		for (i=0; i<vetorSelecoesOrdenado.length; i++) {
+		        			//CAMPEAO E VICE
+		        			var jogo = 'j' + 64;
+		        			var timeVice = 'vice';
+		        			var timeCampeao = 'campeao';
+		        			var timeLido = apostaEtapa1[jogo];
+		        			var selecaoAtualVerificada = vetorSelecoesOrdenado[i];
+		        			
+		        			if ( timeLido[timeCampeao] == selecaoAtualVerificada ){
+		        				vetorSelecoesOrdenadoCountCampeao[i] = vetorSelecoesOrdenadoCountCampeao[i] + 1;
+		        			}
+		        			if ( timeLido[timeVice] == selecaoAtualVerificada ){
+		        				vetorSelecoesOrdenadoCountVice[i] = vetorSelecoesOrdenadoCountVice[i] + 1;
+		        			}
+
+		        			//TERCEIRO COLOCADO
+		        			var jogo = 'j' + 63;
+		        			var timeTerceiro = 'terceiro';
+		        			var timeLido = apostaEtapa1[jogo];
+		        			
+		        			if ( timeLido[timeTerceiro] == selecaoAtualVerificada ){
+		        				vetorSelecoesOrdenadoCountTerceiro[i] = vetorSelecoesOrdenadoCountTerceiro[i] + 1;
+		        			}
+
+		        			//SEMI
+		        			for(x=1; x<=4; x++){
+		        				var jogo = 'j' + (56+x);
+			        			var timeSelecionado = 'semi'+(x);
+			        			var timeLido = apostaEtapa1[jogo];
+			        			
+			        			if ( timeLido[timeSelecionado] == selecaoAtualVerificada ){
+			        				vetorSelecoesOrdenadoCountSemi[i] = vetorSelecoesOrdenadoCountSemi[i] + 1;
+			        			}
+		        			}
+		        			//QUARTAS
+		        			for(x=1; x<=8; x++){
+		        				var jogo = 'j' + (48+x);
+			        			var timeSelecionado = 'quartas'+(x);
+			        			var timeLido = apostaEtapa1[jogo];
+			        			
+			        			if ( timeLido[timeSelecionado] == selecaoAtualVerificada ){
+			        				vetorSelecoesOrdenadoCountQuartas[i] = vetorSelecoesOrdenadoCountQuartas[i] + 1;
+			        			}
+		        			}
+		        			//OITAVAS
+		        			for(x=1; x<=16; x++){
+		        				var jogo = 'oitavas' + x;
+			        			var timeSelecionado = 'oitavas'+x;
+			        			var timeLido = apostaEtapa1[jogo];
+			        			
+			        			if ( timeLido[timeSelecionado] == selecaoAtualVerificada ){
+			        				vetorSelecoesOrdenadoCountOitavas[i] = vetorSelecoesOrdenadoCountOitavas[i] + 1;
+			        			}
+		        			}
+		        			
+
+
+
+		        		}
+
+        			});
+        			//mostra a lista selecionada + sao 3 listas
+        			DisplayListaRequisitada("selecionar_Lista", 6);
+
+        			//Agora insere as opcoes no Select
+					var Select = document.getElementById("selecionar_Lista"); 
+			        var option = document.createElement("option");
+			        option.innerHTML = "Campeao"
+			        Select.appendChild(option);
+			        var option = document.createElement("option");
+			        option.innerHTML = "Vice"
+			        Select.appendChild(option);
+			        var option = document.createElement("option");
+			        option.innerHTML = "Terceiro"
+			        Select.appendChild(option);
+
+			        var option = document.createElement("option");
+			        option.innerHTML = "Semi"
+			        Select.appendChild(option);
+
+			        var option = document.createElement("option");
+			        option.innerHTML = "Quartas"
+			        Select.appendChild(option);
+
+			        var option = document.createElement("option");
+			        option.innerHTML = "Oitavas"
+			        Select.appendChild(option);
+	        	});
+
+        		function DisplayListaRequisitada (Select, numeroDeListas) {
+					
+					//Observa quem foi o apostador escolhido
+					$('#' + Select).change(function (evt) {
+                        var selectedValue = evt.target.value;
+                        var OpcaoEscolhida = "";
+                        for (var j = 1 ; j <= numeroDeListas; j++) {
+                            var option = evt.target.options[j];
+                            if (option.innerHTML == selectedValue) {
+                                OpcaoEscolhida = option.label;
+                            }
+                        }
+
+						var bloco = 'DistribuicaoApostas'+OpcaoEscolhida;
+                        var lista = 'listaApostados'+OpcaoEscolhida;
+                        var vetorCount;
+
+                        if(OpcaoEscolhida == "Campeao"){
+                        	vetorCount = vetorSelecoesOrdenadoCountCampeao;
+                        }
+                        else if(OpcaoEscolhida == "Vice"){
+                        	vetorCount = vetorSelecoesOrdenadoCountVice;
+                        }
+                        else if(OpcaoEscolhida == "Terceiro"){
+                        	vetorCount = vetorSelecoesOrdenadoCountTerceiro;
+                        }
+                        else if(OpcaoEscolhida == "Semi"){
+                        	vetorCount = vetorSelecoesOrdenadoCountSemi;
+                        }
+                        else if(OpcaoEscolhida == "Quartas"){
+                        	vetorCount = vetorSelecoesOrdenadoCountQuartas;
+                        }
+                        else if(OpcaoEscolhida == "Oitavas"){
+                        	vetorCount = vetorSelecoesOrdenadoCountOitavas;
+                        }
+
+                        //console.log(vetorCount);
+                        //console.log(vetorSelecoesOrdenado);
+                        fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        document.getElementById(bloco).style.display = "block";
+
+                    });
+				}
+        		
+			</script>
+
+
+			<script>
+
+				function fazTudoPraEssaLista(tableID, vetorSelecoes, vetorCountApostas){
+
+					//deleteAllRows(tableID);
+					insereLista(tableID, vetorSelecoes, vetorCountApostas);
+					//deleteFirstrow(tableID);
+        			
+        			
+        			//Esconde todos os cards
+					document.getElementById("DistribuicaoApostasCampeao").style.display = "none";
+					document.getElementById("DistribuicaoApostasVice").style.display = "none";
+					document.getElementById("DistribuicaoApostasTerceiro").style.display = "none";
+					document.getElementById("DistribuicaoApostasSemi").style.display = "none";
+					document.getElementById("DistribuicaoApostasQuartas").style.display = "none";
+					document.getElementById("DistribuicaoApostasOitavas").style.display = "none";
+
+					organizaOrdemDescrescente(tableID);
+					deleteFirstrow(tableID);
+					insereID(tableID);
+					alternate(tableID);
+					
+				}
+
+				function insereLista(tableID, vetorSelecoes, vetorCountApostas){
+					//deleteAllRows(tableID);
+					//console.log(vetorSelecoes);
+					//console.log(vetorCountApostas);
+					var table = document.getElementById(tableID);
+					var numeroDeSelecoes = vetorSelecoes.length;
+					
+					for (i = 0; i<numeroDeSelecoes; i++) {
+						var rowCount = table.rows.length;
+						var rows = table.getElementsByTagName("TR");
+						if(rowCount > 33){
+							var selec = vetorSelecoes[i];
+							var countSelec = vetorCountApostas[i];
+
+		      				rows[i+1].getElementsByTagName("TD")[1].innerHTML = selec;
+		      				rows[i+1].getElementsByTagName("TD")[2].innerHTML = countSelec;
+			    			
+						}
+						else{
+
+							var row = table.insertRow(rowCount);
+							var cellPos = row.insertCell(0);
+							var cellSelecao = row.insertCell(1);
+					    	var cellApostas = row.insertCell(2);
+
+					    	cellPos.innerHTML = '-';
+					    	cellSelecao.innerHTML = vetorSelecoes[i];
+					    	cellApostas.innerHTML = vetorCountApostas[i];
+						}
+						
+					}
+					
+
+				}
+
+				function insereID(tableID){
+					var table, rows;
+				    table = document.getElementById(tableID);
+				    rows = table.getElementsByTagName("TR");
+			    	window.organizedID = true;
+			    	//seta o ID corretamente da tabela de participantes
+		  			//console.log("vou organizar ID");
+		  			for (i = 1; i < (rows.length); i++) {
+			      		rows[i].getElementsByTagName("TD")[0].innerHTML = i;
+			    	}
+
+				}
+				//Deleta a primeira linha da tabela que contem a paravra: carregando
+				//tem que ser feito depois que os dados do banco sao colocados na tabela...se nao caga o role
+				function deleteFirstrow(tableID) {
+				    var table = document.getElementById(tableID);
+				    //deleta linha abaixo do cabeçalho
+				    table.deleteRow(1);
+				}
+
+				function deleteLastrow(tableID) {
+				    var table = document.getElementById(tableID);
+				    var rowCount = table.rows.length;
+
+				    table.deleteRow(rowCount-1);
+
+				}
+
+				function deleteAllRows(tableID) {
+				    var table = document.getElementById(tableID);
+				    var rowCount = table.rows.length;
+
+				    for(i=rowCount-1;i>1;i--){
+				    	table.deleteRow(i);
+				    }
+				    var rowBasica = table.insertRow(1);
+					var cellSelecao = rowBasica.insertCell(0).innerHTML = '-';
+			    	var cellApostas = rowBasica.insertCell(1).innerHTML = '-';
+
+				}
+
+				function deleteUnusedRow(tableID) {
+				    var table = document.getElementById(tableID);
+				    var rowCount = table.rows.length;
+
+				    // for(i=(rowCount-1);i>1;i--){
+				    	
+				    // 	if(rowCount = table.rows.innerHTML == '--') table.deleteRow(i);
+				    	
+				    // }
+				    table.deleteRow(rowCount-1);
+				    //table.deleteRow(rowCount-2);
+
+				}
+				// function deleteAllRows(tableID) {
+				//     var table = document.getElementById(tableID);
+				//     var rowCount = 32;
+
+				//     for(i=(rowCount-1);i>1;i--){
+				    	
+				//     	table.deleteRow(i);
+				    	
+				//     }
+
+				// }
+
+				// CONVERTE INNER HTML PARA NUMBER
+				function organizaOrdemDescrescente(tableID) {
+				    var table, rows, switching, i, x, y, shouldSwitch;
+					    table = document.getElementById(tableID);
+					    switching = true;
+					    while (switching) {
+					    	//start by saying: no switching is done:
+					    	switching = false;
+					    	rows = table.getElementsByTagName("TR");
+					    	for (i = 1; i < (rows.length - 1); i++) {
+					      		//start by saying there should be no switching:
+					      		shouldSwitch = false;
+					      		//x = rows[i].getElementsByTagName("TD")[2];
+					      		//y = rows[i + 1].getElementsByTagName("TD")[2];
+					      		x = rows[i].cells[2];
+					      		y = rows[i + 1].cells[2];
+					      		//check if the two rows should switch place:
+					      // 		if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+					      //   		//if so, mark as a switch and break the loop:
+							    //     shouldSwitch = true;
+							    //     break;
+							    // }
+							    if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+					        		//if so, mark as a switch and break the loop:
+							        shouldSwitch = true;
+							        break;
+							    }
+					    	}
+					    	if (shouldSwitch) {
+					      		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					      		switching = true;
+					    	}
+					    	window.code_happened = true;
+
+				  		}
+
+				}
+
+				function alternate(id){ 
+				  if(document.getElementsByTagName){  
+				    var table = document.getElementById(id);   
+				    var rows = table.getElementsByTagName("tr");   
+				    for(i = 1; i < rows.length; i++){           
+				  //manipulate rows 
+				      if(i % 2 == 0){ 
+				        rows[i].className = "even";
+				        rows[i].border = "10";  
+				      }else{ 
+				        rows[i].className = "odd";
+				        rows[i].border = "10"; 
+				      }       
+				    } 
+				  }
+				}
+			</script>
+
+			<script type="text/javascript">
+				firebaseGetUserData().then(function(usuario){
+					//console.log(usuario);
+					$('#nomeLogado').html(usuario.nome);
+				})
+
+			</script>
+
+
+
+
+	</body>
+</html>
