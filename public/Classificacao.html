@@ -55,6 +55,10 @@
 						<p style="margin: 0;" align="center"><img src="images/refresh.png" onclick='reloadPage()' width="12%" height="7%" class="responsive" ></p>
 						<p style="margin: 0;" align="center"><font color="#00798C">Atualizar</font></p>
 						<hr>
+						<input type="text" id="CampoPesquisaNome" onkeyup="PesquisarApostador()" placeholder="Pesquisar Apostador..." style="background-image: url('images/pesquisar.png'); background-position: 10px 10px; background-repeat: no-repeat; padding: 5px 20px 5px 60px; font-size: 14px;">
+						
+  
+  
 						<p><font color="gray" size="2" >VER mais dados das pontuações (<b>ARRASTE</b>) »» </font></p>
 						<div class="table-wrapper">
 									<font size="3">
@@ -72,7 +76,7 @@
 													<td bgcolor="#00798C"><b><font color="white">Grupos</font></b></td>
 												</tr>
 											</thead>
-											<tbody align="center">
+											<tbody align="center" id="bodyClassificacaoGeral">
 												<!--<tr>
 													<td bgcolor="#b3cccc"><b>-</b></td>
 													<td bgcolor="#b3cccc"><b>-</td>
@@ -826,6 +830,27 @@
 				}
 			</script>
 
+			<script>
+				function PesquisarApostador() {
+				  
+				  var input = document.getElementById("CampoPesquisaNome");
+				  var filtro = input.value.toUpperCase();
+				  var table = document.getElementById("bodyClassificacaoGeral");
+				  var tr = table.getElementsByTagName("tr");
+				  var td;
+				  var i;
+				  for (i = 0; i < tr.length; i++) {
+				    td = tr[i].getElementsByTagName("td")[1];
+				    if (td) {
+				      if (td.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+				        tr[i].style.display = "";
+				      } else {
+				        tr[i].style.display = "none";
+				      }
+				    }       
+				  }
+				}
+			</script>
 
 
 
