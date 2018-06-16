@@ -35,7 +35,7 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
-					<!--<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>-->
+					<li><a class="fa fa-bar-chart" href="Estatistica.html">&nbsp; ESTATISTICA</a></li>
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
@@ -65,15 +65,80 @@
 										<table class="alt" id="classificacaoGeral">
 											<thead align="center">
 												<tr>
-													<td bgcolor="#00798C"><b><font color="white">Pos</font></b></td>
-													<td bgcolor="#00798C"padding="200px"><b><font color="#00798C">______</font><font color="white">Apostador</font><font color="#00798C">______</font></b></td>
-													<td bgcolor="#00798C"><b><font color="#00798C">_</font><font color="white">Total</font><font color="#00798C">_</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">*Final</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">*3º</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">*Semi</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">*Quartas</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">*Oitavas</font></b></td>
-													<td bgcolor="#00798C"><b><font color="white">Grupos</font></b></td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(0,'N');">-->
+															<b>
+																<font color="white">
+																Pos
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Apostador</font><font color="#00798C">_______</font></b>
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(2,'N');">-->
+															<b>
+																<font color="white">
+																Total
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(3,'N');">-->
+															<b>
+																<font color="white">
+																*Final
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(4,'N');">-->
+															<b>
+																<font color="white">
+																*3º
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(5,'N');">-->
+															<b>
+																<font color="white">
+																*Semi
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(6,'N');">-->
+															<b>
+																<font color="white">
+																*Quartas
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(7,'N');">-->
+															<b>
+																<font color="white">
+																*Oitavas
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
+													<td bgcolor="#00798C">
+														<!--<a href="javascript:SortTable(8,'N');">-->
+															<b>
+																<font color="white">
+																Grupos
+																</font>
+															</b>
+														<!--</a>-->
+													</td>
 												</tr>
 											</thead>
 											<tbody align="center" id="bodyClassificacaoGeral">
@@ -852,6 +917,66 @@
 				}
 			</script>
 
+
+
+			<script type="text/javascript">
+
+				var tableID = "classificacaoGeral";
+				var TableLastSortedColumn = -1;
+
+				function SortTable() {
+				var sortColumn = parseInt(arguments[0]);
+				var type = arguments.length > 1 ? arguments[1] : 'T';
+				var dateformat = arguments.length > 2 ? arguments[2] : '';
+				var table = document.getElementById(tableID);
+				var tbody = table.getElementsByTagName("tbody")[0];
+				var rows = tbody.getElementsByTagName("tr");
+				var arrayOfRows = new Array();
+				type = type.toUpperCase();
+				dateformat = dateformat.toLowerCase();
+				for(var i=0, len=rows.length; i<len; i++) {
+					arrayOfRows[i] = new Object;
+					arrayOfRows[i].oldIndex = i;
+					var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
+					if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+					else {
+						var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+						arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+						}
+					}
+				if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
+				else {
+					TableLastSortedColumn = sortColumn;
+					switch(type) {
+						case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
+						case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
+						default  : arrayOfRows.sort(CompareRowOfText);
+						}
+					}
+				var newTableBody = document.createElement("tbody");
+				for(var i=0, len=arrayOfRows.length; i<len; i++) {
+					newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
+					}
+				table.replaceChild(newTableBody,tbody);
+				newTableBody.style.textAlign = "center";
+				} // function SortTable()
+
+
+
+				function CompareRowOfText(a,b) {
+					var aval = a.value;
+					var bval = b.value;
+					return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+				} // function CompareRowOfText()
+
+				function CompareRowOfNumbers(a,b) {
+					var aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
+					var bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
+					return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+				} // function CompareRowOfNumbers()
+
+				
+			</script>
 
 
 

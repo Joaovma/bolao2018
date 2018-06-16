@@ -33,7 +33,7 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
-					<!--<li><a class="fa fa-plus-square-o" href="NovaAposta.html">&nbsp; APOSTAR</a></li>-->
+					<li><a class="fa fa-bar-chart" href="Estatistica.html">&nbsp; ESTATISTICA</a></li>
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
@@ -216,6 +216,66 @@
 							</font>
 						</section>
 
+						<section id="DistribuicaoApostasGrupos">
+							
+							<header align="center">
+								<hr>
+								<h3><b>Distribuição de apostas fase de Grupos</b></h3>
+								<hr>
+							</header>
+
+							<section>
+								<hr>
+		                        <h3 align="center">Selecione qual jogo</h3>
+		                        <hr>
+								<select name="category" id="selecionar_Jogo" required>
+		                            <option value=""> - </option>
+		                        </select>
+		                        
+		                        <p align="center"><font color="black" size="2.5">Todos os jogos te indicado qual numero é aquele jogo!</font></p>
+		                        &nbsp;
+							</section>							
+							
+							<table style="width:100%; border-collapse: collapse;" id="indicadorDoJogo" border="0">
+	                            <tbody align="center">
+	                                <tr>
+	                                    <td style="margin:0; padding: 0; width: 40%" >
+	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemA" alt="logo_cinza" width="50%" height="3%" class="responsive" ></p>
+	                                        <p id="timeAparecendoA"><b>Brasil</b></p>
+	                                    </td>
+	                                    
+	                                    <td align="center"><font size="5"><b>- x -</b></font></td>
+	                                    
+	                                    <td style="margin:0; padding: 0; width: 40%" >
+	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemB" alt="logo_cinza" width="50%" height="3%" class="responsive" ></p>
+	                                        <p id="timeAparecendoB"><b>Brasil</b></p>
+	                                    </td>
+	                                </tr>
+	                            </tbody>
+	                        </table>
+
+							<font size="3">
+								<table class="alt" id="listaApostadosGrupos">
+									<thead align="center">
+										<tr>
+											<td bgcolor="#00798C"><a href="javascript:SortTable(0,'N');"><b><font color="#00798C"></font><font color="white">ID</font><font color="#00798C"></font></b></a></td>
+											<td bgcolor="#00798C"><a href="javascript:SortTable(1,'T');"><b><font color="#00798C">_______</font><font color="white">Apostador</font><font color="#00798C">_______</font></b></a></td>
+											<td bgcolor="#00798C"><a href="javascript:SortTable(2,'N');"><b><font color="#00798C"></font><font color="white">Gols A</font><font color="#00798C"></font></b></a></td>
+											<td bgcolor="#00798C"><a href="javascript:SortTable(3,'N');"><b><font color="#00798C"></font><font color="white">Gols B</font><font color="#00798C"></font></b></a></td>
+										</tr>
+									</thead>
+									<tbody align="center">
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</font>
+						</section>
+
 
 					</div>
 				</div>
@@ -278,7 +338,9 @@
 				document.getElementById("DistribuicaoApostasSemi").style.display = "none";
 				document.getElementById("DistribuicaoApostasQuartas").style.display = "none";
 				document.getElementById("DistribuicaoApostasOitavas").style.display = "none";
-
+				document.getElementById("DistribuicaoApostasGrupos").style.display = "none";
+				document.getElementById("listaApostadosGrupos").style.display = "none";
+				document.getElementById("indicadorDoJogo").style.display = "none";
 				    
 
 
@@ -293,45 +355,61 @@
 				var vetorSelecoesOrdenadoCountSemi = new Array(32);
 				var vetorSelecoesOrdenadoCountQuartas = new Array(32);
 				var vetorSelecoesOrdenadoCountOitavas = new Array(32);
+				var vetorApostadores = new Array(43); // numero de apostadores
+				var vetorGolsA = new Array(43); // numero de apostadores
+				var vetorGolsB = new Array(43); // numero de apostadores
+
+				for(l=0; l<48; l++){
+					vetorGolsA[l] = new Array(48);// numero de jogos
+					vetorGolsB[l] = new Array(48);
+				}
+
 				vetorSelecoesOrdenadoCountCampeao.fill(0);
 				vetorSelecoesOrdenadoCountVice.fill(0);
 				vetorSelecoesOrdenadoCountTerceiro.fill(0);
 				vetorSelecoesOrdenadoCountSemi.fill(0);
 				vetorSelecoesOrdenadoCountQuartas.fill(0);
 				vetorSelecoesOrdenadoCountOitavas.fill(0);
-
+				
+				var loopApostador=0;
 				var db = firebase.database();
 				db.ref('apostas').once('value', (snap) => {
         			snap.forEach((childNode) => {
     					var aposta = childNode.val();
+    					var usuarioID = childNode.Ce.path.n[1];
+    					var usuarioNome;
     					var apostaEtapa1 = aposta.etapa1;
-    					
-		        		//Preenche oitavas
-		        		// for (i=1; i<=16; i++) {
-		        			
-		        		// 	var time = 'oitavas' + i;
-		        		// 	var timeLido = apostaEtapa1[time];
-		        		// 	var classificadoOitavas = document.getElementById(time);
-		        					
-		        		// 	classificadoOitavas.innerHTML = timeLido[time];
-		        		// }
-		        		// //Preenche quartas
-		        		// for (i=49; i<=56; i++) {
-		        		// 	var jogo = 'j' + i;
-		        		// 	var time = 'quartas' + (i-48);
-		        		// 	var timeLido = apostaEtapa1[jogo];
-		        		// 	var classificadoQuartas = document.getElementById(time);
-		        					
-		        		// 	classificadoQuartas.innerHTML = timeLido[time];
-		        		// }
-		        		// //Preenche semi
-		        		// for (i=57; i<=60; i++) {
-		        		// 	var jogo = 'j' + i;
-		        		// 	var time = 'semi' + (i-56);
-		        		// 	var timeLido = apostaEtapa1[jogo];
-		        		// 	var classificadoSemi = document.getElementById(time);
-		        					
 
+    					//Busca nome do usuario
+    					
+						db.ref('usuarios').once('value', (snap) => {
+		        			snap.forEach((childNode) => {
+		        				if(childNode.Ce.path.n[1] == usuarioID){
+		        					usuarioNome = childNode.val().nome;
+		        					vetorApostadores[loopApostador] = usuarioNome;
+		        				}
+		        			});
+		        			//OLHA FASE DE GRUPOS DA COPA
+	    					
+	    					for (k=1; k<=48; k++) {
+				        			
+			        			var jogo = 'j' + k;
+			        			var timeA = jogo + 'A';
+				        		var timeB = jogo + 'B';
+			        			var valorLido = apostaEtapa1[jogo];
+
+			        			golTimeA = valorLido[timeA];
+			        			golTimeB = valorLido[timeB];
+			        			
+			        			vetorGolsA[loopApostador][k-1] = golTimeA;
+			        			vetorGolsB[loopApostador][k-1] = golTimeB;
+
+
+			        		}
+			        		loopApostador++;
+		        		});
+
+    					// OLHA SEGUNDA ETAPA DA COPA
 		        		for (i=0; i<vetorSelecoesOrdenado.length; i++) {
 		        			//CAMPEAO E VICE
 		        			var jogo = 'j' + 64;
@@ -387,14 +465,17 @@
 			        			}
 		        			}
 		        			
-
-
-
 		        		}
 
         			});
-        			//mostra a lista selecionada + sao 3 listas
-        			DisplayListaRequisitada("selecionar_Lista", 6);
+
+        			//console.log("vetor: "+vetorApostadores);
+        			//console.log("vetorA: "+vetorGolsA);
+        			//console.log("vetorB: "+vetorGolsB);
+
+        			//mostra a lista selecionada + sao 7 listas
+        			DisplayListaRequisitada("selecionar_Lista", 7);
+        			DisplayJogoRequisitado("selecionar_Jogo", 48);
 
         			//Agora insere as opcoes no Select
 					var Select = document.getElementById("selecionar_Lista"); 
@@ -419,6 +500,20 @@
 			        var option = document.createElement("option");
 			        option.innerHTML = "Oitavas"
 			        Select.appendChild(option);
+
+			        var option = document.createElement("option");
+			        option.innerHTML = "Grupos"
+			        Select.appendChild(option);
+
+			        //Preenche Select dos jogos
+			        var Select = document.getElementById("selecionar_Jogo"); 
+			        
+			        for(n=1; n<=48; n++){
+			        	var jogo = 'jogo' + n; 
+			        	var option = document.createElement("option");
+				        option.innerHTML = jogo;
+				        Select.appendChild(option);
+			        }
 	        	});
 
         		function DisplayListaRequisitada (Select, numeroDeListas) {
@@ -440,31 +535,72 @@
 
                         if(OpcaoEscolhida == "Campeao"){
                         	vetorCount = vetorSelecoesOrdenadoCountCampeao;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
                         else if(OpcaoEscolhida == "Vice"){
                         	vetorCount = vetorSelecoesOrdenadoCountVice;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
                         else if(OpcaoEscolhida == "Terceiro"){
                         	vetorCount = vetorSelecoesOrdenadoCountTerceiro;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
                         else if(OpcaoEscolhida == "Semi"){
                         	vetorCount = vetorSelecoesOrdenadoCountSemi;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
                         else if(OpcaoEscolhida == "Quartas"){
                         	vetorCount = vetorSelecoesOrdenadoCountQuartas;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
                         else if(OpcaoEscolhida == "Oitavas"){
                         	vetorCount = vetorSelecoesOrdenadoCountOitavas;
+                        	fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
+                        	document.getElementById(bloco).style.display = "block";
                         }
-
-                        //console.log(vetorCount);
-                        //console.log(vetorSelecoesOrdenado);
-                        fazTudoPraEssaLista(lista, vetorSelecoesOrdenado, vetorCount);
-                        document.getElementById(bloco).style.display = "block";
+                        else if(OpcaoEscolhida == "Grupos"){
+                        	document.getElementById("DistribuicaoApostasCampeao").style.display = "none";
+							document.getElementById("DistribuicaoApostasVice").style.display = "none";
+							document.getElementById("DistribuicaoApostasTerceiro").style.display = "none";
+							document.getElementById("DistribuicaoApostasSemi").style.display = "none";
+							document.getElementById("DistribuicaoApostasQuartas").style.display = "none";
+							document.getElementById("DistribuicaoApostasOitavas").style.display = "none";
+							document.getElementById("DistribuicaoApostasGrupos").style.display = "none";
+                        	document.getElementById(bloco).style.display = "block";
+                        }
+                        
 
                     });
 				}
         		
+        		function DisplayJogoRequisitado (Select, numeroDeJogos) {
+					
+					//Observa quem foi o apostador escolhido
+					$('#' + Select).change(function (evt) {
+                        var selectedValue = evt.target.value;
+                        var OpcaoEscolhida = "";
+                        for (var j = 1 ; j <= numeroDeJogos; j++) {
+                            var option = evt.target.options[j];
+                            if (option.innerHTML == selectedValue) {
+                                OpcaoEscolhida = option.label;
+                            }
+                        }
+
+                        var jogoChosen = OpcaoEscolhida.slice(4);
+
+                        ColaSelecoes(jogoChosen);
+                        insereApostadorEPlacarGrupos("listaApostadosGrupos", vetorApostadores, vetorGolsA, vetorGolsB, OpcaoEscolhida);
+                        document.getElementById("listaApostadosGrupos").style.display = "block";
+                        document.getElementById("indicadorDoJogo").style.display = "block";
+                        alternate("listaApostadosGrupos");
+
+                    });
+				}
 			</script>
 
 
@@ -484,6 +620,7 @@
 					document.getElementById("DistribuicaoApostasSemi").style.display = "none";
 					document.getElementById("DistribuicaoApostasQuartas").style.display = "none";
 					document.getElementById("DistribuicaoApostasOitavas").style.display = "none";
+					document.getElementById("DistribuicaoApostasGrupos").style.display = "none";
 
 					organizaOrdemDescrescente(tableID);
 					deleteFirstrow(tableID);
@@ -525,6 +662,53 @@
 					}
 					
 
+				}
+				function insereApostadorEPlacarGrupos(tableID, usuarios, golsA, golsB, jogoEscolhido){
+					
+					document.getElementById("listaApostadosGrupos").style.display = "none";
+
+
+					var table = document.getElementById(tableID);
+					var rowCount = table.rows.length;
+					var rows = table.getElementsByTagName("TR");
+					var jogoChosen = jogoEscolhido.slice(4);
+					//console.log(tableID);
+
+					if(rowCount > 44){
+						for(p=43; p>=0; p--){
+							var usuarioAnalisadoAgora = usuarios[p];
+							var cellID = rows[p+1].cells[0];
+							var cellNome = rows[p+1].cells[1];
+							var cellGolA = rows[p+1].cells[2];
+							var cellGolB = rows[p+1].cells[3];
+							
+							cellID.innerHTML = p+1;
+					    	cellNome.innerHTML = usuarios[p];
+					    	cellGolA.innerHTML = golsA[p][jogoChosen-1];
+					    	cellGolB.innerHTML = golsB[p][jogoChosen-1];
+					    	//console.log("ID:"+cellID.innerHTML+"nome:"+cellNome.innerHTML);
+					    	//console.log("placar:"+cellGolA.innerHTML+"x"+cellGolB.innerHTML);
+					    	//console.log("----------------");
+
+						}
+					}
+					else{
+						for(p=43; p>=0; p--){
+						//for(p=0; p<=43; p++){
+							var row = table.insertRow(rowCount);
+							var cellID = row.insertCell(0);
+							var cellNome = row.insertCell(1);
+							var cellGolA = row.insertCell(2);
+					    	var cellGolB = row.insertCell(3);
+
+					    	cellID.innerHTML = p+1;
+					    	cellNome.innerHTML = usuarios[p];
+					    	cellGolA.innerHTML = golsA[p][jogoChosen-1];
+					    	cellGolB.innerHTML = golsB[p][jogoChosen-1];
+						}
+						deleteFirstrow(tableID);
+					}
+					document.getElementById("listaApostadosGrupos").style.display = "block";
 				}
 
 				function insereID(tableID){
@@ -658,6 +842,411 @@
 			</script>
 
 
+
+
+			<script type="text/javascript">
+				// Organiza a tabela do jeito que quiser
+
+				var tableID = "listaApostadosGrupos";
+				var TableLastSortedColumn = -1;
+
+				function SortTable() {
+				var sortColumn = parseInt(arguments[0]);
+				var type = arguments.length > 1 ? arguments[1] : 'T';
+				var dateformat = arguments.length > 2 ? arguments[2] : '';
+				var table = document.getElementById(tableID);
+				var tbody = table.getElementsByTagName("tbody")[0];
+				var rows = tbody.getElementsByTagName("tr");
+				var arrayOfRows = new Array();
+				type = type.toUpperCase();
+				dateformat = dateformat.toLowerCase();
+				for(var i=0, len=rows.length; i<len; i++) {
+					arrayOfRows[i] = new Object;
+					arrayOfRows[i].oldIndex = i;
+					var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
+					if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+					else {
+						var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+						arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+						}
+					}
+				if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
+				else {
+					TableLastSortedColumn = sortColumn;
+					switch(type) {
+						case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
+						case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
+						default  : arrayOfRows.sort(CompareRowOfText);
+						}
+					}
+				var newTableBody = document.createElement("tbody");
+				for(var i=0, len=arrayOfRows.length; i<len; i++) {
+					newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
+					}
+				table.replaceChild(newTableBody,tbody);
+				newTableBody.style.textAlign = "center";
+				} // function SortTable()
+
+
+
+				function CompareRowOfText(a,b) {
+					var aval = a.value;
+					var bval = b.value;
+					return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+				} // function CompareRowOfText()
+
+				function CompareRowOfNumbers(a,b) {
+					var aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
+					var bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
+					return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+				} // function CompareRowOfNumbers()
+
+				
+			</script>
+
+
+
+			<script>
+				function ColaSelecoes(OptionChosen){
+					//1
+					if(OptionChosen==1){
+	                    		document.getElementById("timeAparecendoA").innerHTML = "Rússia";
+	                    		document.getElementById("timeAparecendoB").innerHTML = "Arábia Saudita";
+	                    		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_russia.png";
+	                    		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_arabia_saudita.png";
+                	}
+                	//2
+                	else if(OptionChosen==2){
+                		document.getElementById("timeAparecendoA").innerHTML = "Egito";
+                		document.getElementById("timeAparecendoB").innerHTML = "Uruguai";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_egito.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_uruguai.png";
+                	}
+                	//4
+                	else if(OptionChosen==4){
+                		document.getElementById("timeAparecendoA").innerHTML = "Marrocos";
+                		document.getElementById("timeAparecendoB").innerHTML = "Irã";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_marrocos.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_ira.png";
+                	}
+                	//3
+                	else if(OptionChosen==3){
+                		document.getElementById("timeAparecendoA").innerHTML = "Portugal";
+                		document.getElementById("timeAparecendoB").innerHTML = "Espanha";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_portugal.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_espanha.png";
+                	}
+                	//5
+                	else if(OptionChosen==5){
+                		document.getElementById("timeAparecendoA").innerHTML = "França";
+                		document.getElementById("timeAparecendoB").innerHTML = "Austrália";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_franca.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_australia.png";
+                	}
+                	//6
+                	else if(OptionChosen==6){
+                		document.getElementById("timeAparecendoA").innerHTML = "Peru";
+                		document.getElementById("timeAparecendoB").innerHTML = "Dinamarca";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_peru.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_dinamarca.png";
+                	}
+                	//7
+                	else if(OptionChosen==7){
+                		document.getElementById("timeAparecendoA").innerHTML = "Argentina";
+                		document.getElementById("timeAparecendoB").innerHTML = "Islândia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_argentina.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_islandia.png";
+                	}
+                	//8
+                	else if(OptionChosen==8){
+                		document.getElementById("timeAparecendoA").innerHTML = "Croácia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Nigéria";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_croacia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_nigeria.png";
+                	}
+                	//9
+                	else if(OptionChosen==9){
+                		document.getElementById("timeAparecendoA").innerHTML = "Brasil";
+                		document.getElementById("timeAparecendoB").innerHTML = "Suíça";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_brasil.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_suica.png";
+                	}
+                	//10
+                	else if(OptionChosen==10){
+                		document.getElementById("timeAparecendoA").innerHTML = "Costa Rica";
+                		document.getElementById("timeAparecendoB").innerHTML = "Sérvia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_costa_rica.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_servia.png";
+                	}
+                	//11
+                	else if(OptionChosen==11){
+                		document.getElementById("timeAparecendoA").innerHTML = "Alemanha";
+                		document.getElementById("timeAparecendoB").innerHTML = "México";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_alemanha.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_mexico.png";
+                	}
+                	//12
+                	else if(OptionChosen==12){
+                		document.getElementById("timeAparecendoA").innerHTML = "Suécia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Coréia do Sul";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_suecia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_coreia_do_sul.png";
+                	}
+                	//13
+                	else if(OptionChosen==13){
+                		document.getElementById("timeAparecendoA").innerHTML = "Bélgica";
+                		document.getElementById("timeAparecendoB").innerHTML = "Panamá";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_belgica.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_panama.png";
+                	}
+                	//14
+                	else if(OptionChosen==14){
+                		document.getElementById("timeAparecendoA").innerHTML = "Tunísia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Inglaterra";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_tunisia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_inglaterra.png";
+                	}
+                	//15
+                	else if(OptionChosen==15){
+                		document.getElementById("timeAparecendoA").innerHTML = "Polônia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Senegal";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_polonia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_senegal.png";
+                	}
+                	//16
+                	else if(OptionChosen==16){
+                		document.getElementById("timeAparecendoA").innerHTML = "Colômbia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Japão";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_colombia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_japao.png";
+                	}
+                	//17
+                	else if(OptionChosen==17){
+                		document.getElementById("timeAparecendoA").innerHTML = "Rússia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Egito";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_russia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_egito.png";
+                	}
+                	//18
+                	else if(OptionChosen==18){
+                		document.getElementById("timeAparecendoA").innerHTML = "Uruguai";
+                		document.getElementById("timeAparecendoB").innerHTML = "Arábia Saudita";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_uruguai.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_arabia_saudita.png";
+                	}
+                	//20
+                	else if(OptionChosen==20){
+                		document.getElementById("timeAparecendoA").innerHTML = "Irã";
+                		document.getElementById("timeAparecendoB").innerHTML = "Espanha";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_ira.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_espanha.png";
+                	}
+                	//19
+                	else if(OptionChosen==19){
+                		document.getElementById("timeAparecendoA").innerHTML = "Portugal";
+                		document.getElementById("timeAparecendoB").innerHTML = "Marrocos";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_portugal.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_marrocos.png";
+                	}
+                	//21
+                	else if(OptionChosen==21){
+                		document.getElementById("timeAparecendoA").innerHTML = "França";
+                		document.getElementById("timeAparecendoB").innerHTML = "Peru";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_franca.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_peru.png";
+                	}
+                	//22
+                	else if(OptionChosen==22){
+                		document.getElementById("timeAparecendoA").innerHTML = "Dinamarca";
+                		document.getElementById("timeAparecendoB").innerHTML = "Austrália";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_dinamarca.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_australia.png";
+                	}
+                	//23
+                	else if(OptionChosen==23){
+                		document.getElementById("timeAparecendoA").innerHTML = "Argentina";
+                		document.getElementById("timeAparecendoB").innerHTML = "Croácia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_argentina.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_croacia.png";
+                	}
+                	//24
+                	else if(OptionChosen==24){
+                		document.getElementById("timeAparecendoA").innerHTML = "Nigéria";
+                		document.getElementById("timeAparecendoB").innerHTML = "Islândia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_nigeria.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_islandia.png";
+                	}
+                	//25
+                	else if(OptionChosen==25){
+                		document.getElementById("timeAparecendoA").innerHTML = "Brasil";
+                		document.getElementById("timeAparecendoB").innerHTML = "Costa Rica";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_brasil.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_costa_rica.png";
+                	}
+                	//26
+                	else if(OptionChosen==26){
+                		document.getElementById("timeAparecendoA").innerHTML = "Sérvia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Suíça";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_servia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_suica.png";
+                	}
+                	//27
+                	else if(OptionChosen==27){
+                		document.getElementById("timeAparecendoA").innerHTML = "Alemanha";
+                		document.getElementById("timeAparecendoB").innerHTML = "Suécia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_alemanha.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_suecia.png";
+                	}
+                	//28
+                	else if(OptionChosen==28){
+                		document.getElementById("timeAparecendoA").innerHTML = "Coréia do Sul";
+                		document.getElementById("timeAparecendoB").innerHTML = "México";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_coreia_do_sul.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_mexico.png";
+                	}
+                	//30
+                	else if(OptionChosen==30){
+                		document.getElementById("timeAparecendoA").innerHTML = "Inglaterra";
+                		document.getElementById("timeAparecendoB").innerHTML = "Panamá";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_inglaterra.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_panama.png";
+                	}
+                	//29
+                	else if(OptionChosen==29){
+                		document.getElementById("timeAparecendoA").innerHTML = "Bélgica";
+                		document.getElementById("timeAparecendoB").innerHTML = "Tunísia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_belgica.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_tunisia.png";
+                	}
+                	//31
+                	else if(OptionChosen==31){
+                		document.getElementById("timeAparecendoA").innerHTML = "Polônia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Colômbia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_polonia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_colombia.png";
+                	}
+                	//32
+                	else if(OptionChosen==32){
+                		document.getElementById("timeAparecendoA").innerHTML = "Japão";
+                		document.getElementById("timeAparecendoB").innerHTML = "Senegal";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_japao.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_senegal.png";
+                	}
+                	//33
+                	else if(OptionChosen==33){
+                		document.getElementById("timeAparecendoA").innerHTML = "Uruguai";
+                		document.getElementById("timeAparecendoB").innerHTML = "Rússia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_uruguai.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_russia.png";
+                	}
+                	//34
+                	else if(OptionChosen==34){
+                		document.getElementById("timeAparecendoA").innerHTML = "Arábia Saudita";
+                		document.getElementById("timeAparecendoB").innerHTML = "Egito";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_arabia_saudita.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_egito.png";
+                	}
+                	//35
+                	else if(OptionChosen==35){
+                		document.getElementById("timeAparecendoA").innerHTML = "Irã";
+                		document.getElementById("timeAparecendoB").innerHTML = "Portugal";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_ira.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_portugal.png";
+                	}
+                	//36
+                	else if(OptionChosen==36){
+                		document.getElementById("timeAparecendoA").innerHTML = "Espanha";
+                		document.getElementById("timeAparecendoB").innerHTML = "Marrocos";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_espanha.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_marrocos.png";
+                	}
+                	//37
+                	else if(OptionChosen==37){
+                		document.getElementById("timeAparecendoA").innerHTML = "Dinamarca";
+                		document.getElementById("timeAparecendoB").innerHTML = "França";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_dinamarca.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_franca.png";
+                	}
+                	//38
+                	else if(OptionChosen==38){
+                		document.getElementById("timeAparecendoA").innerHTML = "Austrália";
+                		document.getElementById("timeAparecendoB").innerHTML = "Peru";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_australia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_peru.png";
+                	}
+                	//39
+                	else if(OptionChosen==39){
+                		document.getElementById("timeAparecendoA").innerHTML = "Nigéria";
+                		document.getElementById("timeAparecendoB").innerHTML = "Argentina";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_nigeria.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_argentina.png";
+                	}
+                	//40
+                	else if(OptionChosen==40){
+                		document.getElementById("timeAparecendoA").innerHTML = "Islândia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Croácia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_islandia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_croacia.png";
+                	}
+                	//41
+                	else if(OptionChosen==41){
+                		document.getElementById("timeAparecendoA").innerHTML = "Sérvia";
+                		document.getElementById("timeAparecendoB").innerHTML = "Brasil";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_servia.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_brasil.png";
+                	}
+                	//42
+                	else if(OptionChosen==42){
+                		document.getElementById("timeAparecendoA").innerHTML = "Suíça";
+                		document.getElementById("timeAparecendoB").innerHTML = "Costa Rica";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_suica.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_costa_rica.png";
+                	}
+                	//43
+                	else if(OptionChosen==43){
+                		document.getElementById("timeAparecendoA").innerHTML = "Coréia do Sul";
+                		document.getElementById("timeAparecendoB").innerHTML = "Alemanha";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_coreia_do_sul.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_alemanha.png";
+                	}
+                	//44
+                	else if(OptionChosen==44){
+                		document.getElementById("timeAparecendoA").innerHTML = "México";
+                		document.getElementById("timeAparecendoB").innerHTML = "Suécia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_mexico.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_suecia.png";
+                	}
+                	//45
+                	else if(OptionChosen==45){
+                		document.getElementById("timeAparecendoA").innerHTML = "Inglaterra";
+                		document.getElementById("timeAparecendoB").innerHTML = "Bélgica";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_inglaterra.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_belgica.png";
+                	}
+                	//46
+                	else if(OptionChosen==46){
+                		document.getElementById("timeAparecendoA").innerHTML = "Panamá";
+                		document.getElementById("timeAparecendoB").innerHTML = "Tunísia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_panama.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_tunisia.png";
+                	}
+                	//47
+                	else if(OptionChosen==47){
+                		document.getElementById("timeAparecendoA").innerHTML = "Japão";
+                		document.getElementById("timeAparecendoB").innerHTML = "Polônia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_japao.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_polonia.png";
+                	}
+                	//48
+                	else if(OptionChosen==48){
+                		document.getElementById("timeAparecendoA").innerHTML = "Senegal";
+                		document.getElementById("timeAparecendoB").innerHTML = "Colômbia";
+                		document.getElementById("imagemA").src = "images/icons/round/selecao_round_flag_senegal.png";
+                		document.getElementById("imagemB").src = "images/icons/round/selecao_round_flag_colombia.png";
+                	}
+
+                }
+			</script>
 
 
 	</body>
