@@ -34,6 +34,7 @@
 				<ul class="links">
 					<li><a class="fa fa-home" href="TelaInicial.html">&nbsp; HOME</a></li>
 					<li><a class="fa fa-bar-chart" href="Estatistica.html">&nbsp; ESTATISTICA</a></li>
+                    <li><a class="fa fa-list-ol" href="Classificacao.html">&nbsp; CLASSIFICAÇÃO</a></li>
 					<li><a class="fa fa-user-o" href="MinhaConta.html">&nbsp; MINHA CONTA</a></li>
 					<li><a class="fa fa-folder-open-o" href="MinhasApostas.html">&nbsp; MINHA APOSTA</a></li>
 					<li><a class="fa fa-newspaper-o" href="Regras.html">&nbsp; REGRAS DO BOLÃO</a></li>
@@ -43,7 +44,10 @@
 
 		<!-- Heading -->
 			<div id="heading" >
-				<h1>Estatística</h1>
+				<section>
+					<h1>Estatística</h1>
+					<h4><font color="white">Apresenta a distruição das apostas de todos os participantes!</font></h4>
+				</section>
 			</div>
 
 		<!-- Main -->
@@ -54,8 +58,8 @@
 							<hr>
 	                        <h2 align="center">Selecione qual estatistica</h2>
 	                        <hr>
-							<select name="category" id="selecionar_Lista" required>
-	                            <option value=""> - </option>
+							<select name="category" id="selecionar_Lista" style="width: 100%; text-indent: 5%; font-size: 15px;">
+	                            <option style="width:80%;"value=""> - </option>
 	                        </select>
 	                        &nbsp;
 	                        <p align="center"><font color="black" size="2.5">Serão mostrados quais seleções foram apostadas por todos participantes!</font></p>
@@ -217,13 +221,6 @@
 						</section>
 
 						<section id="DistribuicaoApostasGrupos">
-							
-							<header align="center">
-								<hr>
-								<h3><b>Distribuição de apostas fase de Grupos</b></h3>
-								<hr>
-							</header>
-
 							<section>
 								<hr>
 		                        <h3 align="center">Selecione qual jogo</h3>
@@ -232,7 +229,7 @@
 		                            <option value=""> - </option>
 		                        </select>
 		                        
-		                        <p align="center"><font color="black" size="2.5">Todos os jogos te indicado qual numero é aquele jogo!</font></p>
+		                        <p align="center"><font color="black" size="2.5">Mostra todas as apostas realizadas para o jogo escolhido!</font></p>
 		                        &nbsp;
 							</section>							
 							
@@ -240,14 +237,14 @@
 	                            <tbody align="center">
 	                                <tr>
 	                                    <td style="margin:0; padding: 0; width: 40%" >
-	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemA" alt="logo_cinza" width="50%" height="3%" class="responsive" ></p>
+	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemA" alt="logo_cinza" width="45%" height="3%" class="responsive" ></p>
 	                                        <p id="timeAparecendoA"><b>Brasil</b></p>
 	                                    </td>
-	                                    
-	                                    <td align="center"><font size="5"><b>- x -</b></font></td>
-	                                    
+	                                    <td align="center"><font size="7" id="golsA"><b> - </b></font></td>
+	                                    <td align="center"><font size="5"><b> x </b></font></td>
+	                                    <td align="center"><font size="7" id="golsB"><b> - </b></font></td>
 	                                    <td style="margin:0; padding: 0; width: 40%" >
-	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemB" alt="logo_cinza" width="50%" height="3%" class="responsive" ></p>
+	                                        <p><img src="images/icons/round/selecao_round_flag_brasil.png" id="imagemB" alt="logo_cinza" width="45%" height="3%" class="responsive" ></p>
 	                                        <p id="timeAparecendoB"><b>Brasil</b></p>
 	                                    </td>
 	                                </tr>
@@ -509,9 +506,10 @@
 			        var Select = document.getElementById("selecionar_Jogo"); 
 			        
 			        for(n=1; n<=48; n++){
-			        	var jogo = 'jogo' + n; 
+			        	var jogo = n;
 			        	var option = document.createElement("option");
-				        option.innerHTML = jogo;
+			        	var nomeDoJogo = nomeiaOptionComJogo(jogo);
+				        option.innerHTML = nomeDoJogo;
 				        Select.appendChild(option);
 			        }
 	        	});
@@ -582,19 +580,22 @@
 					
 					//Observa quem foi o apostador escolhido
 					$('#' + Select).change(function (evt) {
-                        var selectedValue = evt.target.value;
+                        //var selectedValue = evt.target.value;
+                        var selectedIndex = evt.target.selectedIndex;
                         var OpcaoEscolhida = "";
+                        var NumeroOpcaoEscolhida;
+                        var NumeroJogoEscolhido;
                         for (var j = 1 ; j <= numeroDeJogos; j++) {
-                            var option = evt.target.options[j];
-                            if (option.innerHTML == selectedValue) {
+                            var option = evt.target.options[j]
+                            if (option.index == selectedIndex) {
                                 OpcaoEscolhida = option.label;
+                                NumeroOpcaoEscolhida = option.index;
+                                NumeroJogoEscolhido = NumeroOpcaoEscolhida;
                             }
                         }
 
-                        var jogoChosen = OpcaoEscolhida.slice(4);
-
-                        ColaSelecoes(jogoChosen);
-                        insereApostadorEPlacarGrupos("listaApostadosGrupos", vetorApostadores, vetorGolsA, vetorGolsB, OpcaoEscolhida);
+                        ColaSelecoes(NumeroJogoEscolhido);
+                        insereApostadorEPlacarGrupos("listaApostadosGrupos", vetorApostadores, vetorGolsA, vetorGolsB, NumeroJogoEscolhido);
                         document.getElementById("listaApostadosGrupos").style.display = "block";
                         document.getElementById("indicadorDoJogo").style.display = "block";
                         alternate("listaApostadosGrupos");
@@ -671,7 +672,7 @@
 					var table = document.getElementById(tableID);
 					var rowCount = table.rows.length;
 					var rows = table.getElementsByTagName("TR");
-					var jogoChosen = jogoEscolhido.slice(4);
+					var jogoChosen = jogoEscolhido;
 					//console.log(tableID);
 
 					if(rowCount > 44){
@@ -904,10 +905,392 @@
 				
 			</script>
 
+			<script>
+				function nomeiaOptionComJogo(OptionChosen){
+				//1
+					if(OptionChosen==1){
+						timeA = "Rússia";
+						timeB = "Arábia Saudita";
+						Jogo = "Jogo " + OptionChosen +': ' + "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB;  
+						return Jogo;
+                	}
+                	//2
+                	else if(OptionChosen==2){
+                		timeA = "Egito";
+						timeB = "Uruguai";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB;  
+						return Jogo;
+                	}
+                	//3
+                	else if(OptionChosen==3){
+                		timeA = "Portugal";
+						timeB = "Espanha";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//4
+                	else if(OptionChosen==4){
+                		timeA = "Marrocos";
+						timeB = "Irã";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	
+                	//5
+                	else if(OptionChosen==5){
+                		timeA = "França";
+						timeB = "Austrália";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//6
+                	else if(OptionChosen==6){
+                		timeA = "Peru";
+						timeB = "Dinamarca";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//7
+                	else if(OptionChosen==7){
+                		timeA = "Argentina";
+						timeB = "Islândia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//8
+                	else if(OptionChosen==8){
+                		timeA = "Croácia";
+						timeB = "Nigéria";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//9
+                	else if(OptionChosen==9){
+                		timeA = "Brasil";
+						timeB = "Suíça";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//10
+                	else if(OptionChosen==10){
+                		timeA = "Costa Rica";
+						timeB = "Sérvia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//11
+                	else if(OptionChosen==11){
+                		timeA = "Alemanha";
+						timeB = "México";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//12
+                	else if(OptionChosen==12){
+                		timeA = "Suécia";
+						timeB = "Coréia do Sul";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//13
+                	else if(OptionChosen==13){
+                		timeA = "Bélgica";
+						timeB = "Panamá";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//14
+                	else if(OptionChosen==14){
+                		timeA = "Tunísia";
+						timeB = "Inglaterra";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//15
+                	else if(OptionChosen==15){
+                		timeA = "Polônia";
+						timeB = "Senegal";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//16
+                	else if(OptionChosen==16){
+                		timeA = "Colômbia";
+						timeB = "Japão";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//17
+                	else if(OptionChosen==17){
+                		timeA = "Rússia";
+						timeB = "Egito";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//18
+                	else if(OptionChosen==18){
+                		timeA = "Uruguai";
+						timeB = "Arábia Saudita";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//19
+                	else if(OptionChosen==19){
+                		timeA = "Portugal";
+						timeB = "Marrocos";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//20
+                	else if(OptionChosen==20){
+                		timeA = "Irã";
+						timeB = "Espanha";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//21
+                	else if(OptionChosen==21){
+                		timeA = "França";
+						timeB = "Peru";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//22
+                	else if(OptionChosen==22){
+                		timeA = "Dinamarca";
+						timeB = "Austrália";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//23
+                	else if(OptionChosen==23){
+                		timeA = "Argentina";
+						timeB = "Croácia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//24
+                	else if(OptionChosen==24){
+                		timeA = "Nigéria";
+						timeB = "Islândia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//25
+                	else if(OptionChosen==25){
+                		timeA = "Brasil";
+						timeB = "Costa Rica";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//26
+                	else if(OptionChosen==26){
+                		timeA = "Sérvia";
+						timeB = "Suíça";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//27
+                	else if(OptionChosen==27){
+                		timeA = "Alemanha";
+						timeB = "Suécia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//28
+                	else if(OptionChosen==28){
+                		timeA = "Coréia do Sul";
+						timeB = "México";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//29
+                	else if(OptionChosen==29){
+                		timeA = "Bélgica";
+						timeB = "Tunísia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//30
+                	else if(OptionChosen==30){
+                		timeA = "Inglaterra";
+						timeB = "Panamá";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//31
+                	else if(OptionChosen==31){
+                		timeA = "Polônia";
+						timeB = "Colômbia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//32
+                	else if(OptionChosen==32){
+                		timeA = "Japão";
+						timeB = "Senegal";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//33
+                	else if(OptionChosen==33){
+                		timeA = "Uruguai";
+						timeB = "Rússia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//34
+                	else if(OptionChosen==34){
+                		timeA = "Arábia Saudita";
+						timeB = "Egito";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//35
+                	else if(OptionChosen==35){
+                		timeA = "Irã";
+						timeB = "Portugal";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//36
+                	else if(OptionChosen==36){
+                		timeA = "Espanha";
+						timeB = "Marrocos";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//37
+                	else if(OptionChosen==37){
+                		timeA = "Dinamarca";
+						timeB = "França";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//38
+                	else if(OptionChosen==38){
+                		timeA = "Austrália";
+						timeB = "Peru";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//39
+                	else if(OptionChosen==39){
+                		timeA = "Nigéria";
+						timeB = "Argentina";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//40
+                	else if(OptionChosen==40){
+                		timeA = "Islândia";
+						timeB = "Croácia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//41
+                	else if(OptionChosen==41){
+                		timeA = "Sérvia";
+						timeB = "Brasil";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//42
+                	else if(OptionChosen==42){
+                		timeA = "Suíça";
+						timeB = "Costa Rica";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//43
+                	else if(OptionChosen==43){
+                		timeA = "Coréia do Sul";
+						timeB = "Alemanha";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//44
+                	else if(OptionChosen==44){
+                		timeA = "México";
+						timeB = "Suécia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//45
+                	else if(OptionChosen==45){
+                		timeA = "Inglaterra";
+						timeB = "Bélgica";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//46
+                	else if(OptionChosen==46){
+                		timeA = "Panamá";
+						timeB = "Tunísia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//47
+                	else if(OptionChosen==47){
+                		timeA = "Japão";
+						timeB = "Polônia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
+                	//48
+                	else if(OptionChosen==48){
+                		timeA = "Senegal";
+						timeB = "Colômbia";
+						Jogo = "Jogo " + OptionChosen +': ' + timeA + '  x  ' + timeB; 
+						return Jogo;
+                	}
 
-
+                }
+			</script>
 			<script>
 				function ColaSelecoes(OptionChosen){
+					
+
+					var db = firebase.database();
+					db.ref('oficial').once('value', (snap) => {
+	        			snap.forEach((childNode) => {
+	        					var oficial = childNode.val();
+	        					//Preenche os placares oficiais dos jogos
+				        		for (i=1; i<=48; i++) {
+
+				        			if(i == OptionChosen){
+
+				        				var jogo = 'oj' + i;
+					        			//console.log(jogo);
+					        			var golsLocal = 'j' + i;
+					        			var time;
+					        			var valorLido = oficial[jogo];
+					        			//console.log(valorLido);
+					        			var golsParaColar;
+					        			for(x=1; x<=2; x++){
+					        				if(x==1){ //A
+					        					time = jogo + 'A';
+					        					golsParaColar = document.getElementById('golsA');
+					        					if(valorLido[time] == "99") valorLido[time] = "-";
+					        					golsParaColar.innerHTML = valorLido[time];
+					        					
+					        				}
+					        				else{ //B
+					        					time = jogo + 'B';
+					        					golsParaColar = document.getElementById('golsB');
+					        					if(valorLido[time] == "99") valorLido[time] = "-";
+					        					golsParaColar.innerHTML = valorLido[time];
+					        				}
+					        			}
+				        			}
+				        			
+	        				}
+
+	        			});
+	        		});
+
+
+
 					//1
 					if(OptionChosen==1){
 	                    		document.getElementById("timeAparecendoA").innerHTML = "Rússia";

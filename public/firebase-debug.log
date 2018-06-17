@@ -1,0 +1,49 @@
+[debug] [2018-06-17T01:41:28.722Z] ----------------------------------------------------------------------
+[debug] [2018-06-17T01:41:28.724Z] Command:       /Users/joaovitor/.nvm/versions/node/v6.14.2/bin/node /Users/joaovitor/.nvm/versions/node/v6.14.2/bin/firebase serve
+[debug] [2018-06-17T01:41:28.725Z] CLI Version:   3.18.5
+[debug] [2018-06-17T01:41:28.725Z] Platform:      darwin
+[debug] [2018-06-17T01:41:28.725Z] Node Version:  v6.14.2
+[debug] [2018-06-17T01:41:28.725Z] Time:          Sat Jun 16 2018 22:41:28 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:28.725Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-17T01:41:28.741Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-17T01:41:28.741Z] > authorizing via signed-in user
+[debug] [2018-06-17T01:41:28.743Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-06-17T01:41:28.743Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/R4F_el6TYp_-b1u51PulFy6VIVygx0F4EWlLNhzGeAk',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jun 16 2018 22:41:28 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:29.189Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-17T01:41:29.195Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/bolao2018copadomundo  
+  
+ Sat Jun 16 2018 22:41:29 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:30.387Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-17T01:41:30.388Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/bolao2018copadomundo/tokens  
+  
+ Sat Jun 16 2018 22:41:30 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:31.051Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-17T01:41:31.052Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/bolao2018copadomundo  
+  
+ Sat Jun 16 2018 22:41:31 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:32.166Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/joaovitor/Google Drive/BOLAO COPA 2018/Template-Bolao'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-06-17T01:41:33.102Z] Fetching environment
+[debug] [2018-06-17T01:41:33.105Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/958227082690:getServerAppConfig  
+  
+ Sat Jun 16 2018 22:41:33 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:33.106Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/958227082690/clients/_:getWebAppConfig  
+  
+ Sat Jun 16 2018 22:41:33 GMT-0300 (-03)
+[debug] [2018-06-17T01:41:33.806Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-17T01:41:33.839Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-17T01:41:33.840Z] Starting @google-cloud/functions-emulator
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-06-17T01:41:35.386Z] Parsing function triggers
