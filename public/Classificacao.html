@@ -24,7 +24,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="TelaInicial.html"><font size="3">Bolão da Copa</font></a>
+				<a class="logo" href="TelaInicial.html"><font size="2.5">Bolão da Copa</font></a>
 				<a class="logo" href="MinhaConta.html"><font size="1">Olá, </font><font id="nomeLogado" size="1"></font></a>
 				<nav>
 					<a href="#menu">Menu</a>
@@ -56,7 +56,7 @@
 						<p style="margin: 0;" align="center"><img src="images/refresh.png" onclick='reloadPage()' width="12%" height="7%" class="responsive" ></p>
 						<p style="margin: 0;" align="center"><font color="#00798C">Atualizar</font></p>
 						<hr>
-						<input type="text" id="CampoPesquisaNome" onkeyup="PesquisarApostador()" placeholder="Pesquisar Apostador..." style="background-image: url('images/pesquisar.png'); background-position: 10px 10px; background-repeat: no-repeat; padding: 5px 20px 5px 60px; font-size: 14px;">
+						<!--<input type="text" id="CampoPesquisaNome" onkeyup="PesquisarApostador()" placeholder="Pesquisar Apostador..." style="background-image: url('images/pesquisar.png'); background-position: 10px 10px; background-repeat: no-repeat; padding: 5px 20px 5px 60px; font-size: 14px;">-->
 						
   
   
@@ -67,78 +67,83 @@
 											<thead align="center">
 												<tr>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(0,'N');">-->
+														<a href="javascript:SortTable(0,'N');">
 															<b>
 																<font color="white">
 																Pos
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
-													<td bgcolor="#00798C"><b><font color="#00798C">_______</font><font color="white">Apostador</font><font color="#00798C">_______</font></b>
-													</td>
-													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(2,'N');">-->
+													<td bgcolor="#00798C" width="30%">
+														
+														<a href="javascript:SortTable(1,'T');">
 															<b>
-																<font color="white">
-																Total
-																</font>
+																<font color="#00798C">_____</font><font color="white">Apostador</font><font color="#00798C">_____</font>
 															</b>
-														<!--</a>-->
+														</a>
+														
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(3,'N');">-->
+														<a href="javascript:SortTable(2,'N');">
+															<b>
+																<font color="#00798C">_</font><font color="white">Total</font><font color="#00798C">_</font>
+															</b>
+														</a>
+													</td>
+													<td bgcolor="#00798C">
+														<a href="javascript:SortTable(3,'N');">
 															<b>
 																<font color="white">
 																*Final
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(4,'N');">-->
+														<a href="javascript:SortTable(4,'N');">
 															<b>
 																<font color="white">
 																*3º
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(5,'N');">-->
+														<a href="javascript:SortTable(5,'N');">
 															<b>
 																<font color="white">
 																*Semi
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(6,'N');">-->
+														<a href="javascript:SortTable(6,'N');">
 															<b>
 																<font color="white">
 																*Quartas
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(7,'N');">-->
+														<a href="javascript:SortTable(7,'N');">
 															<b>
 																<font color="white">
 																*Oitavas
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 													<td bgcolor="#00798C">
-														<!--<a href="javascript:SortTable(8,'N');">-->
+														<a href="javascript:SortTable(8,'N');">
 															<b>
 																<font color="white">
 																Grupos
 																</font>
 															</b>
-														<!--</a>-->
+														</a>
 													</td>
 												</tr>
 											</thead>
@@ -222,49 +227,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			
-
-			<script type="text/javascript">
-				/*
-				//ZERA AS ATRIBUIÇÕES DE TODOS OS APOSTADORES  - PREENCHE  - So usou uma vez. Nao usa mais.
-				if (typeof code_happened === 'undefined') {
-					window.code_happened = true;
-					var db = firebase.database();
-					db.ref("usuarios").on('value', function(snap){
-	   					snap.forEach(function(childNodes){
-	   						if(typeof childNodes.val().nome === 'undefined'){}
-	   						else{
-	   								var usuarioParaAdd = childNodes.val().nome;
-			   						//console.log(usuarioParaAdd);
-			   						//console.log(childNodes.Ce.path.n[1]);
-							            	
-							      	var pontuacaoFaseGrupos = 0;
-							      	var pontuacaoPorJogoFaseGrupos = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-						            var pontuacaoOitavas = 0;
-						            var pontuacaoQuartas = 0;
-						            var pontuacaoSemi = 0;
-						            var pontuacaoTerceiro = 0;
-						            var pontuacaoFinal = 0;
-						            
-						            var pontuacaoTotal = 0;
-						            var classificacao = 0;
-
-							      	databaseBolao.ref('usuarios/' + childNodes.key).update({
-									                pontuacaoPorJogoFaseGrupos,
-									                pontuacaoFaseGrupos,
-									                pontuacaoOitavas,
-									                pontuacaoQuartas,
-									                pontuacaoSemi,
-									                pontuacaoTerceiro,
-									                pontuacaoFinal,
-									                pontuacaoTotal,
-									                classificacao
-									            });
-					      	}
-					    });
-	   				});
-				}
-				*/
-			</script>
 
 			<script>
 
@@ -401,6 +363,8 @@
 							alternate('classificacaoGeral');
 							os5primeiros('classificacaoGeral');
 							os5ultimos('classificacaoGeral');
+							oUsuario('classificacaoGeral');
+							
 							
 						});
 					}
@@ -440,6 +404,7 @@
 				}
 			</script>
 
+
 			<script type="text/javascript">
 				function os5ultimos(id){ 
 				  if(document.getElementsByTagName){  
@@ -452,6 +417,26 @@
 				    } 
 				  }
 				  //id.border = "10%";
+				}
+			</script>
+
+			<script type="text/javascript">
+				function oUsuario(id){ 
+				  if(document.getElementsByTagName){  
+				    var table = document.getElementById(id);
+				    var size = table.rows.length;
+				    var rows = table.getElementsByTagName("tr"); 
+				    
+				    firebaseGetUserData().then(function(usuario){
+						for(i = 1; i <= size; i++){   
+					    	if(rows[i].cells[1].innerHTML == usuario.nome){
+					    		rows[i].style.color = "#0000FF";
+		     					rows[i].style.fontWeight="bold";
+		     					break;
+					    	}        
+				    	} 
+					})  
+				  }
 				}
 			</script>
 
@@ -926,40 +911,40 @@
 				var TableLastSortedColumn = -1;
 
 				function SortTable() {
-				var sortColumn = parseInt(arguments[0]);
-				var type = arguments.length > 1 ? arguments[1] : 'T';
-				var dateformat = arguments.length > 2 ? arguments[2] : '';
-				var table = document.getElementById(tableID);
-				var tbody = table.getElementsByTagName("tbody")[0];
-				var rows = tbody.getElementsByTagName("tr");
-				var arrayOfRows = new Array();
-				type = type.toUpperCase();
-				dateformat = dateformat.toLowerCase();
-				for(var i=0, len=rows.length; i<len; i++) {
-					arrayOfRows[i] = new Object;
-					arrayOfRows[i].oldIndex = i;
-					var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
-					if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+					var sortColumn = parseInt(arguments[0]);
+					var type = arguments.length > 1 ? arguments[1] : 'T';
+					var dateformat = arguments.length > 2 ? arguments[2] : '';
+					var table = document.getElementById(tableID);
+					var tbody = table.getElementsByTagName("tbody")[0];
+					var rows = tbody.getElementsByTagName("tr");
+					var arrayOfRows = new Array();
+					type = type.toUpperCase();
+					dateformat = dateformat.toLowerCase();
+					for(var i=0, len=rows.length; i<len; i++) {
+						arrayOfRows[i] = new Object;
+						arrayOfRows[i].oldIndex = i;
+						var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
+						if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+						else {
+							var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+							arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+							}
+						}
+					if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
 					else {
-						var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
-						arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+						TableLastSortedColumn = sortColumn;
+						switch(type) {
+							case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
+							case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
+							default  : arrayOfRows.sort(CompareRowOfText);
+							}
 						}
-					}
-				if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
-				else {
-					TableLastSortedColumn = sortColumn;
-					switch(type) {
-						case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
-						case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
-						default  : arrayOfRows.sort(CompareRowOfText);
+					var newTableBody = document.createElement("tbody");
+					for(var i=0, len=arrayOfRows.length; i<len; i++) {
+						newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
 						}
-					}
-				var newTableBody = document.createElement("tbody");
-				for(var i=0, len=arrayOfRows.length; i<len; i++) {
-					newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
-					}
-				table.replaceChild(newTableBody,tbody);
-				newTableBody.style.textAlign = "center";
+					table.replaceChild(newTableBody,tbody);
+					newTableBody.style.textAlign = "center";
 				} // function SortTable()
 
 
