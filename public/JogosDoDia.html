@@ -3907,7 +3907,7 @@
 				  	});
 					// Insere os participantes no SELECT
 					insereParticipante("selecionar_Apostador", ArrayParticipantes.sort());
-
+					BuscaAposta ("selecionar_Apostador", ArrayParticipantes.length)
 				});
 
 				function insereParticipante(SelectID, vetorParticipantes){
@@ -3934,7 +3934,7 @@
 				}
 
 				// Busca no banco a aposta do sujeito escolhido e mostra!
-				function BuscaAposta (Select, numeroDeApostadores, valorPadrao) {
+				function BuscaAposta (Select, numeroDeApostadores) {
 					
 					//Observa quem foi o apostador escolhido
 					$('#' + Select).change(function (evt) {
