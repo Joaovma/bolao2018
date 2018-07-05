@@ -282,7 +282,7 @@ button,
     font-size: 0.8rem;
     height: 2.4375rem;
     line-height: 2.4375rem;
-    padding: 0 1.25rem; }
+    padding: 0 0.75rem; }
   input[type="submit"].large,
   input[type="reset"].large,
   input[type="button"].large,

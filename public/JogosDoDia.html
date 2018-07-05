@@ -11,6 +11,24 @@
 		<link rel="stylesheet" href="assets/css/jogos-do-dia.css" />
 
 	</head>
+	<style>
+		.collapsible {
+		    background-color: #EEEEEE;
+    		color: #00798C !important;
+		    cursor: pointer;
+		    width: 90%;
+		    border: none;
+		    outline: none;
+		    font-size: 20px;
+		    font-weight: 1;
+		    border-radius: 10px;
+		    height: 3rem;
+		}
+
+		.active, .collapsible:hover {
+		    background-color: #EEEEEE;
+		}
+	</style>
 
 	<body class="is-preload">
 
@@ -39,7 +57,7 @@
 			<div id="heading" >
 				<section>
 					<h1>Jogos Oficiais + Pontuação</h1>
-					<h4><font color="white">Aqui você acompanha sua pontuação para cada jogo da fase de grupos e cada seleção classificada!</font></h4>
+					<h4><font color="white">Aqui você acompanha a pontuação para cada jogo da fase de grupos e cada seleção classificada!</font></h4>
 				</section>
 			</div>
 
@@ -49,7 +67,28 @@
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<div class="content">
-                        <h2 align="center">Resultados Oficiais</h2>
+						<section>
+							<hr>
+	                        <h4 align="center">Selecione o Apostador</h4>
+	                        <hr>
+							<select name="category" id="selecionar_Apostador" required>
+                                <option value=""> - </option>
+                            </select>
+                            &nbsp;
+                            <p align="center"><font size="2"color="black" id="Aviso_apostador">A comparação entre a aposta e o resultado oficial se encontra abaixo.</u></font></p>
+                            &nbsp;
+						</section>
+					</div>
+				</div>
+			</section>
+			<section id="main" class="wrapper">
+				<p align="center">
+					<button id="gruposBotao"class="collapsible">Fase de Grupos &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseDeGrupos">
+				<!-- PROXIMO DIA -->	
+					<div class="content">
+                        <h2 align="center">FASE DE GRUPOS</h2>
                         <hr>
 						<section>
 							<header align="center">
@@ -59,32 +98,38 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 1</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 1</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Rússia</a>
 											<p></p>
 											<a class="button primary fit small">Arábia Saudita</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j1A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j1A"><b>-</b></font></a>
-											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j1B"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j1B"><b>-</b></font></a>
 										</td>
-										<td width="20%" align="center">
-											<p><font size="1"><b>PTS</b></font></p>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j1A"><b>-</b></font></a>
+											<p> </p>
+											<a class="button fit small"><font size="3" id="Xgols_j1B"><b>-</b></font></a>
+										</td>
+										<td align="center">
+											<p><font color="white">_</font><font size="1">PTS</font><font color="white">_</font></p>
 											<p><font size="4" id="pts_j1">-</font></p>
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -97,10 +142,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -110,21 +152,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 2</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 2</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Egito</a>
 											<p></p>
 											<a class="button primary fit small">Uruguai</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j2A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j2A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j2B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j2A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j2B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j2B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -132,8 +178,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 4</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 4</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
@@ -142,11 +188,15 @@
 											<p></p>
 											<a class="button fit small">Irã</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j4A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j4A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j4B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j4A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j4B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j4B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -154,21 +204,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 3</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 3</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Portugal</a>
 											<p></p>
 											<a class="button primary fit small">Espanha</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j3A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j3A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j3B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j3A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j3B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j3B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -176,10 +230,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -192,10 +248,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -205,21 +258,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 5</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 5</b></font></p>
 											<p><font size="0.3">7h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">França</a>
 											<p></p>
 											<a class="button primary fit small">Austrália</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j5A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j5A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j5B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j5A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j5B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j5B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -227,8 +284,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 7</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 7</b></font></p>
 											<p><font size="0.3">10h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
@@ -237,11 +294,15 @@
 											<p></p>
 											<a class="button fit small">Islândia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j7A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j7A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j7B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j7A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j7B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j7B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -249,21 +310,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 6</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 6</b></font></p>
 											<p><font size="0.3">13h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Peru</a>
 											<p></p>
 											<a class="button primary fit small">Dinamarca</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j6A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j6A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j6B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j6A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j6B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j6B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -271,8 +336,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 8</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 8</b></font></p>
 											<p><font size="0.3">16h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
@@ -281,11 +346,15 @@
 											<p></p>
 											<a class="button fit small">Nigéria</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j8A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j8A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j8B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j8A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j8B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j8B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -293,10 +362,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -309,10 +380,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -322,21 +390,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 10</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 10</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Costa Rica</a>
 											<p></p>
 											<a class="button primary fit small">Sérvia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j10A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j10A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j10B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j10A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j10B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j10B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -344,8 +416,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 11</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 11</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo F</font></p>
 										</td>
@@ -354,11 +426,15 @@
 											<p></p>
 											<a class="button fit small">México</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j11A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j11A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j11B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j11A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j11B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j11B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -366,21 +442,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 9</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 9</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Brasil</a>
 											<p></p>
 											<a class="button primary fit small">Suíça</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j9A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j9A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j9B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j9A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j9B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j9B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -388,10 +468,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -404,10 +486,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -417,21 +496,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 12</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 12</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo F</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Suécia</a>
 											<p></p>
 											<a class="button primary fit small">Coréia do Sul</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j12A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j12A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j12B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j12A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j12B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j12B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -439,8 +522,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 13</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 13</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
@@ -449,11 +532,15 @@
 											<p></p>
 											<a class="button fit small">Panamá</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j13A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j13A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j13B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j13A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j13B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j13B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -461,21 +548,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 14</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 14</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Tunísia</a>
 											<p></p>
 											<a class="button primary fit small">Inglaterra</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j14A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j14A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j14B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j14A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j14B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j14B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -483,10 +574,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -499,10 +592,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->	
 					<div class="content">
 						<section>
 							<header align="center">
@@ -512,21 +602,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 16</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 16</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Colômbia</a>
 											<p></p>
 											<a class="button primary fit small">Japão</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j16A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j16A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j16B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j16A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j16B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j16B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -534,8 +628,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 15</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 15</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
@@ -544,11 +638,15 @@
 											<p></p>
 											<a class="button fit small">Senegal</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j15A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j15A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j15B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j15A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j15B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j15B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -556,21 +654,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 17</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 17</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Rússia</a>
 											<p></p>
 											<a class="button primary fit small">Egito</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j17A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j17A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j17B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j17A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j17B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j17B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -578,10 +680,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -594,10 +698,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -607,21 +708,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 19</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 19</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Portugal</a>
 											<p></p>
 											<a class="button primary fit small">Marrocos</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j19A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j19A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j19B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j19A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j19B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j19B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -629,8 +734,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 18</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 18</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
@@ -639,11 +744,15 @@
 											<p></p>
 											<a class="button fit small">Arábia Saudita</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j18A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j18A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j18B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j18A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j18B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j18B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -651,21 +760,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 20</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 20</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Irã</a>
 											<p></p>
 											<a class="button primary fit small">Espanha</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j20A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j20A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j20B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j20A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j20B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j20B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -673,10 +786,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -689,10 +804,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -702,21 +814,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 22</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 22</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Dinamrca</a>
 											<p></p>
 											<a class="button primary fit small">Austrália</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j22A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j22A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j22B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j22A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j22B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j22B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -724,8 +840,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 21</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 21</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
@@ -734,11 +850,15 @@
 											<p></p>
 											<a class="button fit small">Peru</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j21A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j21A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j21B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j21A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j21B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j21B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -746,21 +866,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 23</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 23</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Argentina</a>
 											<p></p>
 											<a class="button primary fit small">Croácia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j23A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j23A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j23B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j23A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j23B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j23B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -768,10 +892,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -784,10 +910,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -797,21 +920,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 25</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 25</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Brasil</a>
 											<p></p>
 											<a class="button primary fit small">Costa Rica</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j25A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j25A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j25B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j25A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j25B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j25B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -819,8 +946,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 24</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 24</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
@@ -829,11 +956,15 @@
 											<p></p>
 											<a class="button fit small">Islândia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j24A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j24A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j24B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j24A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j24B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j24B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -841,21 +972,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 26</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 26</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Sérvia</a>
 											<p></p>
 											<a class="button primary fit small">Suíça</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j26A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j26A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j26B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j26A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j26B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j26B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -863,10 +998,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -879,10 +1016,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -892,21 +1026,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 29</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 29</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Bélgica</a>
 											<p></p>
 											<a class="button primary fit small">Tunísia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j29A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j29A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j29B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j29A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j29B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j29B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -914,8 +1052,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 28</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 28</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo F</font></p>
 										</td>
@@ -924,11 +1062,15 @@
 											<p></p>
 											<a class="button fit small">México</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j28A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j28A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j28B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j28A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j28B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j28B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -936,21 +1078,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 27</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 27</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo F</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Alemanha</a>
 											<p></p>
 											<a class="button primary fit small">Suécia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j27A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j27A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j27B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j27A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j27B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j27B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -958,10 +1104,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -974,10 +1122,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -987,21 +1132,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 30</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 30</b></font></p>
 											<p><font size="0.3">9h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Inglaterra</a>
 											<p></p>
 											<a class="button primary fit small">Panamá</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j30A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j30A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j30B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j30A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j30B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j30B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1009,8 +1158,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 32</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 32</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
@@ -1019,11 +1168,15 @@
 											<p></p>
 											<a class="button fit small">Senegal</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j32A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j32A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j32B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j32A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j32B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j32B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1031,21 +1184,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 31</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 31</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Polônia</a>
 											<p></p>
 											<a class="button primary fit small">Colômbia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j31A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j31A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j31B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j31A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j31B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j31B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1053,10 +1210,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -1069,10 +1228,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1082,21 +1238,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 33</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 33</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Uruguai</a>
 											<p></p>
 											<a class="button primary fit small">Rússia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j33A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j33A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j33B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j33A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j33B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j33B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1104,8 +1264,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 34</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 34</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo A</font></p>
 										</td>
@@ -1114,11 +1274,15 @@
 											<p></p>
 											<a class="button fit small">Egito</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j34A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j34A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j34B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j34A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j34B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j34B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1126,21 +1290,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 36</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 36</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Espanha</a>
 											<p></p>
 											<a class="button primary fit small">Marrocos</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j36A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j36A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j36B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j36A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j36B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j36B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1148,8 +1316,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 35</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 35</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo B</font></p>
 										</td>
@@ -1158,11 +1326,15 @@
 											<p></p>
 											<a class="button fit small">Portugal</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j35A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j35A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j35B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j35A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j35B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j35B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1170,10 +1342,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -1186,10 +1360,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1199,21 +1370,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 37</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 37</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Dinamarca</a>
 											<p></p>
 											<a class="button primary fit small">França</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j37A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j37A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j37B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j37A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j37B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j37B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1221,8 +1396,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 38</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 38</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo C</font></p>
 										</td>
@@ -1231,11 +1406,15 @@
 											<p></p>
 											<a class="button fit small">Peru</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j38A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j38A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j38B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j38A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j38B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j38B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1243,21 +1422,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 39</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 39</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Nigéria</a>
 											<p></p>
 											<a class="button primary fit small">Argentina</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j39A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j39A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j39B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j39A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j39B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j39B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1265,8 +1448,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 40</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 40</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo D</font></p>
 										</td>
@@ -1275,11 +1458,15 @@
 											<p></p>
 											<a class="button fit small">Croácia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j40A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j40A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j40B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j40A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j40B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j40B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1287,10 +1474,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -1303,10 +1492,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1316,21 +1502,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 43</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 43</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo F</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Coréia do Sul</a>
 											<p></p>
 											<a class="button primary fit small">Alemanha</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j43A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j43A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j43B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j43A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j43B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j43B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1338,8 +1528,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 44</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 44</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
@@ -1348,11 +1538,15 @@
 											<p></p>
 											<a class="button fit small">Suécia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j44A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j44A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j44B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j44A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j44B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j44B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1360,21 +1554,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 41</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 41</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Sérvia</a>
 											<p></p>
 											<a class="button primary fit small">Brasil</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j41A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j41A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j41B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j41A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j41B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j41B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1382,8 +1580,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 42</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 42</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo E</font></p>
 										</td>
@@ -1392,11 +1590,15 @@
 											<p></p>
 											<a class="button fit small">Costa Rica</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j42A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j42A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j42B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j42A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j42B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j42B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1404,10 +1606,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -1420,10 +1624,7 @@
 							</table>
 						</section>
 					</div>
-				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+				<!-- PROXIMO DIA -->
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1433,21 +1634,25 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 47</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 47</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Japão</a>
 											<p></p>
 											<a class="button primary fit small">Polônia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j47A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j47A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j47B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j47A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j47B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j47B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1455,8 +1660,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 48</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 48</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">Grupo H</font></p>
 										</td>
@@ -1465,11 +1670,15 @@
 											<p></p>
 											<a class="button fit small">Colômbia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j48A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j48A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j48B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j48A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j48B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j48B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1477,21 +1686,25 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 45</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 45</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Inglaterra</a>
 											<p></p>
 											<a class="button primary fit small">Bélgica</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j45A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j45A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j45B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j45A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j45B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j45B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1499,8 +1712,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 46</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 46</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">Grupo G</font></p>
 										</td>
@@ -1509,11 +1722,15 @@
 											<p></p>
 											<a class="button fit small">Tunísia</a>
 										</td>
-										<td width="10%">
+										<td>
+											<a class="button primary fit small"><font size="3" id="gols_j46A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j46A"><b>-</b></font></a>
+											<a class="button primary fit small"><font size="3" id="gols_j46B"><b>-</b></font></a>
+										</td>
+										<td>
+											<a class="button fit small"><font size="3" id="Xgols_j46A"><b>-</b></font></a>
 											<p> </p>
-											<a class="button fit small"><font size="4" id="gols_j46B"><b>-</b></font></a>
+											<a class="button fit small"><font size="3" id="Xgols_j46B"><b>-</b></font></a>
 										</td>
 										<td width="20%" align="center">
 											<p><font size="1"><b>PTS</b></font></p>
@@ -1521,10 +1738,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
+										<td width="20%" align="center">
 										</td>
-										<td width="45%" align="center">
+										<td width="40%" align="center">
 											<p><font size="2"><b>SUA PONTUAÇÃO TOTAL DO DIA: </b></font></p>
+										<td width="10%">
+										</td>
 										<td width="10%">
 										</td>
 										</td>
@@ -1538,9 +1757,13 @@
 						</section>
 					</div>
 				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+
+			<!-- OITAVAS DE FINAL -->
+
+				<p align="center">
+					<button id="oitavasBotao" class="collapsible">Oitavas &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseOitavas">
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1559,92 +1782,191 @@
 							</table>
 							<table>
 								<tbody>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO A</b></font></p>
+									<tr style="background-color: rgba(20, 20, 20, 0.2);">
+										<td width="10%" align="center">
+											<p><font size="0.6"><b>GRUPO</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>OFICIAL</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>APOSTADO</b></font></p>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º A</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas1">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="oitavas1">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button fit small" id="oitavas9">-</a>
-										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO B</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º B</b></font></p>
 										</td>
 										<td width="40%">
-											<a class="button fit small" id="oitavas2">-</a>
+											<a class="button fit small" id="Xoitavas10">-</a>
 										</td>
-										<td width="40%" align="center">
+										<td width="40%">
 											<a class="button fit small" id="oitavas10">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO C</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º C</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas3">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="oitavas3">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button fit small" id="oitavas11">-</a>
-										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO D</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º D</b></font></p>
 										</td>
 										<td width="40%">
-											<a class="button fit small" id="oitavas4">-</a>
+											<a class="button fit small" id="Xoitavas12">-</a>
 										</td>
-										<td width="40%" align="center">
+										<td width="40%">
 											<a class="button fit small" id="oitavas12">-</a>
 										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO E</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º E</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas5">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="oitavas5">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button fit small" id="oitavas13">-</a>
-										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO F</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º F</b></font></p>
 										</td>
 										<td width="40%">
-											<a class="button fit small" id="oitavas6">-</a>
+											<a class="button fit small" id="Xoitavas14">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button  fit small" id="oitavas14">-</a>
+										<td width="40%">
+											<a class="button fit small" id="oitavas14">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO G</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º G</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas7">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="oitavas7">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button fit small" id="oitavas15">-</a>
+									</tr>
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º H</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas16">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas16">-</a>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º B</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas2">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas2">-</a>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º A</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas9">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas9">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>GRUPO H</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º D</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas4">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas4">-</a>
+										</td>
+									</tr>
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º C</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas11">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas11">-</a>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º F</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas6">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas6">-</a>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º E</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas13">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas13">-</a>
+										</td>
+									</tr>
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>1º H</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas8">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="oitavas8">-</a>
 										</td>
-										<td width="40%" align="center">
-											<a class="button fit small" id="oitavas16">-</a>
+									</tr>
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>2º G</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xoitavas15">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="oitavas15">-</a>
 										</td>
 									</tr>
 								</tbody>
@@ -1652,9 +1974,13 @@
 						</section>
 					</div>
 				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+			
+			<!-- QUARTAS DE FINAL -->
+
+				<p align="center">
+					<button id="quartasBotao" class="collapsible">Quartas &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseQuartas">
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1673,65 +1999,101 @@
 							</table>
 							<table>
 								<tbody>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 1</b></font></p>
+									<tr style="background-color: rgba(20, 20, 20, 0.2);">
+										<td width="10%" align="center">
+											<p><font size="0.6"><b></b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>OFICIAL</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>APOSTADO</b></font></p>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 1</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas1">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas1">-</a>
 										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 2</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 2</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas2">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas2">-</a>
 										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 3</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 3</b></font></p>
 										</td>
 										<td width="40%">
-											<a class="button fit small" id="quartas3">-</a>
-										</td>
-									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 4</b></font></p>
-										</td>
-										<td width="40%">
-											<a class="button fit small" id="quartas4">-</a>
-										</td>
-									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 5</b></font></p>
+											<a class="button fit small" id="Xquartas5">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas5">-</a>
 										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 6</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 4</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas6">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas6">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 7</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 5</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas3">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="quartas3">-</a>
+										</td>
+									</tr>
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 6</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas4">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="quartas4">-</a>
+										</td>
+									</tr>
+									
+									<tr>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 7</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas7">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas7">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 8</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 8</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xquartas8">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="quartas8">-</a>
@@ -1742,9 +2104,13 @@
 						</section>
 					</div>
 				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+
+			<!-- SEMI FINAL -->
+
+				<p align="center">
+					<button id="semiBotao" class="collapsible">Semi &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseSemi">
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1763,33 +2129,56 @@
 							</table>
 							<table>
 								<tbody>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 1</b></font></p>
+									<tr style="background-color: rgba(20, 20, 20, 0.2);">
+										<td width="10%" align="center">
+											<p><font size="0.6"><b></b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>OFICIAL</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>APOSTADO</b></font></p>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 1</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xsemi1">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="semi1">-</a>
 										</td>
 									</tr>
-									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 2</b></font></p>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 2</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xsemi2">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="semi2">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 3</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 3</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xsemi3">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="semi3">-</a>
 										</td>
 									</tr>
 									<tr>
-										<td width="20%" align="center">
-											<p><font size="0.6"><b>Time 4</b></font></p>
+										<td width="10%" align="center">
+											<p><font size="2"><b>Seleção 4</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xsemi4">-</a>
 										</td>
 										<td width="40%">
 											<a class="button fit small" id="semi4">-</a>
@@ -1800,9 +2189,13 @@
 						</section>
 					</div>
 				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+
+			<!-- TERCEIRO -->
+
+				<p align="center">
+					<button id="terceiroBotao" class="collapsible">Terceiro &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseTerceiro">
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1821,11 +2214,25 @@
 							</table>
 							<table>
 								<tbody>
+									<tr style="background-color: rgba(20, 20, 20, 0.2);">
+										<td width="10%" align="center">
+											<p><font size="0.6"><b></b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>OFICIAL</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>APOSTADO</b></font></p>
+										</td>
+									</tr>
 									<tr>
 										<td width="10%" align="center">
-											<p><font size="3"><b>Terceiro: </b></font></p>
+											<p><font size="2"><b>Terceiro</b></font></p>
 										</td>
-										<td width="30%">
+										<td width="40%">
+											<a class="button fit small" id="Xterceiro">-</a>
+										</td>
+										<td width="40%">
 											<a class="button fit small" id="terceiro">-</a>
 										</td>
 									</tr>
@@ -1834,9 +2241,13 @@
 						</section>
 					</div>
 				</div>
-			</section>
-			<section id="main" class="wrapper">
-				<div class="inner">
+
+			<!-- FINAL -->
+
+				<p align="center">
+					<button id="finalBotao" class="collapsible">Final &nbsp;&nbsp;&nbsp;<font size ="5"><a style="position: absolute; left: 85%;" class="icon fa-angle-down" ></a></font></button>
+				</p>
+				<div class="inner" id="FaseFinal">
 					<div class="content">
 						<section>
 							<header align="center">
@@ -1855,15 +2266,36 @@
 							</table>
 							<table>
 								<tbody>
+									<tr style="background-color: rgba(20, 20, 20, 0.2);">
+										<td width="10%" align="center">
+											<p><font size="0.6"><b></b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>OFICIAL</b></font></p>
+										</td>
+										<td width="40%" align="center">
+											<p><font size="0.6"><b>APOSTADO</b></font></p>
+										</td>
+									</tr>
+									<tr style="background-color: rgba(53, 53, 53, 0.1);">
+										<td width="10%" align="center">
+											<p><font size="2"><b>Campeão</b></font></p>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="Xcampeao">-</a>
+										</td>
+										<td width="40%">
+											<a class="button fit small" id="campeao">-</a>
+										</td>
+									</tr>
 									<tr>
 										<td width="10%" align="center">
-											<p><font size="3"><b>Campeão: </b></font></p>
-											<p></p>
-											<p><font size="3"><b>Vice: </b></font></p>
+											<p><font size="2"><b>Vice</b></font></p>
 										</td>
-										<td width="30%">
-											<a class="button fit small" id="campeao">-</a>
-											<p></p>
+										<td width="40%">
+											<a class="button fit small" id="Xvice">-</a>
+										</td>
+										<td width="40%">
 											<a class="button fit small" id="vice">-</a>
 										</td>
 									</tr>
@@ -1873,6 +2305,18 @@
 					</div>
 				</div>
 			</section>
+			&emsp;
+			<p>
+			</p>
+			&emsp;
+			<p>
+			</p>
+			&emsp;
+			<p>
+			</p>
+			&emsp;
+
+
 			<!-- ----------------------------------- JOGOS RETIRADOS ---------------------
 			<section id="main" class="wrapper">
 				<div class="inner">
@@ -1885,19 +2329,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 50</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 50</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">1ºC x 2ºD</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">França</a>
 											<p></p>
 											<a class="button primary fit small">Nigéria</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -1907,8 +2350,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 49</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 49</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">1ºA x 2ºB</font></p>
 										</td>
@@ -1917,9 +2360,8 @@
 											<p></p>
 											<a class="button fit small">Portugal</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -1971,19 +2413,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 51</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 51</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">1ºB x 2ºA</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Espanha</a>
 											<p></p>
 											<a class="button primary fit small">Uruguai</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -1993,8 +2434,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 52</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 52</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">1ºD x 2ºC</font></p>
 										</td>
@@ -2003,9 +2444,8 @@
 											<p></p>
 											<a class="button fit small">Dinamarca</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2057,19 +2497,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 53</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 53</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">1ºE x 2ºF</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Brasil</a>
 											<p></p>
 											<a class="button primary fit small">México</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2079,8 +2518,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 54</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 54</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">1ºG x 2ºH</font></p>
 										</td>
@@ -2089,9 +2528,8 @@
 											<p></p>
 											<a class="button fit small">Polônia</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2143,19 +2581,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 55</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 55</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">1ºF x 2ºE</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Alemanha</a>
 											<p></p>
 											<a class="button primary fit small">Sérvia</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2165,8 +2602,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 56</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 56</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">1ºH x 2ºG</font></p>
 										</td>
@@ -2175,9 +2612,8 @@
 											<p></p>
 											<a class="button fit small">Inglaterra</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2230,19 +2666,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 57</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 57</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">VJ49 x VJ50</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Portugal</a>
 											<p></p>
 											<a class="button primary fit small">França</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2252,8 +2687,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 58</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 58</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">VJ53 x VJ54</font></p>
 										</td>
@@ -2262,9 +2697,8 @@
 											<p></p>
 											<a class="button fit small">Bélgica</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2316,19 +2750,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 60</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 60</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">VJ55 x VJ56</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Alemanha</a>
 											<p></p>
 											<a class="button primary fit small">Colômbia</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2338,8 +2771,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 59</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 59</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">VJ51 x VJ52</font></p>
 										</td>
@@ -2348,9 +2781,8 @@
 											<p></p>
 											<a class="button fit small">Argentina</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2402,19 +2834,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 61</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 61</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">VJ57 x VJ58</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">França</a>
 											<p></p>
 											<a class="button primary fit small">Brasil</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2466,19 +2897,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 62</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 62</b></font></p>
 											<p><font size="0.3">15h</font></p>
 											<p><font size="0.3">VJ59 x VJ60</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Espanha</a>
 											<p></p>
 											<a class="button primary fit small">Alemanha</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2530,19 +2960,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 63</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 63</b></font></p>
 											<p><font size="0.3">11h</font></p>
 											<p><font size="0.3">PJ61 x PJ62</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">França</a>
 											<p></p>
 											<a class="button primary fit small">Espanha</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2594,19 +3023,18 @@
 							<table>
 								<tbody>
 									<tr>
-										<td width="25%" align="center">
-											<p><font size="0.6"><b>Jogo 64</b></font></p>
+										<td align="center">
+											<p><font size="0.5"><b>Jogo 64</b></font></p>
 											<p><font size="0.3">12h</font></p>
 											<p><font size="0.3">VJ61 x VJ62</font></p>
 										</td>
-										<td width="45%">
+										<td>
 											<a class="button primary fit small">Brasil</a>
 											<p></p>
 											<a class="button primary fit small">Alemanha</a>
 										</td>
-										<td width="10%">
-											<p> </p>
-											<a class="button fit small"><font size="4"><b>0</b></font></a>
+										<td>
+											<a class="button primary fit small"><font size="3"><b>0</b></font></a>
 											<p> </p>
 											<a class="button fit small"><font size="4"><b>0</b></font></a>
 										</td>
@@ -2696,7 +3124,15 @@
 			<script src="assets/js/main.js"></script>
 
 
-
+			<script type="text/javascript">
+				
+				document.getElementById("FaseDeGrupos").style.display = "none";
+				document.getElementById("FaseOitavas").style.display = "none";
+				document.getElementById("FaseQuartas").style.display = "none";
+				document.getElementById("FaseSemi").style.display = "none";
+				document.getElementById("FaseTerceiro").style.display = "none";
+				document.getElementById("FaseFinal").style.display = "none";
+			</script>
 
 			<script type="text/javascript">
 				// calcula os valores oficiais
@@ -3170,54 +3606,105 @@
 
 
 
-
-
-
-
 			<script type="text/javascript">
+
+				//PREENCHE TODOS PLACARES E TIMES OFICIAIS CLASSIFICADOS
 				var db = firebase.database();
 				db.ref('oficial').once('value', (snap) => {
         			snap.forEach((childNode) => {
-        					var oficial = childNode.val();
-        					//console.log(oficial);
+    					var oficial = childNode.val();
+    					//console.log(oficial);
 
-        					//Preenche os placares oficiais dos jogos
-			        		for (i=1; i<=48; i++) {
-			        			
-			        			var jogo = 'oj' + i;
-			        			//console.log(jogo);
-			        			var golsLocal = 'j' + i;
-			        			var time;
-			        			var valorLido = oficial[jogo];
-			        			//console.log(valorLido);
-			        			var golsParaColar;
-			        			for(x=1; x<=2; x++){
-			        				if(x==1){ //A
-			        					time = jogo + 'A';
-			        					//console.log(valorLido[time]);
-			        					localParaColar = 'gols_' + golsLocal + 'A';
-			        					golsParaColar = document.getElementById(localParaColar);
-			        					
-			        					if(valorLido[time] == "99") valorLido[time] = "-";
-			        					golsParaColar.innerHTML = valorLido[time];
-			        					
-			        				}
-			        				else{ //B
-			        					time = jogo + 'B';
-			        					//console.log(valorLido[time]);
-			        					localParaColar = 'gols_' + golsLocal + 'B';
-			        					golsParaColar = document.getElementById(localParaColar);
-			        					if(valorLido[time] == "99") valorLido[time] = "-";
-			        					golsParaColar.innerHTML = valorLido[time];
-			        				}
-			        			}
-        				}
+    					//Preenche os placares oficiais dos jogos
+		        		for (i=1; i<=48; i++) {
+		        			
+		        			var jogo = 'oj' + i;
+		        			//console.log(jogo);
+		        			var golsLocal = 'j' + i;
+		        			var time;
+		        			var valorLido = oficial[jogo];
+		        			//console.log(valorLido);
+		        			var golsParaColar;
+		        			for(x=1; x<=2; x++){
+		        				if(x==1){ //A
+		        					time = jogo + 'A';
+		        					//console.log(valorLido[time]);
+		        					localParaColar = 'gols_' + golsLocal + 'A';
+		        					golsParaColar = document.getElementById(localParaColar);
+		        					
+		        					if(valorLido[time] == "99") valorLido[time] = "-";
+		        					golsParaColar.innerHTML = valorLido[time];
+		        					
+		        				}
+		        				else{ //B
+		        					time = jogo + 'B';
+		        					//console.log(valorLido[time]);
+		        					localParaColar = 'gols_' + golsLocal + 'B';
+		        					golsParaColar = document.getElementById(localParaColar);
+		        					if(valorLido[time] == "99") valorLido[time] = "-";
+		        					golsParaColar.innerHTML = valorLido[time];
+		        				}
+		        			}
+    					}
+    					//Preenche oitavas
+		        		for (i=1; i<=16; i++) {
+		        			
+		        			var time = 'oitavas' + i;
+		        			var timeOndeColar = 'X' + time;
+		        			var timeLido = oficial[time][time];
 
+		        			var classificadoOitavas = document.getElementById(timeOndeColar);
+		        			classificadoOitavas.innerHTML = timeLido;
+		        		}
+		        		//Preenche quartas
+		        		for (i=49; i<=56; i++) {
+		        			var jogo = 'j' + i;
+		        			var time = 'quartas' + (i-48);
+		        			var timeOndeColar = 'X' + time;
+		        			var timeLido = oficial[time][time];
+		        			
+		        			var classificadoQuartas = document.getElementById(timeOndeColar);
+		        			classificadoQuartas.innerHTML = timeLido;
+		        		}
+		        		//Preenche semi
+		        		for (i=57; i<=60; i++) {
+		        			var jogo = 'j' + i;
+		        			var time = 'semi' + (i-56);
+		        			var timeOndeColar = 'X' + time;
+		        			var timeLido = oficial[time][time];
+		        			
+		        			var classificadoSemi = document.getElementById(timeOndeColar);
+		        			classificadoSemi.innerHTML = timeLido;
+		        		}
+		        		//Preenche terceiro
+		        		for (i=63; i<=63; i++) {
+		        			var jogo = 'j' + i;
+		        			var time = 'terceiro';
+		        			var timeOndeColar = 'X' + time;
+		        			var timeLido = oficial[time][time];
+		        			
+		        			var timeTerceiro = document.getElementById(timeOndeColar);		
+		        			timeTerceiro.innerHTML = timeLido;
+		        		}
+		        		//Preenche campeao e vice
+		        		for (i=64; i<=64; i++) {
+		        			var jogo = 'j' + i;
+		        			var timeVice = 'vice';
+		        			var timeCampeao = 'campeao';
+		        			var timeOndeColarVice = 'X' + timeVice;
+		        			var timeOndeColarCampeao = 'X' + timeCampeao;
+
+		        			var timePrimeiro = document.getElementById(timeOndeColarCampeao);
+		        			var timeSegundo = document.getElementById(timeOndeColarVice);
+		        			
+		        			timePrimeiro.innerHTML = oficial[timeCampeao][timeCampeao];
+		        			timeSegundo.innerHTML = oficial[timeVice][timeVice];
+		        		}
         			});
         		});
 				
-				// preenche a pontuacao de cada jogo na pagina e a potnaucao total
-				firebaseGetUserData().then(function(usuario){
+				// preenche a pontuacao de cada jogo na pagina e a pontuacao total
+				function ColaPontuacaoApostaEscolhida(usuario) {
 					//console.log(usuario);
 					var ptsPorJogoGrupos = usuario.pontuacaoPorJogoFaseGrupos;
 					//console.log(ptsPorJogoGrupos);
@@ -3386,8 +3873,12 @@
 	        		localExato.innerHTML = ptsFinal;
 
 
-				})
+				}
 			</script>
+
+
+
+
 
 			<script type="text/javascript">
 				firebaseGetUserData().then(function(usuario){
@@ -3397,151 +3888,379 @@
 
 			</script>
 
+
+
+
 			<script type="text/javascript">
-				var db = firebase.database();
-				db.ref('apostas').once('value', (snap) => {
-        			snap.forEach((childNode) => {
-        				if(childNode.Ce.path.n[1] == firebase.auth().currentUser.uid){
-        					var aposta = childNode.val();
-        					var apostaEtapa1 = aposta.etapa1;
-        					//console.log(apostaEtapa1);
+				//busca todos os participantes no banco e conta quantos tem
+				var numeroParticipantes=0;
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						if(childNodes.val().nome != null)numeroParticipantes ++;
+				      	//console.log(numeroParticipantes);
+				  });
+   				});
+   				//preenche um vetor com todos os participantes
+				var ArrayParticipantes = new Array(numeroParticipantes);
+				databaseBolao.ref("usuarios").on('value', function(snap){
+   					snap.forEach(function(childNodes){
+   						var usuarioParaAdd = childNodes.val().nome;
+			      		var tamanho = ArrayParticipantes.length;
+			      		ArrayParticipantes[tamanho] = usuarioParaAdd;
+				  	});
+					// Insere os participantes no SELECT
+					insereParticipante("selecionar_Apostador", ArrayParticipantes.sort());
 
-			        		//Preenche oitavas
-			        		for (i=1; i<=16; i++) {
-			        			
-			        			var time = 'oitavas' + i;
-			        			var timeLido = apostaEtapa1[time];
-			        			var classificadoOitavas = document.getElementById(time);
-			        					
-			        			classificadoOitavas.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche quartas
-			        		for (i=49; i<=56; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'quartas' + (i-48);
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var classificadoQuartas = document.getElementById(time);
-			        					
-			        			classificadoQuartas.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche semi
-			        		for (i=57; i<=60; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'semi' + (i-56);
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var classificadoSemi = document.getElementById(time);
-			        					
-			        			classificadoSemi.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche terceiro
-			        		for (i=63; i<=63; i++) {
-			        			var jogo = 'j' + i;
-			        			var time = 'terceiro';
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var timeTerceiro = document.getElementById(time);
-			        			//console.log('terceiro' + timeLido[time] );		
-			        			timeTerceiro.innerHTML = timeLido[time];
-			        		}
-			        		//Preenche campeao e vice
-			        		for (i=64; i<=64; i++) {
-			        			var jogo = 'j' + i;
-			        			var timeVice = 'vice';
-			        			var timeCampeao = 'campeao';
-			        			var timeLido = apostaEtapa1[jogo];
-			        			var timeSegundo = document.getElementById(timeVice);
-			        			var timePrimeiro = document.getElementById(timeCampeao);
-			        			
-			        			//console.log('camepao' + timeLido[timeCampeao]);
-			        			//console.log('vice' + timeLido[timeVice]);		
-			        			timePrimeiro.innerHTML = timeLido[timeCampeao];
-			        			timeSegundo.innerHTML = timeLido[timeVice];
-			        		}
+				});
 
-        				}
+				function insereParticipante(SelectID, vetorParticipantes){
+					var usuarioAtual;
+					var db = firebase.database();
+                        db.ref("usuarios").on('value', function(snap){
+		   					snap.forEach(function(childNodes){
+		   						if(childNodes.Ce.path.n[1] == firebase.auth().currentUser.uid){
+		   							usuarioAtual = childNodes.val().nome;
+		   						}
+						  	});
+		   				});
+					
+					var Select = document.getElementById(SelectID); 
+			    	for (var i = 0; i < vetorParticipantes.length; i++) {
+				        var option = document.createElement("option");
+				        option.innerHTML = vetorParticipantes[i];
+				        Select.appendChild(option);
+				    }
+				    for (var i = 0; i < vetorParticipantes.length; i++) {
+				        var option = document.createElement("option");
+				        option.innerHTML = vetorParticipantes[i];
+				        Select.appendChild(option);
+				        if (option.innerHTML == usuarioAtual){
+				        	option.selected = true;
+				        	BuscaApostaParte2( usuarioAtual );
+				        	break;
+				        }
+				    }
+				}
 
-        			});
-        		});
+				// Busca no banco a aposta do sujeito escolhido e mostra!
+				function BuscaAposta (Select, numeroDeApostadores, valorPadrao) {
+					
+					//Observa quem foi o apostador escolhido
+					$('#' + Select).change(function (evt) {
+                        var selectedValue = evt.target.value;
+                        var ApostadorEscolhido = "";
+                        for (var j = 1 ; j <= numeroDeApostadores; j++) {
+                            var option = evt.target.options[j];
+                            if (option.innerHTML == selectedValue) {
+                                ApostadorEscolhido = option.label;
+                            }
+                        }
+                        BuscaApostaParte2( ApostadorEscolhido );
+                        
+                    });
+				}
+				//separei em duas partes para que eu possa usar o busca aposta sem precisar de um change evt do select
+				//utilizo com o valor padrão do select (que nao eh um change event), mas que preciso buscar a aposta
+				function BuscaApostaParte2( ApostadorEscolhido ){
+					var ID_ApostadorEscolhido;
+                    var ELEMENTO_ApostadorEscolhido;
+                    var EncontrouAposta = 0;
+                    var db = firebase.database();
+                    db.ref("usuarios").on('value', function(snap){
+	   					snap.forEach(function(childNodes){
+	   						if(childNodes.val().nome == ApostadorEscolhido){
+	   							ELEMENTO_ApostadorEscolhido = childNodes.val();
+	   							ID_ApostadorEscolhido = childNodes.Ce.path.n[1];
+	   						}
+					  	});
+	   				});
+					db.ref('apostas').once('value', (snap) => {
+	        			snap.forEach((childNode) => {
+	        				var fraseApostador = document.getElementById("Aviso_apostador");
+	        				if(childNode.Ce.path.n[1] == ID_ApostadorEscolhido){
+	        					EncontrouAposta = 1;
+	        					var aposta = childNode.val();
+	        					var apostaEtapa1 = aposta.etapa1;
+	        					//console.log(apostaEtapa1);
 
+	        					//Preenche a aposta do usuario na pagina.
+				        		for (i=1; i<=48; i++) {
+				        			
+				        			var jogo = 'j' + i;
+				        			var time;
+				        			var valorLido = apostaEtapa1[jogo];
+				        			var golsParaColar;
+				        			for(x=1; x<=2; x++){
+				        				if(x==1){ //A
+				        					time = jogo + 'A';
+				        					localParaColar = 'Xgols_' + time;
+				        					golsParaColar = document.getElementById(localParaColar);
+				        					
+				        					golsParaColar.innerHTML = valorLido[time];
+				        					
+				        				}
+				        				else{ //B
+				        					time = jogo + 'B';
+				        					localParaColar = 'Xgols_' + time;
+				        					golsParaColar = document.getElementById(localParaColar);
+				        					
+				        					golsParaColar.innerHTML = valorLido[time];
+				        				}
+				        			}
+				        		}
+				        		//Preenche oitavas
+				        		for (i=1; i<=16; i++) {
+				        			
+				        			var time = 'oitavas' + i;
+				        			var timeLido = apostaEtapa1[time];
+				        			var classificadoOitavas = document.getElementById(time);
+				        					
+				        			classificadoOitavas.innerHTML = timeLido[time];
+				        		}
+				        		//Preenche quartas
+				        		for (i=49; i<=56; i++) {
+				        			var jogo = 'j' + i;
+				        			var time = 'quartas' + (i-48);
+				        			var timeLido = apostaEtapa1[jogo];
+				        			var classificadoQuartas = document.getElementById(time);
+				        					
+				        			classificadoQuartas.innerHTML = timeLido[time];
+				        		}
+				        		//Preenche semi
+				        		for (i=57; i<=60; i++) {
+				        			var jogo = 'j' + i;
+				        			var time = 'semi' + (i-56);
+				        			var timeLido = apostaEtapa1[jogo];
+				        			var classificadoSemi = document.getElementById(time);
+				        					
+				        			classificadoSemi.innerHTML = timeLido[time];
+				        		}
+				        		//Preenche terceiro
+				        		for (i=63; i<=63; i++) {
+				        			var jogo = 'j' + i;
+				        			var time = 'terceiro';
+				        			var timeLido = apostaEtapa1[jogo];
+				        			var timeTerceiro = document.getElementById(time);
+				        					
+				        			timeTerceiro.innerHTML = timeLido[time];
+				        		}
+				        		//Preenche campeao e vice
+				        		for (i=64; i<=64; i++) {
+				        			var jogo = 'j' + i;
+				        			var timeVice = 'vice';
+				        			var timeCampeao = 'campeao';
+				        			var timeLido = apostaEtapa1[jogo];
+				        			var timeSegundo = document.getElementById(timeVice);
+				        			var timePrimeiro = document.getElementById(timeCampeao);
+				        					
+				        			timePrimeiro.innerHTML = timeLido[timeCampeao];
+				        			timeSegundo.innerHTML = timeLido[timeVice];
+				        		}
+
+	        				}
+	        				if(EncontrouAposta == 1){
+	        					fraseApostador.innerHTML = "Aposta de " + ApostadorEscolhido + " encontrada com sucesso!";
+	        					fraseApostador.style.color = "blue";
+	        					//document.getElementById("ConteudoAposta").style.display = "block";
+	        					DescoloreAcertos(); 
+	        					ColaPontuacaoApostaEscolhida(ELEMENTO_ApostadorEscolhido);
+	        					ColoreAcertos();
+	        				}
+	        				else{
+	        					fraseApostador.innerHTML = "Aposta de " + ApostadorEscolhido + " não encontrada!";
+	        					fraseApostador.style.color = "red";
+	        				}
+
+	        			});
+	        		});
+				}
 			</script>
+
+
+
+
+
 			<script type="text/javascript">
-				setInterval(function() {
-					if (typeof code_happened === 'undefined') {
-						window.code_happened = true;
-						var db = firebase.database();		
-						db.ref('oficial').once('value', (snap) => {
-		        			snap.forEach((childNode) => {
-		    					var oficial = childNode.val();
-		    					//console.log(oficial);
 
-		    					//Colore os times das oitavas que a pessoa acertou.
-		    					for (i=1; i<=16; i++){
-		    						var timeApostadoID = 'oitavas' + i;
-		    						//console.log(timeApostadoID);
-		    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
-						            for (x=1; x<=16; x++){
-							            var timeOficialID = 'oitavas' + x;
-							            var timeOficial = oficial[timeOficialID][timeOficialID];            
-							            if (timeApostado === timeOficial){
-							                document.getElementById(timeApostadoID).className = "button primary fit small";
-							            }
-							        }
-						   	 	}
-						   	 	//Colore os times das quartas que a pessoa acertou.
-		    					for (i=1; i<=8; i++){
-		    						var timeApostadoID = 'quartas' + i;
-		    						//console.log(timeApostadoID);
-		    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
-						            for (x=1; x<=8; x++){
-							            var timeOficialID = 'quartas' + x;
-							            var timeOficial = oficial[timeOficialID][timeOficialID];            
-							            if (timeApostado === timeOficial){
-							                document.getElementById(timeApostadoID).className = "button primary fit small";
-							            }
-							        }
-						   	 	}
-						   	 	//Colore os times das semi que a pessoa acertou.
-		    					for (i=1; i<=4; i++){
-		    						var timeApostadoID = 'semi' + i;
-		    						//console.log(timeApostadoID);
-		    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
-						            for (x=1; x<=4; x++){
-							            var timeOficialID = 'semi' + x;
-							            var timeOficial = oficial[timeOficialID][timeOficialID];            
-							            if (timeApostado === timeOficial){
-							                document.getElementById(timeApostadoID).className = "button primary fit small";
-							            }
-							        }
-						   	 	}
-						   	 	//Colore o terceiro se acertou
-		    					for (i=1; i<=4; i++){
-		    						var timeID = 'terceiro';
-		    						var timeApostado = document.getElementById(timeID).innerHTML;
-						            var timeOficial = oficial[timeID][timeID];            
+				//COLORE OS TIMES QUE FORAM ACERTADOS NA SEGUNDA FASE DA COPA
+				function ColoreAcertos () {
+					var db = firebase.database();		
+					db.ref('oficial').once('value', (snap) => {
+	        			snap.forEach((childNode) => {
+	    					var oficial = childNode.val();
+	    					//console.log(oficial);
+
+	    					//Colore os times das oitavas que a pessoa acertou.
+	    					for (i=1; i<=16; i++){
+	    						var timeApostadoID = 'oitavas' + i;
+	    						//console.log(timeApostadoID);
+	    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+					            for (x=1; x<=16; x++){
+						            var timeOficialID = 'oitavas' + x;
+						            var timeOficial = oficial[timeOficialID][timeOficialID];            
 						            if (timeApostado === timeOficial){
-						                document.getElementById(timeID).className = "button primary fit small";
+						                document.getElementById(timeApostadoID).className = "button primary fit small";
 						            }
-						   	 	}
-						   	 	//Colore o campeao e o vice se acertou
-		    					for (i=1; i<=4; i++){
-		    						var timeIDcampeao = 'campeao';
-		    						var timeIDvice = 'vice';
-		    						var timeApostadoCamepao = document.getElementById(timeIDcampeao).innerHTML;
-		    						var timeApostadoVice = document.getElementById(timeIDvice).innerHTML;
+						        }
+					   	 	}
+					   	 	//Colore os times das quartas que a pessoa acertou.
+	    					for (i=1; i<=8; i++){
+	    						var timeApostadoID = 'quartas' + i;
+	    						//console.log(timeApostadoID);
+	    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+					            for (x=1; x<=8; x++){
+						            var timeOficialID = 'quartas' + x;
+						            var timeOficial = oficial[timeOficialID][timeOficialID];            
+						            if (timeApostado === timeOficial){
+						                document.getElementById(timeApostadoID).className = "button primary fit small";
+						            }
+						        }
+					   	 	}
+					   	 	//Colore os times das semi que a pessoa acertou.
+	    					for (i=1; i<=4; i++){
+	    						var timeApostadoID = 'semi' + i;
+	    						//console.log(timeApostadoID);
+	    						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+					            for (x=1; x<=4; x++){
+						            var timeOficialID = 'semi' + x;
+						            var timeOficial = oficial[timeOficialID][timeOficialID];            
+						            if (timeApostado === timeOficial){
+						                document.getElementById(timeApostadoID).className = "button primary fit small";
+						            }
+						        }
+					   	 	}
+					   	 	//Colore o terceiro se acertou
+	    					for (i=1; i<=1; i++){
+	    						var timeID = 'terceiro';
+	    						var timeApostado = document.getElementById(timeID).innerHTML;
+					            var timeOficial = oficial[timeID][timeID];            
+					            if (timeApostado === timeOficial){
+					                document.getElementById(timeID).className = "button primary fit small";
+					            }
+					   	 	}
+					   	 	//Colore o campeao e o vice se acertou
+	    					for (i=1; i<=1; i++){
+	    						var timeIDcampeao = 'campeao';
+	    						var timeIDvice = 'vice';
+	    						var timeApostadoCamepao = document.getElementById(timeIDcampeao).innerHTML;
+	    						var timeApostadoVice = document.getElementById(timeIDvice).innerHTML;
 
-						            var timeOficialCamepao = oficial[timeIDcampeao][timeIDcampeao];
-						            var timeOficialVice = oficial[timeIDvice][timeIDvice]
+					            var timeOficialCamepao = oficial[timeIDcampeao][timeIDcampeao];
+					            var timeOficialVice = oficial[timeIDvice][timeIDvice]
 
-						            if (timeApostadoCamepao === timeOficialCamepao){
-						                document.getElementById(timeIDcampeao).className = "button primary fit small";
-						            }
-						            if (timeApostadoVice === timeOficialVice){
-						                document.getElementById(timeIDvice).className = "button primary fit small";
-						            }
-						   	 	}
-		        			});
-		        		});
-		        	}
-				}, 5 * 1000); // 60 * 1000 milsec
+					            if (timeApostadoCamepao === timeOficialCamepao){
+					                document.getElementById(timeIDcampeao).className = "button primary fit small";
+					            }
+					            if (timeApostadoVice === timeOficialVice){
+					                document.getElementById(timeIDvice).className = "button primary fit small";
+					            }
+					   	 	}
+	        			});
+	        		});
+		        }
+		        function DescoloreAcertos () {
+
+					//Colore os times das oitavas que a pessoa acertou.
+					for (i=1; i<=16; i++){
+						var timeApostadoID = 'oitavas' + i;
+						//console.log(timeApostadoID);
+						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+				        document.getElementById(timeApostadoID).className = "button fit small";
+				        
+			   	 	}
+			   	 	//Colore os times das quartas que a pessoa acertou.
+					for (i=1; i<=8; i++){
+						var timeApostadoID = 'quartas' + i;
+						//console.log(timeApostadoID);
+						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+				        document.getElementById(timeApostadoID).className = "button fit small";
+				        
+			   	 	}
+			   	 	//Colore os times das semi que a pessoa acertou.
+					for (i=1; i<=4; i++){
+						var timeApostadoID = 'semi' + i;
+						var timeApostado = document.getElementById(timeApostadoID).innerHTML;
+				        document.getElementById(timeApostadoID).className = "button fit small";
+				        
+			   	 	}
+
+			   	 	//Colore o campeao e o vice se acertou
+					for (i=1; i<=2; i++){
+						var timeIDcampeao = 'campeao';
+						var timeIDvice = 'vice';
+						var timeID = 'terceiro';
+						var timeApostadoCamepao = document.getElementById(timeIDcampeao).innerHTML;
+						var timeApostadoVice = document.getElementById(timeIDvice).innerHTML;
+						var timeApostado = document.getElementById(timeID).innerHTML;
+
+
+		                document.getElementById(timeIDcampeao).className = "button fit small";
+		                document.getElementById(timeIDvice).className = "button fit small";
+		                document.getElementById(timeID).className = "button fit small";
+			   	 	}
+		        }
+			</script>
+
+
+			<script>
+				var coll = document.getElementsByClassName("collapsible");
+				var i;
+
+				for (i = 0; i < coll.length; i++) {
+				    coll[i].addEventListener("click", function() {
+				        this.classList.toggle("active");
+				        //var content = this.nextElementSibling;
+				        // var content = this.offsetParent.childNodes[2].nextElementSibling;
+				        // if (content.style.display === "block") {
+				        //     content.style.display = "none";
+				        // } else {
+				        //     content.style.display = "block";
+				        // }
+
+				        if(this.id == "gruposBotao"){
+				        	if (document.getElementById("FaseDeGrupos").style.display == "block") {
+				            	document.getElementById("FaseDeGrupos").style.display = "none";
+					        } else {
+					            document.getElementById("FaseDeGrupos").style.display = "block";
+					        }
+				        }
+				        else if(this.id == "oitavasBotao"){
+				        	if (document.getElementById("FaseOitavas").style.display == "block") {
+				            	document.getElementById("FaseOitavas").style.display = "none";
+					        } else {
+					            document.getElementById("FaseOitavas").style.display = "block";
+					        }
+				        }
+				        else if(this.id == "quartasBotao"){
+				        	if (document.getElementById("FaseQuartas").style.display == "block") {
+				            	document.getElementById("FaseQuartas").style.display = "none";
+					        } else {
+					            document.getElementById("FaseQuartas").style.display = "block";
+					        }
+				        }
+				        else if(this.id == "semiBotao"){
+				        	if (document.getElementById("FaseSemi").style.display == "block") {
+				            	document.getElementById("FaseSemi").style.display = "none";
+					        } else {
+					            document.getElementById("FaseSemi").style.display = "block";
+					        }
+				        }
+				        else if(this.id == "terceiroBotao"){
+				        	if (document.getElementById("FaseTerceiro").style.display == "block") {
+				            	document.getElementById("FaseTerceiro").style.display = "none";
+					        } else {
+					            document.getElementById("FaseTerceiro").style.display = "block";
+					        }
+				        }
+				        else if(this.id == "finalBotao"){
+				        	if (document.getElementById("FaseFinal").style.display == "block") {
+				            	document.getElementById("FaseFinal").style.display = "none";
+					        } else {
+					            document.getElementById("FaseFinal").style.display = "block";
+					        }
+				        }
+				    });
+				}
 			</script>
 
 
