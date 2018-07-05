@@ -3926,15 +3926,9 @@
 				        var option = document.createElement("option");
 				        option.innerHTML = vetorParticipantes[i];
 				        Select.appendChild(option);
-				    }
-				    for (var i = 0; i < vetorParticipantes.length; i++) {
-				        var option = document.createElement("option");
-				        option.innerHTML = vetorParticipantes[i];
-				        Select.appendChild(option);
 				        if (option.innerHTML == usuarioAtual){
 				        	option.selected = true;
 				        	BuscaApostaParte2( usuarioAtual );
-				        	break;
 				        }
 				    }
 				}
